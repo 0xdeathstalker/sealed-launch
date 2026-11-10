@@ -1,0 +1,144 @@
+{
+  "network": "testnet",
+  "date": "2026-11-11",
+  "outlayer": {
+    "contract": "outlayer.testnet",
+    "project": "deathstalker-sl.testnet/sealedlaunch",
+    "worker_wasm_sha256": "607df359c7c0f340aba2cc9cc0eabefbb2785466f395855b839e2568195307b6",
+    "worker_wasm_url": "https://test.fastfs.io/deathstalker-sl.testnet/outlayer.testnet/607df359c7c0f340aba2cc9cc0eabefbb2785466f395855b839e2568195307b6.wasm"
+  },
+  "factory": {
+    "account": "sealedlaunch.deathstalker-sl.testnet",
+    "owner": "deathstalker-sl.testnet",
+    "wasm_bytes": 608377,
+    "wasm_sha256": "399aeee526a9dce6c3fc1b8329aacc5e10ae4c05457621e11fd47ba19ed0134d",
+    "embedded_sale_wasm_sha256": "20fae2f484563762d8537674d0f258f5424cc92eb6e3fd679bed944d1bf4ab37",
+    "create_account_tx": "GbFbrhmncQyu4K6AprfPLv6oAmFsoQ6L7nJdGr8xjRuv",
+    "first_deploy_tx": "9BRnBiiWTd9osxctx7UiiVzNqWkhCwkajDPTQ7XSKvPm",
+    "redeploy_tx (sale fix: action=clear)": "5ARm1QgMDMdZKsyd1vf7QmjzSchw4aRd1HP53Na8BRGY",
+    "set_sale_defaults_tx": "9vq21KNw1hCzKxF272ZtTxEAcBPXsJQRcsTk7s1c1dwU",
+    "sale_defaults": {
+      "finalize_timeout_secs": 420,
+      "recompute_cap": 200,
+      "ref_exchange": "ref-finance-101.testnet",
+      "wnear": "wrap.testnet"
+    },
+    "round2": {
+      "wasm_bytes": 609921,
+      "wasm_sha256": "eb01cc43e2f607414447c2e261e40fdaa5d340c9f93d2632bbc4051eae7d8180",
+      "embedded_sale_wasm_sha256": "84068b3e9268313b9de9567ef7e2e75f68eb9f6684d03df01d4307f60bbfe670",
+      "redeploy_tx": "8U9X728Y5AmLDfrbXpWM11d5EtTAudj9m9goAxqAKxmo",
+      "note": "adds lp_token_reserve >= ceil(auction_supply*lp_bps/10000) validation; sale adds BidSlot.ts and p_star-exact LP sizing"
+    }
+  },
+  "accounts": {
+    "funder_and_factory_owner": "deathstalker-sl.testnet",
+    "creator_alpha_faucet_account": "deathstalker-sl-2.testnet",
+    "creator_beta_faucet_account": "deathstalker-sl-3.testnet",
+    "bidders_faucet_accounts": [
+      "dsl-bidder1.testnet",
+      "dsl-bidder2.testnet",
+      "dsl-bidder3.testnet"
+    ],
+    "faucet_create_txs": {
+      "deathstalker-sl-2.testnet": "9X2EY5FnKiPuK3DSCxrUAciGGyd5NsNw8PR2dpEDjSP"
+    }
+  },
+  "sales": {
+    "alpha": {
+      "account": "sale-alpha.sealedlaunch.deathstalker-sl.testnet",
+      "purpose": "failed OutLayer run (pre-fix sale wasm, input lacked action=clear) -> Refund mode -> refund_all",
+      "sale_wasm_sha256": "5294bfb32d7d5e0ca5a3d5a9f5ba4cbcebafe23bb0462785a7853d1f0c4b5a1b",
+      "pk_sale": "02aa13058918aa26425e1b26c173057f487f68a63429c49364a478107841b28b8e",
+      "access_keys_on_chain": 0,
+      "txs": {
+        "create_sale": "HaAx3EvBm1v5ADxoMwhiCpA8dYDRKe2XpFTfBbinRreV",
+        "bids": [
+          "7m1i6RscepsZ5FCiHNuGXpwW4Ke896aP9P4uURTiktjS",
+          "7Moc5se7sHYeuMUCeRAACPqqzhFRfp6KHZcSPsernHYj",
+          "8HWrBKhq3qPdA12wMPcKY1R9GayGfwqcZ1NEZpZTNicL",
+          "2U4nnVqZyKJ45uKe7iRuqUCqWqqPtJ8XNXD7SUgu2n1m",
+          "6wyNp4a7D35UPCXH9nsArFCk2siT3UXktFfre4U52Ybv"
+        ],
+        "oracle_attack_refused_by_worker_guard": "ATNfDi1v13a6z3Atb4yUUzLudGztMJmWHFBeiYHSnnpi",
+        "finalize_run_failed_on_clear_rejected": "4zA6HuFehdsyfZnT8SpkMFmoKrZSyuS1T7njQJ7HoXnM",
+        "refund_all_5_slots": "A46Dw6K8ajUHxExG9NTU6zfcfQA4Npa6kBXGz4zqCKiW",
+        "refund_all_again_returns_0": "9hvo2735PWRi2LY7kWTrsPFEZXb912ByZHemTAKycxL",
+        "finalize_after_deadline_rejected": "9DxJCLquXaYSFDUfskKkyLe5v13cYKTkrMWCinRX8tcQ"
+      }
+    },
+    "beta": {
+      "account": "sale-beta.sealedlaunch.deathstalker-sl.testnet",
+      "purpose": "full happy path: real OutLayer clear, on-chain recompute, claim, settle with REAL Ref LP",
+      "sale_wasm_sha256": "20fae2f484563762d8537674d0f258f5424cc92eb6e3fd679bed944d1bf4ab37",
+      "pk_sale": "02ff26afa010f426b83aca26985fbc7b401af02bf53f9a53066951b7d25226bdab",
+      "access_keys_on_chain": 0,
+      "p_star": "10100000000000000000000",
+      "alloc_root": "800aade7250bfa5cdfd8bf11f78e776e93d3508a64d8c59dab652accdcd51fdc",
+      "ref_pool_id": 2934,
+      "txs": {
+        "create_sale": "Bqn8rZVLN1Diadb3n28xRUBc2HipFizBvekLEG797dt",
+        "bids": [
+          "6FG6Wd1QHMydFgzUVMPSFnUFt8TdzfkRw3MHCnF9eYiZ",
+          "6waWnb73aowD6gA5QMknKD5bbXaiwpCrSduq8D8yDcHR",
+          "EMuMs699iF95DK3hL8d23ebTvBGfxiWUK8KZ9ov6gq5K",
+          "5381f2ER3u3yBZF3qwaZxxoYCK277h3KwtyRiropHUkB",
+          "CsuX2ZMqLcoMtfvFBNmQTKaRbryhDhM8PPJa69URREqd"
+        ],
+        "finalize_real_outlayer_cleared": "2z8yk4rX4ByMT5tqysPeXCZH3RzKhrfcrU1W4GN5W42T",
+        "claim_forged_rejected": "GbqeDftSATnCmE23NvRLbCTTgni18d5RHJ7VytChWdCw",
+        "claims": [
+          "4dd4t4HS6B56itsLHweu94S5rrKQ4RhpH4avzvjcwyWY",
+          "9dCkeJRGDC6iDqHRzryJEuBJTFkbqNhYCXEyKGReFEob",
+          "FLHK2hs3FRkDxxNfiJAviVErjapxsHWZGTobmkwCsGVk"
+        ],
+        "claim_twice_rejected": "FxsRr71Q72tJgYJ68PcHpFV7DJ7k264yitgM7oJK4mvD",
+        "settle_with_ref_lp": "DWD7gpeqkrXfjih3zShEiYG5JWqdMc6pnxewkmZEGVW",
+        "claim_vested": "BUqR1f6QMztbs2pX4jTZNaEV4BnYok9Ni3REubbhz7G3",
+        "withdraw_fees": "FYwsFEXsTGTQvzMJCGPn6yqUqxH1uCuqrH1eWN89MHMB"
+      }
+    },
+    "gamma": {
+      "account": "sale-gamma.sealedlaunch.deathstalker-sl.testnet",
+      "purpose": "round 2: 7 bids, real OutLayer clear, claims, settle with REAL Ref LP opening at p_star",
+      "creator": "deathstalker-sl-3.testnet",
+      "sale_wasm_sha256": "84068b3e9268313b9de9567ef7e2e75f68eb9f6684d03df01d4307f60bbfe670",
+      "pk_sale": "03ebcfcd566c62dd5f97288e4fffcd57bb732070d0cdd0c8266f1565266b2f819d",
+      "access_keys_on_chain": 0,
+      "params": {
+        "auction_supply": "500e18",
+        "lp_token_reserve": "250e18",
+        "creator_supply": "100e18",
+        "lp_bps": 5000,
+        "reserve_price": "0.005 NEAR"
+      },
+      "p_star": "10200000000000000000000",
+      "alloc_root": "cb9e82c14e21171fc25539b53bd424ba887fbce44fd54f6a63a7c7430db7a677",
+      "ref_pool_id": 2935,
+      "ref_pool_amounts": {
+        "gamma_token": "250000000000000000000",
+        "wrap.testnet": "2550000000000000000000000"
+      },
+      "txs": {
+        "create_sale": "7MzxF7w1muS1T9CgRQs1yBhvXRQsNcz1XYdroEZzKjnv",
+        "bids": [
+          "22zX6cAmXRK7BsKGLbozgV3u7zRfP1xGEAzArDxccGDV",
+          "5pqANkGn2p8YCCpqc12id5PgieCc2GCWoLABt9wK7wCv",
+          "B3GYR7BLxbdXZF7c9sAxmdjbQhhakt9CNTU72x2ZbC1q",
+          "GabRhqhgrnwZv7VUXUCmechd3rg4M9zuPPKmCk8fQMX",
+          "9dUGxCx4uwTqsF7HNwCjugCPjz8JJoLwECCoqLXGWkr3",
+          "2dTLCoHYuyiMFjbHkM6NQ6mWYwWwW99e9pN8WtDg58s5",
+          "7JPtzx1HD3QyXBq1SkkA8J5FyGZQjh3JsjmFYLLkFKfT"
+        ],
+        "finalize_too_early_rejected": "Bv8KoiiNEdpf9Nisy53Rz5RjdNeUD7SFahSU1sC1kknc",
+        "finalize_real_outlayer_cleared": "GscXdUwdNg8RDvhGKWAPBY32wRFFdGGL8uNnTXkspLXE",
+        "claims": [
+          "f9kw5kevHnW4pvS6smYNjsLNXztQhX67xbgmiV8z85K",
+          "HW5EoBzJUk6fVphxFdDBiTLJrqpyfhWzojSKy9dtTQcM",
+          "72uQW8HVoktq9SSMtKqzPYdd5En4BxnDqHqDN5uxxsPH"
+        ],
+        "settle_with_ref_lp": "6PyY1jBkhyWHJMpP9YB3BKXgs4jCRV7uJ9pCaCQbn67P"
+      }
+    }
+  }
+}
