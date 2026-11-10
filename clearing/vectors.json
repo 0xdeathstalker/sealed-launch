@@ -1,0 +1,1280 @@
+{
+  "clearing_vectors": [
+    {
+      "entries": [
+        {
+          "bidder": "a.t",
+          "commit": "4f351da0443815b48fc1db877c571359f2e3da445e290a39494ea683f297df0c",
+          "deposit": "400",
+          "plaintext": {
+            "price": "10",
+            "salt": "0101010101010101010101010101010101010101010101010101010101010101",
+            "size": "40"
+          }
+        },
+        {
+          "bidder": "b.t",
+          "commit": "6c99a74e0937c85fbadc26cba97d01435a9526668e30e785abe9d3369d02ecff",
+          "deposit": "240",
+          "plaintext": {
+            "price": "8",
+            "salt": "0202020202020202020202020202020202020202020202020202020202020202",
+            "size": "30"
+          }
+        },
+        {
+          "bidder": "c.t",
+          "commit": "7b6e0bad5659c7a887a3cfa2a03763e84a014418fad2894a6771a5992bfd8058",
+          "deposit": "250",
+          "plaintext": {
+            "price": "5",
+            "salt": "0303030303030303030303030303030303030303030303030303030303030303",
+            "size": "50"
+          }
+        },
+        {
+          "bidder": "d.t",
+          "commit": "7e779ba00be37f481808f5c8bacffdfb7d758fc14463f33a98bfd7d6f0f046fb",
+          "deposit": "60",
+          "plaintext": {
+            "price": "3",
+            "salt": "0404040404040404040404040404040404040404040404040404040404040404",
+            "size": "20"
+          }
+        }
+      ],
+      "expected": {
+        "alloc_root": "999ebb01954511a542cb2342bcde461b936a595e042e80600026894a0e9691c2",
+        "burned": "0",
+        "input_hash": "5981a239b6fff4a748f7b9ca962e3239a13bb159c9b24b603d75d59bd19c77ef",
+        "leaves": [
+          {
+            "bidder": "a.t",
+            "leaf_hash": "6656108a1b4a62e38111236ad69869389e954b1d171b3166dd12b754c5e0f4aa",
+            "refund": "200",
+            "tokens": "40"
+          },
+          {
+            "bidder": "b.t",
+            "leaf_hash": "94235201ebf86f927384f51d9c13c48842adc5b243735d6ef5c07270831f3991",
+            "refund": "90",
+            "tokens": "30"
+          },
+          {
+            "bidder": "c.t",
+            "leaf_hash": "dc9a0b2120d45ac7b57469ada2882ed33a7568cd67579c8159973c36c82b00eb",
+            "refund": "100",
+            "tokens": "30"
+          },
+          {
+            "bidder": "d.t",
+            "leaf_hash": "c967cabe54433843baef20b57e048377fa9930d07a364c657071f7aae3990c1f",
+            "refund": "60",
+            "tokens": "0"
+          }
+        ],
+        "outcomes": [
+          {
+            "filled": "40"
+          },
+          {
+            "filled": "30"
+          },
+          {
+            "filled": "30"
+          },
+          {
+            "filled": "0"
+          }
+        ],
+        "p_star": "5",
+        "raise": "500",
+        "sold": "100",
+        "total_deposits": "950"
+      },
+      "name": "oversubscribed",
+      "params": {
+        "min_size": "0",
+        "reserve": "1",
+        "sale_id": "sale-demo.sealedlaunch.testnet",
+        "supply": "100",
+        "token_decimals": 0
+      }
+    },
+    {
+      "entries": [
+        {
+          "bidder": "a.t",
+          "commit": "da64e41e1f333cf5d80100485d58a08eee249b17443e57880ab615aaa17ac1d1",
+          "deposit": "300",
+          "plaintext": {
+            "price": "10",
+            "salt": "0101010101010101010101010101010101010101010101010101010101010101",
+            "size": "30"
+          }
+        },
+        {
+          "bidder": "b.t",
+          "commit": "ce6ba2b2890db89e9cf70b949ed72e3e946aa3eaf6223dd756ed92afa9c110cb",
+          "deposit": "120",
+          "plaintext": {
+            "price": "6",
+            "salt": "0202020202020202020202020202020202020202020202020202020202020202",
+            "size": "20"
+          }
+        }
+      ],
+      "expected": {
+        "alloc_root": "faccb7cb57d897267b6bf9d064636394efd831eaa7fc2e7cf55e01b88b45adef",
+        "burned": "50",
+        "input_hash": "f85e28709f42450105de819f911e78f5badfbafaf3211b02053b88f6de77e91f",
+        "leaves": [
+          {
+            "bidder": "a.t",
+            "leaf_hash": "a3452ac30cc7f2366123539efae54f1e702f67f1edbd1a47f521ab12fdf50088",
+            "refund": "180",
+            "tokens": "30"
+          },
+          {
+            "bidder": "b.t",
+            "leaf_hash": "bcb9330ff8e83f13f5042a45940614e0a43b2d78c8a74a506e2ab172cf1afa87",
+            "refund": "40",
+            "tokens": "20"
+          }
+        ],
+        "outcomes": [
+          {
+            "filled": "30"
+          },
+          {
+            "filled": "20"
+          }
+        ],
+        "p_star": "4",
+        "raise": "200",
+        "sold": "50",
+        "total_deposits": "420"
+      },
+      "name": "undersubscribed_burn",
+      "params": {
+        "min_size": "0",
+        "reserve": "4",
+        "sale_id": "sale-demo.sealedlaunch.testnet",
+        "supply": "100",
+        "token_decimals": 0
+      }
+    },
+    {
+      "entries": [],
+      "expected": {
+        "alloc_root": "0000000000000000000000000000000000000000000000000000000000000000",
+        "burned": "100",
+        "input_hash": "e3409a5466969f2b72c68fb1eb0d7c87a44b64ccf9698d81824ce495433c548e",
+        "leaves": [],
+        "outcomes": [],
+        "p_star": "4",
+        "raise": "0",
+        "sold": "0",
+        "total_deposits": "0"
+      },
+      "name": "no_bids",
+      "params": {
+        "min_size": "0",
+        "reserve": "4",
+        "sale_id": "sale-demo.sealedlaunch.testnet",
+        "supply": "100",
+        "token_decimals": 0
+      }
+    },
+    {
+      "entries": [
+        {
+          "bidder": "a.t",
+          "commit": "a361bd59031fe21e203aae1dff1f4c92772b889c38a512046f29a0c3d5c1f582",
+          "deposit": "600",
+          "plaintext": {
+            "price": "10",
+            "salt": "0101010101010101010101010101010101010101010101010101010101010101",
+            "size": "60"
+          }
+        },
+        {
+          "bidder": "b.t",
+          "commit": "ceebe1a8c67117656d9943f299f3219beb6e875c149289ab557b47dfda7a6853",
+          "deposit": "280",
+          "plaintext": {
+            "price": "7",
+            "salt": "0202020202020202020202020202020202020202020202020202020202020202",
+            "size": "40"
+          }
+        }
+      ],
+      "expected": {
+        "alloc_root": "86a613be1f52604993380fef9a9eb21a9349673db85cef76f878310f97d503cc",
+        "burned": "0",
+        "input_hash": "235a15fdcd2b0956b34755c1e2d92598f1ecd958a32dc64e82b225091eef9e30",
+        "leaves": [
+          {
+            "bidder": "a.t",
+            "leaf_hash": "07bae76c671b8f3af53a96a3ac273a17121c07d70dae932593cab10f1125ff89",
+            "refund": "180",
+            "tokens": "60"
+          },
+          {
+            "bidder": "b.t",
+            "leaf_hash": "89390b3e57b54c9c1ffd05e5ccc624752b43edf5bcc91f9dccf5ed78e96eb8a1",
+            "refund": "0",
+            "tokens": "40"
+          }
+        ],
+        "outcomes": [
+          {
+            "filled": "60"
+          },
+          {
+            "filled": "40"
+          }
+        ],
+        "p_star": "7",
+        "raise": "700",
+        "sold": "100",
+        "total_deposits": "880"
+      },
+      "name": "exact_demand",
+      "params": {
+        "min_size": "0",
+        "reserve": "1",
+        "sale_id": "sale-demo.sealedlaunch.testnet",
+        "supply": "100",
+        "token_decimals": 0
+      }
+    },
+    {
+      "entries": [
+        {
+          "bidder": "w.t",
+          "commit": "876bd223875c353645c185b7c3418131c96b42fc5e5fb49b77eff135651d888d",
+          "deposit": "18",
+          "plaintext": {
+            "price": "9",
+            "salt": "0101010101010101010101010101010101010101010101010101010101010101",
+            "size": "2"
+          }
+        },
+        {
+          "bidder": "x.t",
+          "commit": "daad2d0ea5adf7526572c85ba5f53f3d4fd63fe6be5e838727cd94617a45389b",
+          "deposit": "35",
+          "plaintext": {
+            "price": "5",
+            "salt": "0202020202020202020202020202020202020202020202020202020202020202",
+            "size": "7"
+          }
+        },
+        {
+          "bidder": "y.t",
+          "commit": "ae1df0726995b14aaabeec48cc143237e3914a6831df0713481c3350e834bc08",
+          "deposit": "25",
+          "plaintext": {
+            "price": "5",
+            "salt": "0303030303030303030303030303030303030303030303030303030303030303",
+            "size": "5"
+          }
+        },
+        {
+          "bidder": "z.t",
+          "commit": "ea9879df6742ce65bc0391f60bef2111bed78a6b7534765fbd92f40c475e3577",
+          "deposit": "15",
+          "plaintext": {
+            "price": "5",
+            "salt": "0404040404040404040404040404040404040404040404040404040404040404",
+            "size": "3"
+          }
+        }
+      ],
+      "expected": {
+        "alloc_root": "92ddaf9164b9ae4ce07a34e947fc7d7c39ad6c56ec1547ca0d61cbbbb7aa4a4f",
+        "burned": "0",
+        "input_hash": "c50f13e94d0688e3cc66f56a8512447d0c20bfea3b0b8fb02b98b2281da2328b",
+        "leaves": [
+          {
+            "bidder": "w.t",
+            "leaf_hash": "abba5123190ee4f43ca8dd77de019847a2b7764804a2d2538cf590977ae391bc",
+            "refund": "8",
+            "tokens": "2"
+          },
+          {
+            "bidder": "x.t",
+            "leaf_hash": "ce87ea434e654173de6a56fa648cf096f2b5c3e9641672548fb1731c22c8910e",
+            "refund": "15",
+            "tokens": "4"
+          },
+          {
+            "bidder": "y.t",
+            "leaf_hash": "fb8ad50d13792363cd1069a1865d92b3217a2541b451ee4635c09a73a67129db",
+            "refund": "10",
+            "tokens": "3"
+          },
+          {
+            "bidder": "z.t",
+            "leaf_hash": "02757c27acc68841dffc7403fd039c5adbfa1810fc9c3ea3f960fd26fa57dcac",
+            "refund": "10",
+            "tokens": "1"
+          }
+        ],
+        "outcomes": [
+          {
+            "filled": "2"
+          },
+          {
+            "filled": "4"
+          },
+          {
+            "filled": "3"
+          },
+          {
+            "filled": "1"
+          }
+        ],
+        "p_star": "5",
+        "raise": "50",
+        "sold": "10",
+        "total_deposits": "93"
+      },
+      "name": "margin_tie_prorata",
+      "params": {
+        "min_size": "0",
+        "reserve": "1",
+        "sale_id": "sale-demo.sealedlaunch.testnet",
+        "supply": "10",
+        "token_decimals": 0
+      }
+    },
+    {
+      "entries": [
+        {
+          "bidder": "p.t",
+          "commit": "8d1d0f7727f61b45312c8b0dbe5acd59258f418a55444d66481ecfc72813e799",
+          "deposit": "5",
+          "plaintext": {
+            "price": "5",
+            "salt": "0101010101010101010101010101010101010101010101010101010101010101",
+            "size": "1"
+          }
+        },
+        {
+          "bidder": "q.t",
+          "commit": "fac6e25296e5de2b405849f952f53b91bfea2a495f030472b61db611a28c35f1",
+          "deposit": "5",
+          "plaintext": {
+            "price": "5",
+            "salt": "0202020202020202020202020202020202020202020202020202020202020202",
+            "size": "1"
+          }
+        },
+        {
+          "bidder": "r.t",
+          "commit": "cdf68e0003914ea5e44a749ba3ae72dac83c7799b8956ba45d13d8be08fcff9b",
+          "deposit": "5",
+          "plaintext": {
+            "price": "5",
+            "salt": "0303030303030303030303030303030303030303030303030303030303030303",
+            "size": "1"
+          }
+        }
+      ],
+      "expected": {
+        "alloc_root": "fb1ebddaad4f4aaaa0b68968c9844d10a4a30fb27deafc60e1dd3a8f9e28e7d8",
+        "burned": "0",
+        "input_hash": "4056d7ca92cc346f3c6a141df5646abdd6710a574170ed6129fcd8ac3d72ac24",
+        "leaves": [
+          {
+            "bidder": "p.t",
+            "leaf_hash": "e009fc710db24a7befd148adfe1bea70845f38db4b71ed1de47c8318538b5137",
+            "refund": "0",
+            "tokens": "1"
+          },
+          {
+            "bidder": "q.t",
+            "leaf_hash": "249ebc5c71e3a051b770679dc9bc310a266ad84dc0af8ea6c29e1f595767aa13",
+            "refund": "5",
+            "tokens": "0"
+          },
+          {
+            "bidder": "r.t",
+            "leaf_hash": "a6ec4bea4ac3094559a5a86073071ca7e5ef58814ab6fa10d7b01cb7ae788699",
+            "refund": "5",
+            "tokens": "0"
+          }
+        ],
+        "outcomes": [
+          {
+            "filled": "1"
+          },
+          {
+            "filled": "0"
+          },
+          {
+            "filled": "0"
+          }
+        ],
+        "p_star": "5",
+        "raise": "5",
+        "sold": "1",
+        "total_deposits": "15"
+      },
+      "name": "margin_tie_equal_bids",
+      "params": {
+        "min_size": "0",
+        "reserve": "1",
+        "sale_id": "sale-demo.sealedlaunch.testnet",
+        "supply": "1",
+        "token_decimals": 0
+      }
+    },
+    {
+      "entries": [
+        {
+          "bidder": "good.t",
+          "commit": "4ee7b573548f7d8d2bbd9090bb352e5b4e40f5062703d4c4f11c8d939422774a",
+          "deposit": "50",
+          "plaintext": {
+            "price": "5",
+            "salt": "0101010101010101010101010101010101010101010101010101010101010101",
+            "size": "10"
+          }
+        },
+        {
+          "bidder": "nd.t",
+          "commit": "5ec18524fd283df9fd21271b32574c918fc5685bc2cc036d1c1edda57b7054b1",
+          "deposit": "50",
+          "plaintext": null
+        },
+        {
+          "bidder": "mm.t",
+          "commit": "606f7040924fe87cc7e0ab5eb5eca63307cda662066c5adc1b7afdf4a415d242",
+          "deposit": "50",
+          "plaintext": {
+            "price": "5",
+            "salt": "0303030303030303030303030303030303030303030303030303030303030303",
+            "size": "10"
+          }
+        },
+        {
+          "bidder": "un.t",
+          "commit": "f85f704ff1a75cc0765c0fc1863f2baf9cd55aaee9d37f8dc8867112a68734f4",
+          "deposit": "49",
+          "plaintext": {
+            "price": "5",
+            "salt": "0404040404040404040404040404040404040404040404040404040404040404",
+            "size": "10"
+          }
+        },
+        {
+          "bidder": "bl.t",
+          "commit": "6da3a9ecbe7620b0ecd513095704876ed3de39fdb3e7a9dfcd1887ff681f69cd",
+          "deposit": "10",
+          "plaintext": {
+            "price": "1",
+            "salt": "0505050505050505050505050505050505050505050505050505050505050505",
+            "size": "10"
+          }
+        },
+        {
+          "bidder": "zs.t",
+          "commit": "09bb6e1ae65e7428982e21d4bd47a7a9a6fea4943357a90bcbe4568eba8b0186",
+          "deposit": "0",
+          "plaintext": {
+            "price": "5",
+            "salt": "0606060606060606060606060606060606060606060606060606060606060606",
+            "size": "0"
+          }
+        },
+        {
+          "bidder": "ms.t",
+          "commit": "901c01e4a8a9b6bd9c55bece7a885a2d69016bae9254f3253c6584193aa2c673",
+          "deposit": "20",
+          "plaintext": {
+            "price": "5",
+            "salt": "0707070707070707070707070707070707070707070707070707070707070707",
+            "size": "4"
+          }
+        }
+      ],
+      "expected": {
+        "alloc_root": "1209b829d0b2b372092f1839326032ad3cc0d359bc967b790feff93ae687957e",
+        "burned": "990",
+        "input_hash": "b2a3217a21b1a49ac43f92c8f86031d8a5182134424ec37fedebe0e16fabf2cc",
+        "leaves": [
+          {
+            "bidder": "bl.t",
+            "leaf_hash": "69516e67d41d65c07ac8b0bc4d3b708d1289bd4b3c78ffa78b241005a45af174",
+            "refund": "10",
+            "tokens": "0"
+          },
+          {
+            "bidder": "good.t",
+            "leaf_hash": "e8f516ef6e84a05cb955412c1cc14cacb5a7c20b3ce30d57ab08cfb31803ce3d",
+            "refund": "30",
+            "tokens": "10"
+          },
+          {
+            "bidder": "mm.t",
+            "leaf_hash": "f5c55f6c2abba13f2511d8639b5336d0910c9dbd75823a33cfaa348904d7123f",
+            "refund": "50",
+            "tokens": "0"
+          },
+          {
+            "bidder": "ms.t",
+            "leaf_hash": "cb6f5394f92a4af04ba1a7e56083447601628f9a45885177f5db5a51b3ceba4d",
+            "refund": "20",
+            "tokens": "0"
+          },
+          {
+            "bidder": "nd.t",
+            "leaf_hash": "a788e1f0468ab98fcf7833d2e9d103ae4e71b07e6194f468f34f629d5f07a856",
+            "refund": "50",
+            "tokens": "0"
+          },
+          {
+            "bidder": "un.t",
+            "leaf_hash": "70d3c8056a5020d3c0d60d86f0fc446434f2a292386d7e3540fd27e11aeeffe4",
+            "refund": "49",
+            "tokens": "0"
+          }
+        ],
+        "outcomes": [
+          {
+            "filled": "10"
+          },
+          {
+            "code": 1,
+            "dropped": "NoPlaintext"
+          },
+          {
+            "code": 2,
+            "dropped": "CommitMismatch"
+          },
+          {
+            "code": 5,
+            "dropped": "Underfunded"
+          },
+          {
+            "code": 4,
+            "dropped": "BelowReserve"
+          },
+          {
+            "code": 3,
+            "dropped": "BadBid"
+          },
+          {
+            "code": 3,
+            "dropped": "BadBid"
+          }
+        ],
+        "p_star": "2",
+        "raise": "20",
+        "sold": "10",
+        "total_deposits": "229"
+      },
+      "name": "dropped_bids",
+      "params": {
+        "min_size": "5",
+        "reserve": "2",
+        "sale_id": "sale-demo.sealedlaunch.testnet",
+        "supply": "1000",
+        "token_decimals": 0
+      }
+    },
+    {
+      "entries": [
+        {
+          "bidder": "solo.t",
+          "commit": "17d1cbff2d74a1cbbf02a9eed01dcf5e391e03423eac28be9790bcb98c157247",
+          "deposit": "1050",
+          "plaintext": {
+            "price": "7",
+            "salt": "0101010101010101010101010101010101010101010101010101010101010101",
+            "size": "150"
+          }
+        }
+      ],
+      "expected": {
+        "alloc_root": "32ca145cb985f42fc468728c3c6a728f08b8d142f7034915a1219125789935d9",
+        "burned": "0",
+        "input_hash": "eb7496217ed555d7cbc525595b0d20341ba64aeccfa9868077c2e78bb5cc4904",
+        "leaves": [
+          {
+            "bidder": "solo.t",
+            "leaf_hash": "32ca145cb985f42fc468728c3c6a728f08b8d142f7034915a1219125789935d9",
+            "refund": "350",
+            "tokens": "100"
+          }
+        ],
+        "outcomes": [
+          {
+            "filled": "100"
+          }
+        ],
+        "p_star": "7",
+        "raise": "700",
+        "sold": "100",
+        "total_deposits": "1050"
+      },
+      "name": "single_bidder",
+      "params": {
+        "min_size": "0",
+        "reserve": "2",
+        "sale_id": "sale-demo.sealedlaunch.testnet",
+        "supply": "100",
+        "token_decimals": 0
+      }
+    },
+    {
+      "entries": [
+        {
+          "bidder": "m.t",
+          "commit": "b73be0a07d18f754d7860134d4a6b74f810211341d2417648fae0bdc166c6297",
+          "deposit": "90",
+          "plaintext": {
+            "price": "9",
+            "salt": "0101010101010101010101010101010101010101010101010101010101010101",
+            "size": "10"
+          }
+        },
+        {
+          "bidder": "m.t",
+          "commit": "1b7d540c372372e20bd4711e636e5822a5b2208cf22795977820bcf6fd56ed05",
+          "deposit": "40",
+          "plaintext": {
+            "price": "4",
+            "salt": "0202020202020202020202020202020202020202020202020202020202020202",
+            "size": "10"
+          }
+        },
+        {
+          "bidder": "n.t",
+          "commit": "af8c50d51769fc9345e3be80876c88566ee946ef47774bd59099ae6f22f35d93",
+          "deposit": "30",
+          "plaintext": {
+            "price": "6",
+            "salt": "0303030303030303030303030303030303030303030303030303030303030303",
+            "size": "5"
+          }
+        }
+      ],
+      "expected": {
+        "alloc_root": "0c5af21376a073de4815dfdbdfa42c256385cacb856e5b1efac2ae54aedd1d16",
+        "burned": "0",
+        "input_hash": "982ab1ba13b6e24d57e17c602a3b97b5957c0ec8ab56b33e6b9920199f5bde1f",
+        "leaves": [
+          {
+            "bidder": "m.t",
+            "leaf_hash": "a56257f8e31974a3842b12962af871f6055b7784430d22d2aac83d6cd77d8903",
+            "refund": "70",
+            "tokens": "15"
+          },
+          {
+            "bidder": "n.t",
+            "leaf_hash": "56029a7972aae8129add99f014f2929e0efe0450347af8d48a95b7a11c1e206a",
+            "refund": "10",
+            "tokens": "5"
+          }
+        ],
+        "outcomes": [
+          {
+            "filled": "10"
+          },
+          {
+            "filled": "5"
+          },
+          {
+            "filled": "5"
+          }
+        ],
+        "p_star": "4",
+        "raise": "80",
+        "sold": "20",
+        "total_deposits": "160"
+      },
+      "name": "same_bidder_two_bids",
+      "params": {
+        "min_size": "0",
+        "reserve": "1",
+        "sale_id": "sale-demo.sealedlaunch.testnet",
+        "supply": "20",
+        "token_decimals": 0
+      }
+    },
+    {
+      "entries": [
+        {
+          "bidder": "a.t",
+          "commit": "6e5e3dafd9546c6820a0b746e86a3ae10cf913221f75a2f439f8c436454032a8",
+          "deposit": "130000000000000000000000000",
+          "plaintext": {
+            "price": "300000000000000000000001",
+            "salt": "0101010101010101010101010101010101010101010101010101010101010101",
+            "size": "400000000000000000000000001"
+          }
+        },
+        {
+          "bidder": "b.t",
+          "commit": "c3ee53fcd632c9ae09de752bc8805bfbe6e8b861137cea92c6d0e9112cc4dee2",
+          "deposit": "70000000000000000000000000",
+          "plaintext": {
+            "price": "200000000000000000000003",
+            "salt": "0202020202020202020202020202020202020202020202020202020202020202",
+            "size": "333000000000000000000000007"
+          }
+        },
+        {
+          "bidder": "c.t",
+          "commit": "c84cf502cdce0f98669e8c6888f6dbee19cf9ebd6b9ee0186e77ce6e2dde2b9f",
+          "deposit": "70000000000000000000000000",
+          "plaintext": {
+            "price": "200000000000000000000003",
+            "salt": "0303030303030303030303030303030303030303030303030303030303030303",
+            "size": "333000000000000000000000011"
+          }
+        },
+        {
+          "bidder": "d.t",
+          "commit": "a643840b7dd22e225b83375c72df411d5d3160159200cff4475b81c1bc07c1be",
+          "deposit": "250000000000000000000000",
+          "plaintext": {
+            "price": "200000000000000000000003",
+            "salt": "0404040404040404040404040404040404040404040404040404040404040404",
+            "size": "777"
+          }
+        }
+      ],
+      "expected": {
+        "alloc_root": "e1c63f9dfe60a87306872196d70b34851b726a48fe0e263ff2fa9d8ebfeb8e2f",
+        "burned": "0",
+        "input_hash": "78f73dc835384554cbc950aa040a666dd3155bdd9ae51e85a4160518a1c72714",
+        "leaves": [
+          {
+            "bidder": "a.t",
+            "leaf_hash": "633807e11bb87eeacb5602b8367413620a9d44b29abdfa89b2962ab25603e73f",
+            "refund": "49999999999999999999998799",
+            "tokens": "400000000000000000000000001"
+          },
+          {
+            "bidder": "b.t",
+            "leaf_hash": "8afc87e656ea2b691794939e3df527a3ccc867222cfb1444c35b290517ee0e4b",
+            "refund": "9999999999999999999999170",
+            "tokens": "299999999999999999999999648"
+          },
+          {
+            "bidder": "c.t",
+            "leaf_hash": "1ddb7437096857150f8670565659cc0d9e1303f9913a51176d8d9059d122b548",
+            "refund": "9999999999999999999999169",
+            "tokens": "299999999999999999999999651"
+          },
+          {
+            "bidder": "d.t",
+            "leaf_hash": "1a6fc0b10792ccff4e2fc795d995b81774878daf15596f236a07855c7f60e8d7",
+            "refund": "249999999999999999999859",
+            "tokens": "700"
+          }
+        ],
+        "outcomes": [
+          {
+            "filled": "400000000000000000000000001"
+          },
+          {
+            "filled": "299999999999999999999999648"
+          },
+          {
+            "filled": "299999999999999999999999651"
+          },
+          {
+            "filled": "700"
+          }
+        ],
+        "p_star": "200000000000000000000003",
+        "raise": "200000000000000000000003003",
+        "sold": "1000000000000000000000000000",
+        "total_deposits": "270250000000000000000000000"
+      },
+      "name": "yocto_rounding_24dec",
+      "params": {
+        "min_size": "0",
+        "reserve": "10000000000000000000000",
+        "sale_id": "sale-demo.sealedlaunch.testnet",
+        "supply": "1000000000000000000000000000",
+        "token_decimals": 24
+      }
+    },
+    {
+      "entries": [
+        {
+          "bidder": "a.t",
+          "commit": "3599b769e005fbf9a2e10cf5cbff275151669268229b0758a602b268b3bca3d9",
+          "deposit": "141180000000004419251401072",
+          "plaintext": {
+            "price": "390000000000000260000787",
+            "salt": "0101010101010101010101010101010101010101010101010101010101010101",
+            "size": "362000000000011090079774815"
+          }
+        },
+        {
+          "bidder": "b.t",
+          "commit": "027acfae6a70affd0c00be85b8eb412971473880c14419de145ceaed59eeba6e",
+          "deposit": "59680000000001454933545516",
+          "plaintext": {
+            "price": "160000000000000324000979",
+            "salt": "0202020202020202020202020202020202020202020202020202020202020202",
+            "size": "373000000000008338007377180"
+          }
+        },
+        {
+          "bidder": "c.t",
+          "commit": "fe8c619ebbff14b505a77bfc135536512f624cbe2d20d10108ba706c15b39d55",
+          "deposit": "60040000000001163121228683",
+          "plaintext": {
+            "price": "190000000000000227000688",
+            "salt": "0303030303030303030303030303030303030303030303030303030303030303",
+            "size": "316000000000005744152690921"
+          }
+        },
+        {
+          "bidder": "d.t",
+          "commit": "4c0b07f91a8daff7a63ac5ea3b418c5db8db0753aefc6d69b8e4d5a08424ce94",
+          "deposit": "150480000000002869590356339",
+          "plaintext": {
+            "price": "380000000000000127000388",
+            "salt": "0404040404040404040404040404040404040404040404040404040404040404",
+            "size": "396000000000007419205793923"
+          }
+        },
+        {
+          "bidder": "e.t",
+          "commit": "088531ad18da7b5ff4d4bceec20574aab70ef1b37d7bb205a59aa04a47c0f226",
+          "deposit": "87000000000002042517844688",
+          "plaintext": {
+            "price": "290000000000000948002851",
+            "salt": "0505050505050505050505050505050505050505050505050505050505050505",
+            "size": "300000000000006062472363405"
+          }
+        },
+        {
+          "bidder": "f.t",
+          "commit": "6637d8e38e6adb19f5950f341fe16990d18bcd8a461fc8706133d6687cdef073",
+          "deposit": "71630000000001725715922989",
+          "plaintext": {
+            "price": "190000000000000894002689",
+            "salt": "0606060606060606060606060606060606060606060606060606060606060606",
+            "size": "377000000000007308825822290"
+          }
+        },
+        {
+          "bidder": "g.t",
+          "commit": "aab727845b9208c0c1ffe27ccc398d3bec4d2e32f5949ecab5ece7827e6b5e5c",
+          "deposit": "134050000000004254927781693",
+          "plaintext": {
+            "price": "350000000000000750002257",
+            "salt": "0707070707070707070707070707070707070707070707070707070707070707",
+            "size": "383000000000011336219755032"
+          }
+        },
+        {
+          "bidder": "h.t",
+          "commit": "b7d522248c9fe2b7121ebc4fc923e7959bb326c7af1dcd325d9bb41474a3b020",
+          "deposit": "47790000000004440289910278",
+          "plaintext": {
+            "price": "270000000000000045000142",
+            "salt": "0808080808080808080808080808080808080808080808080808080808080808",
+            "size": "177000000000016416018085716"
+          }
+        },
+        {
+          "bidder": "i.t",
+          "commit": "edefd66d8ed809d4abac66b637e97aef4d0cc3a0ad780cd50225f1b51e7a3700",
+          "deposit": "3810000000000506182948131",
+          "plaintext": {
+            "price": "10000000000000896002695",
+            "salt": "0909090909090909090909090909090909090909090909090909090909090909",
+            "size": "381000000000016480592133519"
+          }
+        },
+        {
+          "bidder": "j.t",
+          "commit": "b38d68117333add60709a011191207489c321a24a54d1cc11d264498944285f9",
+          "deposit": "2600000000000105690975010",
+          "plaintext": {
+            "price": "10000000000000259000784",
+            "salt": "0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a",
+            "size": "260000000000003835077116984"
+          }
+        },
+        {
+          "bidder": "k.t",
+          "commit": "b299db51222afa09af026ef7b9bfd1640b10b90079f23deafd2c4c98ceb48f1c",
+          "deposit": "99160000000003497318027987",
+          "plaintext": {
+            "price": "370000000000000662001993",
+            "salt": "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b",
+            "size": "268000000000008972706734763"
+          }
+        },
+        {
+          "bidder": "l.t",
+          "commit": "fa26824fc759e649a093b10e588186d5a45b8b459d156e81837a98cfbc5f32e1",
+          "deposit": "101520000000000433075298994",
+          "plaintext": {
+            "price": "240000000000000550001657",
+            "salt": "0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c",
+            "size": "423000000000000835102479509"
+          }
+        }
+      ],
+      "expected": {
+        "alloc_root": "f8e40884d332f4974f221b3214a6824fb836159f3b20ab7464a17d8035702b7e",
+        "burned": "0",
+        "input_hash": "16640aea12b8db339b2f4e1ffaaf37b4aff5fcd1e8f0a3a71d784d7494f80959",
+        "leaves": [
+          {
+            "bidder": "a.t",
+            "leaf_hash": "0606542b3aa8dae837ba0ea983bb2b31ad15d93f563e5c16699252270cbac4f8",
+            "refund": "54300000000001558531655282",
+            "tokens": "362000000000011090079774815"
+          },
+          {
+            "bidder": "b.t",
+            "leaf_hash": "c64008fe0466a710032626765f26a93f6b7d7f26c23bc1be42bbe82b81918ec7",
+            "refund": "59680000000001454933545516",
+            "tokens": "0"
+          },
+          {
+            "bidder": "c.t",
+            "leaf_hash": "ca9bf7e239cfbe30b6b8f02932900cd3b915ed9a82ab4f1faa779c5e15c3fa8a",
+            "refund": "60040000000001163121228683",
+            "tokens": "0"
+          },
+          {
+            "bidder": "d.t",
+            "leaf_hash": "4f450299597d7a99aba24c4fd3624f72c1a0b4832e4659323b1ad114a50e9bbc",
+            "refund": "55440000000000871180309625",
+            "tokens": "396000000000007419205793923"
+          },
+          {
+            "bidder": "e.t",
+            "leaf_hash": "3257951711d168f63db47d6ac81ee3d11b2d2e248b2305624dc64d32ad4ee843",
+            "refund": "15000000000000422523980370",
+            "tokens": "300000000000006062472363405"
+          },
+          {
+            "bidder": "f.t",
+            "leaf_hash": "dedefa14322d9981a9668f27b7f5cd4f36bdaa10a48b399e85c96696887df116",
+            "refund": "71630000000001725715922989",
+            "tokens": "0"
+          },
+          {
+            "bidder": "g.t",
+            "leaf_hash": "7ee3625339984426065dd1cd7ce851ccd802ed9feca00d431fcdaebff2f9d295",
+            "refund": "42130000000001323584405854",
+            "tokens": "383000000000011336219755032"
+          },
+          {
+            "bidder": "h.t",
+            "leaf_hash": "ffc30ef6f75e876d6f8f571a3b4d4fdf39db973baa08d0bb22c51831ce24b89a",
+            "refund": "5310000000000403095276417",
+            "tokens": "177000000000016416018085716"
+          },
+          {
+            "bidder": "i.t",
+            "leaf_hash": "94582b37a10d49f7144ece0972e903103cfde053ea2c757d9b0c9180e69ae3c9",
+            "refund": "3810000000000506182948131",
+            "tokens": "0"
+          },
+          {
+            "bidder": "j.t",
+            "leaf_hash": "b2ff89c85d4edfd449a58d7bbdc84df929f79cdd49ce3830bc9a03bc28ff8523",
+            "refund": "2600000000000105690975010",
+            "tokens": "0"
+          },
+          {
+            "bidder": "k.t",
+            "leaf_hash": "dcedaa7d2b16f5f39c39e88725b059b6ef2c3b8bb8c8e4cee8140b1e73d1b121",
+            "refund": "34840000000001196467967567",
+            "tokens": "268000000000008972706734763"
+          },
+          {
+            "bidder": "l.t",
+            "leaf_hash": "a77978b0318af22d7a8146f51294373d07859f67f898127a1c0c7123cd28576e",
+            "refund": "74160000000015081583711929",
+            "tokens": "113999999999938703297492359"
+          }
+        ],
+        "outcomes": [
+          {
+            "filled": "362000000000011090079774815"
+          },
+          {
+            "filled": "0"
+          },
+          {
+            "filled": "0"
+          },
+          {
+            "filled": "396000000000007419205793923"
+          },
+          {
+            "filled": "300000000000006062472363405"
+          },
+          {
+            "filled": "0"
+          },
+          {
+            "filled": "383000000000011336219755032"
+          },
+          {
+            "filled": "177000000000016416018085716"
+          },
+          {
+            "code": 4,
+            "dropped": "BelowReserve"
+          },
+          {
+            "code": 4,
+            "dropped": "BelowReserve"
+          },
+          {
+            "filled": "268000000000008972706734763"
+          },
+          {
+            "filled": "113999999999938703297492359"
+          }
+        ],
+        "p_star": "240000000000000550001657",
+        "raise": "480000000000001100003314007",
+        "sold": "2000000000000000000000000013",
+        "total_deposits": "958940000000026912615241380"
+      },
+      "name": "random_12_bidders_24dec",
+      "params": {
+        "min_size": "0",
+        "reserve": "20000000000000000000000",
+        "sale_id": "sale-demo.sealedlaunch.testnet",
+        "supply": "2000000000000000000000000013",
+        "token_decimals": 24
+      }
+    }
+  ],
+  "commit_vectors": [
+    {
+      "bidder": "alice.testnet",
+      "commit": "fa551ce1d434b241b3354e24bbdc1ecc36c06b9641ea867a63a0dabbd5dad372",
+      "plaintext_hex": "00000000000000000000000000000001000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000",
+      "price": "1",
+      "sale": "sale-demo.sealedlaunch.testnet",
+      "salt": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": "2"
+    },
+    {
+      "bidder": "bob.testnet",
+      "commit": "3385fa7f8072ef7bf7d3f3ea489d019ea19f28ab881da5189305f72ff6b98bb4",
+      "plaintext_hex": "ffffffffffffffffffffffffffffffff00000000000000000000000000000001abababababababababababababababababababababababababababababababab",
+      "price": "340282366920938463463374607431768211455",
+      "sale": "sale-demo.sealedlaunch.testnet",
+      "salt": "abababababababababababababababababababababababababababababababab",
+      "size": "1"
+    },
+    {
+      "bidder": "c.t",
+      "commit": "4cd208be211898d84653b6bbb7f28d62b3cc4499a37f868017d7b55b44eb165a",
+      "plaintext_hex": "0000000000003f870857a3e0e380000000000000019d971e4fe8401e740000000707070707070707070707070707070707070707070707070707070707070707",
+      "price": "300000000000000000000000",
+      "sale": "sale-demo.sealedlaunch.testnet",
+      "salt": "0707070707070707070707070707070707070707070707070707070707070707",
+      "size": "500000000000000000000000000"
+    }
+  ],
+  "merkle_vectors": [
+    {
+      "leaf_hashes": [],
+      "n": 0,
+      "proofs": [],
+      "root": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "leaf_hashes": [
+        "b3884057040b31da6d459a0445827e06250dadd72283a1176d191ba099dd6b8e"
+      ],
+      "n": 1,
+      "proofs": [
+        []
+      ],
+      "root": "b3884057040b31da6d459a0445827e06250dadd72283a1176d191ba099dd6b8e"
+    },
+    {
+      "leaf_hashes": [
+        "b3884057040b31da6d459a0445827e06250dadd72283a1176d191ba099dd6b8e",
+        "47878d65a9ee6495db874c637a49433ddc06685f7188a2c6de916a51eb544cee"
+      ],
+      "n": 2,
+      "proofs": [
+        [
+          "47878d65a9ee6495db874c637a49433ddc06685f7188a2c6de916a51eb544cee"
+        ],
+        [
+          "b3884057040b31da6d459a0445827e06250dadd72283a1176d191ba099dd6b8e"
+        ]
+      ],
+      "root": "9ed7463f4677ed91dd109d2ade83db27067518bd0ca4dc9dfebf7fea7a5959e6"
+    },
+    {
+      "leaf_hashes": [
+        "b3884057040b31da6d459a0445827e06250dadd72283a1176d191ba099dd6b8e",
+        "47878d65a9ee6495db874c637a49433ddc06685f7188a2c6de916a51eb544cee",
+        "16934234979e6c17040f4a9f71e329e159dc5b3beb46ef27d6e595ca1ffc2568"
+      ],
+      "n": 3,
+      "proofs": [
+        [
+          "47878d65a9ee6495db874c637a49433ddc06685f7188a2c6de916a51eb544cee",
+          "16934234979e6c17040f4a9f71e329e159dc5b3beb46ef27d6e595ca1ffc2568"
+        ],
+        [
+          "b3884057040b31da6d459a0445827e06250dadd72283a1176d191ba099dd6b8e",
+          "16934234979e6c17040f4a9f71e329e159dc5b3beb46ef27d6e595ca1ffc2568"
+        ],
+        [
+          "9ed7463f4677ed91dd109d2ade83db27067518bd0ca4dc9dfebf7fea7a5959e6"
+        ]
+      ],
+      "root": "fed4da841dedc4b5dd191b9cf742cf8032398f61a8fe2b108adb8f1291168324"
+    },
+    {
+      "leaf_hashes": [
+        "b3884057040b31da6d459a0445827e06250dadd72283a1176d191ba099dd6b8e",
+        "47878d65a9ee6495db874c637a49433ddc06685f7188a2c6de916a51eb544cee",
+        "16934234979e6c17040f4a9f71e329e159dc5b3beb46ef27d6e595ca1ffc2568",
+        "475f8977ea9a07ff967ef85e173b57768b17589afd407e849dcc186cd99129bc",
+        "0d31887c728f477fabc39a12f2d8c557cf33affc42f6bd1387b7f4e9157187ab"
+      ],
+      "n": 5,
+      "proofs": [
+        [
+          "47878d65a9ee6495db874c637a49433ddc06685f7188a2c6de916a51eb544cee",
+          "61a1335301537051d492964763c58992b035ca033b683517fb65e74ca3745706",
+          "0d31887c728f477fabc39a12f2d8c557cf33affc42f6bd1387b7f4e9157187ab"
+        ],
+        [
+          "b3884057040b31da6d459a0445827e06250dadd72283a1176d191ba099dd6b8e",
+          "61a1335301537051d492964763c58992b035ca033b683517fb65e74ca3745706",
+          "0d31887c728f477fabc39a12f2d8c557cf33affc42f6bd1387b7f4e9157187ab"
+        ],
+        [
+          "475f8977ea9a07ff967ef85e173b57768b17589afd407e849dcc186cd99129bc",
+          "9ed7463f4677ed91dd109d2ade83db27067518bd0ca4dc9dfebf7fea7a5959e6",
+          "0d31887c728f477fabc39a12f2d8c557cf33affc42f6bd1387b7f4e9157187ab"
+        ],
+        [
+          "16934234979e6c17040f4a9f71e329e159dc5b3beb46ef27d6e595ca1ffc2568",
+          "9ed7463f4677ed91dd109d2ade83db27067518bd0ca4dc9dfebf7fea7a5959e6",
+          "0d31887c728f477fabc39a12f2d8c557cf33affc42f6bd1387b7f4e9157187ab"
+        ],
+        [
+          "2c15a12f34b29bbea9341203c6a6fe0de4f59246e4704d783992e032ea3d8390"
+        ]
+      ],
+      "root": "5d665919d4c759c3acb40a6170071037d188cb7abaac320763698331f4b2a89c"
+    },
+    {
+      "leaf_hashes": [
+        "b3884057040b31da6d459a0445827e06250dadd72283a1176d191ba099dd6b8e",
+        "47878d65a9ee6495db874c637a49433ddc06685f7188a2c6de916a51eb544cee",
+        "16934234979e6c17040f4a9f71e329e159dc5b3beb46ef27d6e595ca1ffc2568",
+        "475f8977ea9a07ff967ef85e173b57768b17589afd407e849dcc186cd99129bc",
+        "0d31887c728f477fabc39a12f2d8c557cf33affc42f6bd1387b7f4e9157187ab",
+        "4d009c4fb5c6bf74b3b8d236083db178d0fe4b4f2326776e89a81eb2ee08b65e"
+      ],
+      "n": 6,
+      "proofs": [
+        [
+          "47878d65a9ee6495db874c637a49433ddc06685f7188a2c6de916a51eb544cee",
+          "61a1335301537051d492964763c58992b035ca033b683517fb65e74ca3745706",
+          "89da3e2a8e1ef9a051668e9592e52989b6d03d77205b0ac0cca235e29030d5bb"
+        ],
+        [
+          "b3884057040b31da6d459a0445827e06250dadd72283a1176d191ba099dd6b8e",
+          "61a1335301537051d492964763c58992b035ca033b683517fb65e74ca3745706",
+          "89da3e2a8e1ef9a051668e9592e52989b6d03d77205b0ac0cca235e29030d5bb"
+        ],
+        [
+          "475f8977ea9a07ff967ef85e173b57768b17589afd407e849dcc186cd99129bc",
+          "9ed7463f4677ed91dd109d2ade83db27067518bd0ca4dc9dfebf7fea7a5959e6",
+          "89da3e2a8e1ef9a051668e9592e52989b6d03d77205b0ac0cca235e29030d5bb"
+        ],
+        [
+          "16934234979e6c17040f4a9f71e329e159dc5b3beb46ef27d6e595ca1ffc2568",
+          "9ed7463f4677ed91dd109d2ade83db27067518bd0ca4dc9dfebf7fea7a5959e6",
+          "89da3e2a8e1ef9a051668e9592e52989b6d03d77205b0ac0cca235e29030d5bb"
+        ],
+        [
+          "4d009c4fb5c6bf74b3b8d236083db178d0fe4b4f2326776e89a81eb2ee08b65e",
+          "2c15a12f34b29bbea9341203c6a6fe0de4f59246e4704d783992e032ea3d8390"
+        ],
+        [
+          "0d31887c728f477fabc39a12f2d8c557cf33affc42f6bd1387b7f4e9157187ab",
+          "2c15a12f34b29bbea9341203c6a6fe0de4f59246e4704d783992e032ea3d8390"
+        ]
+      ],
+      "root": "3095f7416875aed61bf03340351b119a914499d72b8035ace82c32a695018b5f"
+    },
+    {
+      "leaf_hashes": [
+        "b3884057040b31da6d459a0445827e06250dadd72283a1176d191ba099dd6b8e",
+        "47878d65a9ee6495db874c637a49433ddc06685f7188a2c6de916a51eb544cee",
+        "16934234979e6c17040f4a9f71e329e159dc5b3beb46ef27d6e595ca1ffc2568",
+        "475f8977ea9a07ff967ef85e173b57768b17589afd407e849dcc186cd99129bc",
+        "0d31887c728f477fabc39a12f2d8c557cf33affc42f6bd1387b7f4e9157187ab",
+        "4d009c4fb5c6bf74b3b8d236083db178d0fe4b4f2326776e89a81eb2ee08b65e",
+        "1d48ed43d69d7cae87724921c8c1bc9f1dfdfc7cb81a18a26a678c5a11e1d5a7"
+      ],
+      "n": 7,
+      "proofs": [
+        [
+          "47878d65a9ee6495db874c637a49433ddc06685f7188a2c6de916a51eb544cee",
+          "61a1335301537051d492964763c58992b035ca033b683517fb65e74ca3745706",
+          "f98a9092a5a16aa46f79435c40b0882fb083234a85569ef14197c77a3423ab6f"
+        ],
+        [
+          "b3884057040b31da6d459a0445827e06250dadd72283a1176d191ba099dd6b8e",
+          "61a1335301537051d492964763c58992b035ca033b683517fb65e74ca3745706",
+          "f98a9092a5a16aa46f79435c40b0882fb083234a85569ef14197c77a3423ab6f"
+        ],
+        [
+          "475f8977ea9a07ff967ef85e173b57768b17589afd407e849dcc186cd99129bc",
+          "9ed7463f4677ed91dd109d2ade83db27067518bd0ca4dc9dfebf7fea7a5959e6",
+          "f98a9092a5a16aa46f79435c40b0882fb083234a85569ef14197c77a3423ab6f"
+        ],
+        [
+          "16934234979e6c17040f4a9f71e329e159dc5b3beb46ef27d6e595ca1ffc2568",
+          "9ed7463f4677ed91dd109d2ade83db27067518bd0ca4dc9dfebf7fea7a5959e6",
+          "f98a9092a5a16aa46f79435c40b0882fb083234a85569ef14197c77a3423ab6f"
+        ],
+        [
+          "4d009c4fb5c6bf74b3b8d236083db178d0fe4b4f2326776e89a81eb2ee08b65e",
+          "1d48ed43d69d7cae87724921c8c1bc9f1dfdfc7cb81a18a26a678c5a11e1d5a7",
+          "2c15a12f34b29bbea9341203c6a6fe0de4f59246e4704d783992e032ea3d8390"
+        ],
+        [
+          "0d31887c728f477fabc39a12f2d8c557cf33affc42f6bd1387b7f4e9157187ab",
+          "1d48ed43d69d7cae87724921c8c1bc9f1dfdfc7cb81a18a26a678c5a11e1d5a7",
+          "2c15a12f34b29bbea9341203c6a6fe0de4f59246e4704d783992e032ea3d8390"
+        ],
+        [
+          "89da3e2a8e1ef9a051668e9592e52989b6d03d77205b0ac0cca235e29030d5bb",
+          "2c15a12f34b29bbea9341203c6a6fe0de4f59246e4704d783992e032ea3d8390"
+        ]
+      ],
+      "root": "77efb44a895fed291db34b4fa3825cd620f2d510cdade2d4ab9a1a9b3c4a99d6"
+    }
+  ],
+  "sale_id": "sale-demo.sealedlaunch.testnet",
+  "version": 1
+}
