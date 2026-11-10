@@ -1,0 +1,1 @@
+{ "name": "sl-fixtures", "private": true, "type": "module", "dependencies": { "eciesjs": "~0.4.15" } }
