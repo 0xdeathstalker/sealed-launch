@@ -1,0 +1,23 @@
+{
+  "name": "sealedlaunch-scripts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "verify": "tsx src/verify.ts",
+    "sniper-bot": "tsx src/sniper-bot.ts",
+    "launch-runner": "tsx src/launch-runner.ts",
+    "attack-suite": "tsx src/attack-suite.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx src/selftest.ts"
+  },
+  "dependencies": {
+    "near-api-js": "5.1.1",
+    "sealedlaunch-clearing": "link:../clearing-js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

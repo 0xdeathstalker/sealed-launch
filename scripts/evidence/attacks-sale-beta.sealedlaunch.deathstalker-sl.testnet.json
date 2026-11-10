@@ -1,0 +1,93 @@
+{
+ "sale": "sale-beta.sealedlaunch.deathstalker-sl.testnet",
+ "status": "Settled",
+ "ran_at": "2026-11-10T20:28:49.943Z",
+ "attacker": "dsl-bidder3.testnet",
+ "rows": [
+  {
+   "attack": "forged_on_clear",
+   "variant": "attacker calls on_clear({nonce}) directly",
+   "expected": "Rejected (private callback, only the contract itself)",
+   "actual": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Smart contract panicked: Method on_clear is private\"}}}}",
+   "verdict": "PASS: rejected as expected",
+   "tx": "FnRXNwR2pFsK1ZjMmehBRtiX6pRBxBiCnDpcQ8az3Ahs",
+   "link": "https://testnet.nearblocks.io/txns/FnRXNwR2pFsK1ZjMmehBRtiX6pRBxBiCnDpcQ8az3Ahs"
+  },
+  {
+   "attack": "tampered_claim_proof",
+   "variant": "claim with tokens+1 (inflated allocation) and the real proof",
+   "expected": "Rejected (invalid merkle proof)",
+   "actual": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Smart contract panicked: already claimed\"}}}}",
+   "verdict": "INCONCLUSIVE: rejected by an earlier check, target check not reached",
+   "tx": "71kbTgYEhJgAFGCZNTSk23XJ1UDjR2yb6E5WFdjVa5Cs",
+   "link": "https://testnet.nearblocks.io/txns/71kbTgYEhJgAFGCZNTSk23XJ1UDjR2yb6E5WFdjVa5Cs",
+   "note": "every bidder already claimed, so the 'already claimed' check fires before the proof check (INCONCLUSIVE); see the steal variant"
+  },
+  {
+   "attack": "tampered_claim_proof",
+   "variant": "claim with refund+1 yocto and the real proof",
+   "expected": "Rejected (invalid merkle proof)",
+   "actual": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Smart contract panicked: already claimed\"}}}}",
+   "verdict": "INCONCLUSIVE: rejected by an earlier check, target check not reached",
+   "tx": "5ERheficQJ9HKP95j9x9RDfhHrGhaRjjXV8CLDSUdBmX",
+   "link": "https://testnet.nearblocks.io/txns/5ERheficQJ9HKP95j9x9RDfhHrGhaRjjXV8CLDSUdBmX",
+   "note": "every bidder already claimed, so the 'already claimed' check fires before the proof check (INCONCLUSIVE); see the steal variant"
+  },
+  {
+   "attack": "tampered_claim_proof",
+   "variant": "claim with an empty proof",
+   "expected": "Rejected (invalid merkle proof)",
+   "actual": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Smart contract panicked: already claimed\"}}}}",
+   "verdict": "INCONCLUSIVE: rejected by an earlier check, target check not reached",
+   "tx": "4oyRjgCU4GaBwgdcf22aXMndyR69kAWAPT2mmzyA7d9C",
+   "link": "https://testnet.nearblocks.io/txns/4oyRjgCU4GaBwgdcf22aXMndyR69kAWAPT2mmzyA7d9C",
+   "note": "every bidder already claimed, so the 'already claimed' check fires before the proof check (INCONCLUSIVE); see the steal variant"
+  },
+  {
+   "attack": "tampered_claim_proof",
+   "variant": "steal: claim leaf 0's tokens/refund/proof for a non-bidder account name (name swapped)",
+   "expected": "Rejected (invalid merkle proof)",
+   "actual": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Smart contract panicked: invalid merkle proof\"}}}}",
+   "verdict": "PASS: rejected as expected",
+   "tx": "4PdJjZeWLXirmmhCXjaMwDUtgfjpgYaMWRmQY2XhHgx6",
+   "link": "https://testnet.nearblocks.io/txns/4PdJjZeWLXirmmhCXjaMwDUtgfjpgYaMWRmQY2XhHgx6",
+   "note": "outsider is not in the tree and has not claimed, so the proof check is always reached"
+  },
+  {
+   "attack": "double_claim",
+   "variant": "second claim with the correct proof for an already claimed bidder",
+   "expected": "Rejected (already claimed)",
+   "actual": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Smart contract panicked: already claimed\"}}}}",
+   "verdict": "PASS: rejected as expected",
+   "tx": "DFP2qmQ3ChCzxD7JpM9meSJiyfwy77zuFg3TEbSmy9jz",
+   "link": "https://testnet.nearblocks.io/txns/DFP2qmQ3ChCzxD7JpM9meSJiyfwy77zuFg3TEbSmy9jz"
+  },
+  {
+   "attack": "bid_after_deadline",
+   "variant": "bid() after bid_end",
+   "expected": "Rejected (bidding closed)",
+   "actual": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Smart contract panicked: bidding is closed\"}}}}",
+   "verdict": "PASS: rejected as expected",
+   "tx": "25arp7J2co9CecPjSbuc2yt3Zg23beghT88D3Rs621XR",
+   "link": "https://testnet.nearblocks.io/txns/25arp7J2co9CecPjSbuc2yt3Zg23beghT88D3Rs621XR"
+  },
+  {
+   "attack": "finalize_before_deadline",
+   "variant": "finalize() on a sale in status Settled",
+   "expected": "Rejected (not in Bidding / already finalized)",
+   "actual": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Smart contract panicked: finalize window passed: refund mode\"}}}}",
+   "verdict": "PASS: rejected as expected",
+   "tx": "Guj42nJiRJ7r3wC9B4z97vDp8sykC9LbXWRs1P9PC4sp",
+   "link": "https://testnet.nearblocks.io/txns/Guj42nJiRJ7r3wC9B4z97vDp8sykC9LbXWRs1P9PC4sp"
+  },
+  {
+   "attack": "refund_not_refund_mode",
+   "variant": "refund(0) on a non-refund sale",
+   "expected": "Rejected (not in refund mode)",
+   "actual": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Smart contract panicked: not in refund mode\"}}}}",
+   "verdict": "PASS: rejected as expected",
+   "tx": "2jSJXhwHgjuecVRzPiL8W1oYV6tvj9jY4tkCvNvL8weP",
+   "link": "https://testnet.nearblocks.io/txns/2jSJXhwHgjuecVRzPiL8W1oYV6tvj9jY4tkCvNvL8weP"
+  }
+ ]
+}
