@@ -1,0 +1,15 @@
+node_modules/
+target/
+.next/
+dist/
+out/
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
+scripts/.keys/
+**/.keys/
+*.key
+*.pem
+.near-credentials/
