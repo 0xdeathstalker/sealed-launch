@@ -1,0 +1,24 @@
+import { createRequire } from "node:module";
+const cj = createRequire(import.meta.url)("./cj.cjs");
+const { clear, paramsFromWire, entryFromWire, resultToWire, leafHash, merkleProof, verifyProof, hex, unhex } = cj;
+const [sale] = process.argv.slice(2);
+const rpc = async (m, a = {}) => {
+  const r = await fetch("https://rpc.testnet.fastnear.com", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "query", params: { request_type: "call_function", finality: "final", account_id: sale, method_name: m, args_base64: Buffer.from(JSON.stringify(a)).toString("base64") } }) }).then(r => r.json());
+  if (!r.result) throw new Error(JSON.stringify(r));
+  return JSON.parse(Buffer.from(r.result.result).toString());
+};
+const info = await rpc("get_sale"); const p = info.params;
+const n = await rpc("get_bid_count");
+const slots = []; for (let i = 0; i < n; i++) slots.push(await rpc("get_bid", { idx: i }));
+const rev = await rpc("get_revealed_bids", { from: 0, limit: n });
+const cl = await rpc("get_clearing");
+const params = { sale_id: sale, supply: p.auction_supply, reserve: p.reserve_price, token_decimals: p.token_decimals, min_size: p.min_size };
+const entries = slots.map((s, i) => ({ bidder: s.bidder, commit: s.commit, deposit: s.deposit, plaintext: rev[i] ? { price: rev[i].price, size: rev[i].size, salt: rev[i].salt } : null }));
+const r = resultToWire(clear(paramsFromWire(params), entries.map(entryFromWire)));
+console.log("on-chain clearing:", JSON.stringify(cl));
+console.log("JS recompute p_star", r.p_star, "sold", r.sold, "raise", r.raise, "root", r.alloc_root, "leaf_count", r.leaf_count);
+console.log("MATCH p_star/root:", String(cl.p_star) === r.p_star && cl.alloc_root === r.alloc_root, "outcomes", JSON.stringify(r.outcomes));
+const lh = r.leaves.map(l => leafHash({ bidder: l.bidder, tokens: BigInt(l.tokens), refund: BigInt(l.refund) }));
+const out = r.leaves.map((l, i) => { const pr = merkleProof(lh, i); return { index: i, bidder: l.bidder, tokens: l.tokens, refund: l.refund, proof: pr.map(hex), ok: verifyProof(lh[i], i, lh.length, pr, unhex(r.alloc_root)) }; });
+console.log(JSON.stringify(out, null, 1));
+import fs from "node:fs"; fs.writeFileSync("claims.json", JSON.stringify(out));
