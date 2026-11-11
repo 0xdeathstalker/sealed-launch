@@ -162,6 +162,20 @@ pub struct SaleInfo {
     pub voided: bool,
 }
 
+/// `get_finalize_deposit` view: NEAR (yocto) to attach to `finalize`.
+#[near(serializers=[json])]
+#[derive(Clone, Debug)]
+pub struct FinalizeDeposit {
+    pub bid_count: u32,
+    /// `input_data` bytes (exact from stored bids, or an estimate when `exact` is false).
+    pub input_len: u64,
+    pub exact: bool,
+    /// What `finalize` enforces (OutLayer compute estimate + refundable input hold).
+    pub required: U128,
+    /// required + 25% headroom (capped at +1 NEAR), rounded up to 0.001 NEAR.
+    pub recommended: U128,
+}
+
 /// TEE output (SPEC §5). Extra fields are ignored.
 #[near(serializers=[json])]
 #[derive(Clone, Debug)]

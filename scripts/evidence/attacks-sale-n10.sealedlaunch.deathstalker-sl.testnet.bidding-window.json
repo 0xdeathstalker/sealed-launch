@@ -1,0 +1,83 @@
+{
+ "sale": "sale-n10.sealedlaunch.deathstalker-sl.testnet",
+ "status": "Bidding",
+ "ran_at": "2026-11-11T06:13:39.741Z",
+ "attacker": "dsl-bidder3.testnet",
+ "rows": [
+  {
+   "attack": "forged_on_clear",
+   "variant": "attacker calls on_clear({nonce}) directly",
+   "expected": "Rejected (private callback, only the contract itself)",
+   "actual": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Smart contract panicked: Method on_clear is private\"}}}}",
+   "verdict": "PASS: rejected as expected",
+   "tx": "5jSaoQQ1gYqcxeK7TKKWeqK3VEA93p7ZYsAqExEh1qcy",
+   "link": "https://testnet.nearblocks.io/txns/5jSaoQQ1gYqcxeK7TKKWeqK3VEA93p7ZYsAqExEh1qcy"
+  },
+  {
+   "attack": "tampered_claim_proof",
+   "variant": "claim with tokens+1 (inflated allocation) and the real proof",
+   "expected": "Rejected (invalid merkle proof)",
+   "actual": "n/a",
+   "verdict": "SKIPPED",
+   "note": "needs Cleared/Settled sale"
+  },
+  {
+   "attack": "tampered_claim_proof",
+   "variant": "claim with refund+1 yocto and the real proof",
+   "expected": "Rejected (invalid merkle proof)",
+   "actual": "n/a",
+   "verdict": "SKIPPED",
+   "note": "needs Cleared/Settled sale"
+  },
+  {
+   "attack": "tampered_claim_proof",
+   "variant": "claim with an empty proof",
+   "expected": "Rejected (invalid merkle proof)",
+   "actual": "n/a",
+   "verdict": "SKIPPED",
+   "note": "needs Cleared/Settled sale"
+  },
+  {
+   "attack": "tampered_claim_proof",
+   "variant": "steal: claim leaf 0's tokens/refund/proof for a non-bidder account name (name swapped)",
+   "expected": "Rejected (invalid merkle proof)",
+   "actual": "n/a",
+   "verdict": "SKIPPED",
+   "note": "needs Cleared/Settled sale"
+  },
+  {
+   "attack": "double_claim",
+   "variant": "second claim with the correct proof for an already claimed bidder",
+   "expected": "Rejected (already claimed)",
+   "actual": "n/a",
+   "verdict": "SKIPPED",
+   "note": "nobody has claimed yet; rerun with --allow-claim to perform one legitimate claim first"
+  },
+  {
+   "attack": "bid_after_deadline",
+   "variant": "bid() after bid_end",
+   "expected": "Rejected (bidding closed)",
+   "actual": "n/a",
+   "verdict": "SKIPPED",
+   "note": "sale is still in its bidding window: variant not applicable"
+  },
+  {
+   "attack": "finalize_before_deadline",
+   "variant": "finalize() while bidding is open",
+   "expected": "Rejected (bid window still open)",
+   "actual": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Smart contract panicked: bidding still open\"}}}}",
+   "verdict": "PASS: rejected as expected",
+   "tx": "J5r1aniCxKHB189byMi66iRjdtAJUQ3XHuHNysogsSgf",
+   "link": "https://testnet.nearblocks.io/txns/J5r1aniCxKHB189byMi66iRjdtAJUQ3XHuHNysogsSgf"
+  },
+  {
+   "attack": "refund_not_refund_mode",
+   "variant": "refund(0) on a non-refund sale",
+   "expected": "Rejected (not in refund mode)",
+   "actual": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Smart contract panicked: not in refund mode\"}}}}",
+   "verdict": "PASS: rejected as expected",
+   "tx": "Dx7Qz3iqV3fTWXHByjYaVcxhDvZpqSi5Y8r9fuY7XHTh",
+   "link": "https://testnet.nearblocks.io/txns/Dx7Qz3iqV3fTWXHByjYaVcxhDvZpqSi5Y8r9fuY7XHTh"
+  }
+ ]
+}

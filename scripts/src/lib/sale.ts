@@ -88,3 +88,51 @@ export async function codeHashHex(account: string): Promise<string | null> {
   } catch { return null; }
 }
 export { hex, unhex };
+
+// ---------------------------------------------------------------- finalize deposit
+// OutLayer admission floor, mirrored from contracts/sale `outlayer_required_deposit` (and outlayer.testnet
+// `estimate_execution_cost`): base 0.001 + max_instructions/1e6 * 1e-10 + 60 s * 1000 * 1e-7 NEAR
+// + 1e-5 NEAR per input_data byte beyond 32 KiB (refundable hold). Unused NEAR is refunded to the caller.
+const OL_BASE_FEE = 10n ** 21n;
+const OL_PER_MINSTR = 10n ** 14n;
+const OL_PER_MS = 10n ** 17n;
+const OL_FREE_BYTES = 32 * 1024;
+const OL_PER_BYTE = 10n ** 19n;
+const MILLI = 10n ** 21n;
+export const maxInstructions = (n: number) => 3_000_000_000n + 2_000_000_000n * BigInt(Math.ceil(n / 100));
+export function outlayerRequiredDeposit(inputLen: number, n: number): bigint {
+  if (n === 0) return 0n;
+  const compute = OL_BASE_FEE + (maxInstructions(n) / 1_000_000n) * OL_PER_MINSTR + 60_000n * OL_PER_MS;
+  return compute + BigInt(Math.max(0, inputLen - OL_FREE_BYTES)) * OL_PER_BYTE;
+}
+/** required + 25% (headroom capped at 1 NEAR), rounded up to 0.001 NEAR. Same as the contract view. */
+export function recommendedDeposit(required: bigint): bigint {
+  if (required === 0n) return 0n;
+  let h = required / 4n; if (h > 10n ** 24n) h = 10n ** 24n;
+  const r = required + h;
+  return ((r + MILLI - 1n) / MILLI) * MILLI;
+}
+/** Byte length of the sale's `input_data` estimated from its stored slots (key order/escaping as serde_json). */
+export function estimateInputLen(slots: Slot[]): number {
+  // {"action":"clear","entries":[...],"params":{sale_id,supply,reserve,token_decimals,min_size,code_hash(64),bid_end_ms}}
+  let len = 400;
+  for (const s of slots) {
+    const ct = s.ciphertext.startsWith("0x") ? s.ciphertext.length - 2 : s.ciphertext.length;
+    len += `{"bidder":"","ciphertext":"","commit":"","deposit":""},`.length + s.bidder.length + ct + 64 + s.deposit.length;
+  }
+  return len;
+}
+export interface FinalizeDeposit { required: bigint; recommended: bigint; inputLen: number; source: "contract" | "estimate" }
+/** What to attach to `finalize`: the sale's `get_finalize_deposit` view, or (older sale wasm without the
+ *  view) a client-side estimate from the stored slots with the same formula and headroom. */
+export async function finalizeDeposit(sale: string, slots?: Slot[]): Promise<FinalizeDeposit> {
+  try {
+    const d = await view<{ required: string; recommended: string; input_len: number }>(sale, "get_finalize_deposit", {});
+    return { required: BigInt(d.required), recommended: BigInt(d.recommended), inputLen: Number(d.input_len), source: "contract" };
+  } catch {
+    const s = slots ?? (await fetchSale(sale)).slots;
+    const inputLen = estimateInputLen(s);
+    const required = outlayerRequiredDeposit(inputLen, s.length);
+    return { required, recommended: recommendedDeposit(required), inputLen, source: "estimate" };
+  }
+}

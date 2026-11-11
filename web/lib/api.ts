@@ -4,6 +4,7 @@ import type {
 } from "./types";
 import { chainApi } from "./chain";
 import { mockApi } from "./mock";
+import type { FinalizeDeposit } from "./deposit";
 
 export interface Api {
   /** Factory */
@@ -18,6 +19,8 @@ export interface Api {
   revealed(saleId: string, count: number): Promise<(RevealedBid | null)[]>;
   bidStatus(saleId: string, commit: string): Promise<BidStatus>;
   isClaimed(saleId: string, account: string): Promise<boolean>;
+  /** NEAR to attach to `finalize`, sized from the sale's actual input_data (sale view, or estimate for older wasm). */
+  finalizeDeposit(saleId: string): Promise<FinalizeDeposit>;
   /** Arrival time (unix ms) per slot, if the backend knows it. The chain views do not expose it. */
   bidTimes(saleId: string): Promise<number[] | null>;
   payToken(token: string | null): Promise<PayToken>;

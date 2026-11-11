@@ -159,8 +159,17 @@ impl Env {
         Ok(())
     }
 
+    /// Finalize attaching the contract's own `get_finalize_deposit().recommended` (as scripts/web do).
     pub async fn finalize(&self, who: &Account) -> anyhow::Result<near_workspaces::result::ExecutionFinalResult> {
-        Ok(who.call(self.sale.id(), "finalize").deposit(NearToken::from_millinear(100)).gas(Gas::from_tgas(300)).transact().await?)
+        let d = self.finalize_deposit(None).await?;
+        let amt: u128 = d["recommended"].as_str().unwrap().parse()?;
+        self.finalize_with(who, amt).await
+    }
+    pub async fn finalize_with(&self, who: &Account, yocto: u128) -> anyhow::Result<near_workspaces::result::ExecutionFinalResult> {
+        Ok(who.call(self.sale.id(), "finalize").deposit(NearToken::from_yoctonear(yocto)).gas(Gas::from_tgas(300)).transact().await?)
+    }
+    pub async fn finalize_deposit(&self, bid_count: Option<u32>) -> anyhow::Result<Value> {
+        Ok(self.sale.view("get_finalize_deposit").args_json(serde_json::json!({ "bid_count": bid_count })).await?.json::<Value>()?)
     }
 
     pub async fn sale_view(&self) -> Value {

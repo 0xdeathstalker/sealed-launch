@@ -23,3 +23,8 @@ if (cmd === "create") {
   console.log("created", ids.length, "last", ids[ids.length - 1]);
 }
 if (cmd === "delete") { for (const id of r.slice(1)) { chk(id); try { const a = await signer(id); await a.deleteAccount(r[0]); console.log("deleted", id); } catch (e) { console.log("ERR", id, String(e).slice(0, 120)); } } }
+if (cmd === "topup") { // topup <parent> <prefix> <count> <near>: sendMoney from parent to prefix{i}.parent
+  const [parent, prefix, count, amt] = r; chk(parent); const p = await signer(parent);
+  for (let i = 1; i <= Number(count); i++) { for (let t = 0; t < 4; t++) { try { await p.sendMoney(`${prefix}${i}.${parent}`, toYocto(amt) as any); break; } catch (e) { if (t == 3) console.log("ERR", i, String(e).slice(0, 100)); await sleep(1500); } } }
+  console.log("topped", count);
+}

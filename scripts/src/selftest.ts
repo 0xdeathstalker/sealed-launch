@@ -1,5 +1,5 @@
 // Negative tests for verify: tampered chain data must produce FAIL. Read-only.
-import { fetchSale } from "./lib/sale.ts";
+import { fetchSale, outlayerRequiredDeposit, recommendedDeposit, estimateInputLen } from "./lib/sale.ts";
 import { verifySale } from "./lib/verify-core.ts";
 import { loadDeployments } from "./lib/chain.ts";
 
@@ -23,4 +23,19 @@ for (const [name, mut, want] of cases) {
   console.log(`${got === want ? "ok  " : "BAD "} ${name}: verify=${got} (want ${want}) ${failed}`);
   if (got !== want) bad++;
 }
+// finalize deposit: same numbers as contracts/sale deposit_tests (spike input sizes 10/100/200 bids)
+const dep: [string, boolean][] = [
+  ["n=10 4,904 B -> 0.0070005", outlayerRequiredDeposit(4_904, 10) === 7_000_500_000_000_000_000_000n],
+  ["n=100 48,734 B -> 0.1666605", outlayerRequiredDeposit(48_734, 100) === 166_660_500_000_000_000_000_000n],
+  ["n=200 97,734 B -> 0.6566607", outlayerRequiredDeposit(97_734, 200) === 656_660_700_000_000_000_000_000n],
+  ["live n100 49,521 B -> 0.17453 (> flat 0.1)", outlayerRequiredDeposit(49_521, 100) === 174_530_500_000_000_000_000_000n],
+  ["recommended(0.17453) = 0.219", recommendedDeposit(174_530_500_000_000_000_000_000n) === 219_000_000_000_000_000_000_000n],
+];
+// read-only: client estimate for the live 100-bid sale must cover its real input (49,521 B per OutLayer's error)
+try {
+  const n100 = await fetchSale("sale-n100.sealedlaunch.deathstalker-sl.testnet");
+  const est = estimateInputLen(n100.slots);
+  dep.push([`estimateInputLen(sale-n100)=${est} >= 49,521 and within 1%`, est >= 49_521 && est <= 49_521 * 1.01]);
+} catch (e) { console.log(`skip live n100 estimate check: ${(e as Error).message}`); }
+for (const [name, okd] of dep) { console.log(`${okd ? "ok  " : "BAD "} finalize deposit: ${name}`); if (!okd) bad++; }
 process.exit(bad ? 1 : 0);

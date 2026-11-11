@@ -1,0 +1,1761 @@
+{
+ "sale": "sale-n100.sealedlaunch.deathstalker-sl.testnet",
+ "factory": "sealedlaunch.deathstalker-sl.testnet",
+ "created_at_ms": 1794380880997,
+ "bid_end_ms": 1794380791662,
+ "params": {
+  "symbol": "N100",
+  "token_name": "SealedLaunch n100",
+  "icon": null,
+  "token_decimals": 18,
+  "auction_supply": "1000000000000000000000",
+  "lp_token_reserve": "501000000000000000000",
+  "creator_supply": "100000000000000000000",
+  "reserve_price": "200000000000000000000",
+  "min_size": "1000000000000000000",
+  "bid_fee": "1000000000000000000000",
+  "payment_token": null,
+  "bid_end_ms": "1794380791662",
+  "challenge_secs": 30,
+  "lp_bps": 5000,
+  "vesting_secs": 600,
+  "outlayer_project": "deathstalker-sl.testnet/sealedlaunch",
+  "code_hash": "607df359c7c0f340aba2cc9cc0eabefbb2785466f395855b839e2568195307b6",
+  "max_bids": 150,
+  "creator": "deathstalker-sl-7.testnet",
+  "factory": "sealedlaunch.deathstalker-sl.testnet",
+  "outlayer": "outlayer.testnet",
+  "finalize_timeout_secs": 420,
+  "recompute_cap": 200,
+  "mode": null,
+  "reveal_secs": 0,
+  "reveal_bond": "0",
+  "pubkey": null,
+  "ref_exchange": "ref-finance-101.testnet",
+  "wnear": "wrap.testnet"
+ },
+ "row": {
+  "sale": "sale-n100.sealedlaunch.deathstalker-sl.testnet",
+  "bids": 100,
+  "p_star_near": "0.000257",
+  "fill_rate_pct": 100,
+  "raise_near": "0.257440",
+  "lp_funds_near": "0.128720",
+  "lp_tokens": "500",
+  "burn_tokens": "1",
+  "finalize_to_on_clear_s": 7.285,
+  "finalize_to_on_clear_wall_s": 0.606,
+  "gas_total_tgas": 140.472,
+  "gas_cost_near": "0.014047",
+  "outlayer_net_cost_near": "0.001001",
+  "creation_deposit_near": "5.004230",
+  "verify_pass": true
+ },
+ "steps": [
+  {
+   "name": "finalize",
+   "ok": true,
+   "tx": "Bxm8JevV474zfbuLTRCo2Eb4vLXQgYrxtPEWxhTaidCD",
+   "link": "https://testnet.nearblocks.io/txns/Bxm8JevV474zfbuLTRCo2Eb4vLXQgYrxtPEWxhTaidCD",
+   "gas_burnt": "88604878922090",
+   "at": "2026-11-11T07:08:47.777Z",
+   "gas_prepaid": "180031560000000"
+  },
+  {
+   "name": "claim bf-10.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "DQWZR8LUrT6EYuU9bNffmDQhQzosM3dBPq6NP8QrufJc",
+   "link": "https://testnet.nearblocks.io/txns/DQWZR8LUrT6EYuU9bNffmDQhQzosM3dBPq6NP8QrufJc",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:32.768Z",
+   "caller": "bf-10.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-1.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "E3PbrXLm9fFir9PXgPaNqwiuK7xubKzK1p1hAo28H9R4",
+   "link": "https://testnet.nearblocks.io/txns/E3PbrXLm9fFir9PXgPaNqwiuK7xubKzK1p1hAo28H9R4",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:32.820Z",
+   "caller": "bf-1.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-14.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "J3qrPGqoxacFwhqKE3jVGqcqdvxsWi3EmNQBtbhek9u1",
+   "link": "https://testnet.nearblocks.io/txns/J3qrPGqoxacFwhqKE3jVGqcqdvxsWi3EmNQBtbhek9u1",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:32.831Z",
+   "caller": "bf-14.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-13.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "5WJM1SNVb9NrAssNKJumbijUusqeqosGVcLys1XkveT8",
+   "link": "https://testnet.nearblocks.io/txns/5WJM1SNVb9NrAssNKJumbijUusqeqosGVcLys1XkveT8",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:34.179Z",
+   "caller": "bf-13.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-12.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "BV4gNg9xgViBUCdbNpffKxaZ6qtzjfN8FwTdZPdKaXtE",
+   "link": "https://testnet.nearblocks.io/txns/BV4gNg9xgViBUCdbNpffKxaZ6qtzjfN8FwTdZPdKaXtE",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:34.506Z",
+   "caller": "bf-12.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-16.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "6iKyHh6QM2LQjLagUqyf35iRmMzbS1o77VDB9HbJ3pAU",
+   "link": "https://testnet.nearblocks.io/txns/6iKyHh6QM2LQjLagUqyf35iRmMzbS1o77VDB9HbJ3pAU",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:35.875Z",
+   "caller": "bf-16.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-15.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "6nXvU72MR48TCf5VuUSanUbZ9mJBRHEy52h3m7FPk4Lb",
+   "link": "https://testnet.nearblocks.io/txns/6nXvU72MR48TCf5VuUSanUbZ9mJBRHEy52h3m7FPk4Lb",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:35.892Z",
+   "caller": "bf-15.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-18.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "DhxitCzjYJX9UBExPQuRbd2BuVropMREAAV7H6QXxdZR",
+   "link": "https://testnet.nearblocks.io/txns/DhxitCzjYJX9UBExPQuRbd2BuVropMREAAV7H6QXxdZR",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:37.032Z",
+   "caller": "bf-18.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-11.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "3isdSykezQJEdRPqbBQysudgJExsNbjzqMAJzR9N13LU",
+   "link": "https://testnet.nearblocks.io/txns/3isdSykezQJEdRPqbBQysudgJExsNbjzqMAJzR9N13LU",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:38.202Z",
+   "caller": "bf-11.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-17.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "AqoBcXnaXuXNVVGzseXh9tNWUmfR4XuQrDkiXYuoEwNP",
+   "link": "https://testnet.nearblocks.io/txns/AqoBcXnaXuXNVVGzseXh9tNWUmfR4XuQrDkiXYuoEwNP",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:38.437Z",
+   "caller": "bf-17.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-19.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "9CdrRmLt84VPkVrGi8JMpQyTKfLjmPyBK4NDpv2Bjz8k",
+   "link": "https://testnet.nearblocks.io/txns/9CdrRmLt84VPkVrGi8JMpQyTKfLjmPyBK4NDpv2Bjz8k",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:38.979Z",
+   "caller": "bf-19.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-20.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "Dnjy2bEDWMgqf5ZRAd3QnFqKa51BZbpW43VEvryeaCJq",
+   "link": "https://testnet.nearblocks.io/txns/Dnjy2bEDWMgqf5ZRAd3QnFqKa51BZbpW43VEvryeaCJq",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:39.313Z",
+   "caller": "bf-20.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-2.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "92QtFXjxwcANV74y2f6W4RqWftfmwdYxXZCpYf7Ty6bk",
+   "link": "https://testnet.nearblocks.io/txns/92QtFXjxwcANV74y2f6W4RqWftfmwdYxXZCpYf7Ty6bk",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:40.060Z",
+   "caller": "bf-2.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-21.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "CiBhwsi1Qp12qZ5Jiit6quHCiwAjfhcUaUZ5VkC3r5i",
+   "link": "https://testnet.nearblocks.io/txns/CiBhwsi1Qp12qZ5Jiit6quHCiwAjfhcUaUZ5VkC3r5i",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:40.713Z",
+   "caller": "bf-21.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-22.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "5TLGvVJpQyDyyWh5zWu46xX9CVwpuV59oceNdGkFGTW4",
+   "link": "https://testnet.nearblocks.io/txns/5TLGvVJpQyDyyWh5zWu46xX9CVwpuV59oceNdGkFGTW4",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:41.262Z",
+   "caller": "bf-22.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-23.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "8iro79Hf2LqrDMqPiFzbZiGX3zzKHJMksNxK2cct9Lmy",
+   "link": "https://testnet.nearblocks.io/txns/8iro79Hf2LqrDMqPiFzbZiGX3zzKHJMksNxK2cct9Lmy",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:43.209Z",
+   "caller": "bf-23.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-24.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "ByB6QW7Yvf6Ut2L1mv376QgEwh7xKYhbWaEyxsR4Sq4K",
+   "link": "https://testnet.nearblocks.io/txns/ByB6QW7Yvf6Ut2L1mv376QgEwh7xKYhbWaEyxsR4Sq4K",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:43.218Z",
+   "caller": "bf-24.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-25.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "DZYKynebLBhDqLAtUw4AniY2JAAqTR3ddLH2ZcDHQGcc",
+   "link": "https://testnet.nearblocks.io/txns/DZYKynebLBhDqLAtUw4AniY2JAAqTR3ddLH2ZcDHQGcc",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:43.277Z",
+   "caller": "bf-25.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-26.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "AqULTBKKNJrztahGcM4pi44qHhvTj6SxzB9Jg5BsbwcV",
+   "link": "https://testnet.nearblocks.io/txns/AqULTBKKNJrztahGcM4pi44qHhvTj6SxzB9Jg5BsbwcV",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:43.921Z",
+   "caller": "bf-26.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-28.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "C6eFxLpZQHRH57ngswYAYZ2A5wL8MF1vHUCrrZeWWwH5",
+   "link": "https://testnet.nearblocks.io/txns/C6eFxLpZQHRH57ngswYAYZ2A5wL8MF1vHUCrrZeWWwH5",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:44.356Z",
+   "caller": "bf-28.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-27.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "BxNfWvy6AhndqGDdLSPJRYny7g7eRTEjv8rCU4guJkBW",
+   "link": "https://testnet.nearblocks.io/txns/BxNfWvy6AhndqGDdLSPJRYny7g7eRTEjv8rCU4guJkBW",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:45.432Z",
+   "caller": "bf-27.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-3.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "BH3dC8tsHJCq6uhnnCeTx9cALjLwuMxY3MDGD71xmKVK",
+   "link": "https://testnet.nearblocks.io/txns/BH3dC8tsHJCq6uhnnCeTx9cALjLwuMxY3MDGD71xmKVK",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:46.101Z",
+   "caller": "bf-3.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-30.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "33k4e5JZEaZuGrBuQKAZ9qpHHUCnHsAYTBsy8KMh3hQL",
+   "link": "https://testnet.nearblocks.io/txns/33k4e5JZEaZuGrBuQKAZ9qpHHUCnHsAYTBsy8KMh3hQL",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:47.278Z",
+   "caller": "bf-30.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-29.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "8Xqat143XswarJQm5Mzzt8MpsZLjkSoBPjYS411txV8t",
+   "link": "https://testnet.nearblocks.io/txns/8Xqat143XswarJQm5Mzzt8MpsZLjkSoBPjYS411txV8t",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:47.400Z",
+   "caller": "bf-29.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-31.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "Be3T7puKMEbE3kFP1m4NjQLoV7K79XjP6SSoQA1DPnc9",
+   "link": "https://testnet.nearblocks.io/txns/Be3T7puKMEbE3kFP1m4NjQLoV7K79XjP6SSoQA1DPnc9",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:48.194Z",
+   "caller": "bf-31.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-33.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "CVhY1ZhPh7cV7TCzZToxJcr653hmz5NvFWwGviSRSRkq",
+   "link": "https://testnet.nearblocks.io/txns/CVhY1ZhPh7cV7TCzZToxJcr653hmz5NvFWwGviSRSRkq",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:49.762Z",
+   "caller": "bf-33.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-34.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "Dyox5NKjguJ33evWPHS4VDi5CXZXwtABhyXupbbSLok8",
+   "link": "https://testnet.nearblocks.io/txns/Dyox5NKjguJ33evWPHS4VDi5CXZXwtABhyXupbbSLok8",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:50.576Z",
+   "caller": "bf-34.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-36.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "9y2vFUmSPE6bM3MGjwZHyvoyJfgPPxAnq7Efvho8PV6g",
+   "link": "https://testnet.nearblocks.io/txns/9y2vFUmSPE6bM3MGjwZHyvoyJfgPPxAnq7Efvho8PV6g",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:51.035Z",
+   "caller": "bf-36.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-37.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "DKCrL6upUaaZetqDLdiKzrfUkQYwW9JCU14mU8Eg6Cja",
+   "link": "https://testnet.nearblocks.io/txns/DKCrL6upUaaZetqDLdiKzrfUkQYwW9JCU14mU8Eg6Cja",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:51.069Z",
+   "caller": "bf-37.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-35.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "2GMaQFUuSaoePBtGuchZVBqTbypfcFnGBAocE19qiRCe",
+   "link": "https://testnet.nearblocks.io/txns/2GMaQFUuSaoePBtGuchZVBqTbypfcFnGBAocE19qiRCe",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:51.073Z",
+   "caller": "bf-35.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-32.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "C3dqE2NECZaMoWMpGtcrtpNyCt4vxrabu59Dr6k9REbG",
+   "link": "https://testnet.nearblocks.io/txns/C3dqE2NECZaMoWMpGtcrtpNyCt4vxrabu59Dr6k9REbG",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:52.226Z",
+   "caller": "bf-32.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-38.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "54VSQCTeYnkFWyDRq7wYTz6x1nDXBvYzhfXWScNko89J",
+   "link": "https://testnet.nearblocks.io/txns/54VSQCTeYnkFWyDRq7wYTz6x1nDXBvYzhfXWScNko89J",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:53.451Z",
+   "caller": "bf-38.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-4.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "5PkPoAZrvXEHCCT4wRXnawyxvFkzwoXVUsU17u8pxGZf",
+   "link": "https://testnet.nearblocks.io/txns/5PkPoAZrvXEHCCT4wRXnawyxvFkzwoXVUsU17u8pxGZf",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:54.038Z",
+   "caller": "bf-4.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-39.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "BSL7zYLn3TrgCrPzBbvi5oiXDH5RXGEgqqiQD5VKbx9J",
+   "link": "https://testnet.nearblocks.io/txns/BSL7zYLn3TrgCrPzBbvi5oiXDH5RXGEgqqiQD5VKbx9J",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:54.776Z",
+   "caller": "bf-39.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-42.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "BGBwb1QF1EVd4GQxgyuLZvw2ppwF18rMND7kPwZXPLUr",
+   "link": "https://testnet.nearblocks.io/txns/BGBwb1QF1EVd4GQxgyuLZvw2ppwF18rMND7kPwZXPLUr",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:55.117Z",
+   "caller": "bf-42.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-41.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "6SPE2KKwamceaemGyZk1RtrGjkV4Jfprz8AtACh2Zucx",
+   "link": "https://testnet.nearblocks.io/txns/6SPE2KKwamceaemGyZk1RtrGjkV4Jfprz8AtACh2Zucx",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:56.087Z",
+   "caller": "bf-41.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-40.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "5DAxaKfrqfnYwBfhFNbLZdKqjexCZ4FFgPaPkHpUZ9Gb",
+   "link": "https://testnet.nearblocks.io/txns/5DAxaKfrqfnYwBfhFNbLZdKqjexCZ4FFgPaPkHpUZ9Gb",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:57.101Z",
+   "caller": "bf-40.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-43.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "EkDSrwvzb4NpudP7Wb1g1N8gCqxakvFEPEtgAa1scW5S",
+   "link": "https://testnet.nearblocks.io/txns/EkDSrwvzb4NpudP7Wb1g1N8gCqxakvFEPEtgAa1scW5S",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:57.136Z",
+   "caller": "bf-43.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-46.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "3d2uApYt6y7YWj6rjVvRzKZozPgX26rwcQeT5tmnd7j4",
+   "link": "https://testnet.nearblocks.io/txns/3d2uApYt6y7YWj6rjVvRzKZozPgX26rwcQeT5tmnd7j4",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:57.519Z",
+   "caller": "bf-46.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-44.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "84fk63L7pWcyB9kdjqjdZwkYAKvQrnKz7gXKf2cXcczL",
+   "link": "https://testnet.nearblocks.io/txns/84fk63L7pWcyB9kdjqjdZwkYAKvQrnKz7gXKf2cXcczL",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:57.703Z",
+   "caller": "bf-44.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-47.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "GYL7LQvrDwE7XenLmUyQBr44UQj8nmqjJs2JzQ6ePu3G",
+   "link": "https://testnet.nearblocks.io/txns/GYL7LQvrDwE7XenLmUyQBr44UQj8nmqjJs2JzQ6ePu3G",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:58.907Z",
+   "caller": "bf-47.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-45.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "5jtkBDLgyQvheptbEbr3nFi6hntC7LLWtKGVq4xfQ985",
+   "link": "https://testnet.nearblocks.io/txns/5jtkBDLgyQvheptbEbr3nFi6hntC7LLWtKGVq4xfQ985",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:09:59.485Z",
+   "caller": "bf-45.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-5.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "7MU38jn7WHkiB3mab2g6xQxHKTR759yNC6zR5pXqMhgZ",
+   "link": "https://testnet.nearblocks.io/txns/7MU38jn7WHkiB3mab2g6xQxHKTR759yNC6zR5pXqMhgZ",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:00.616Z",
+   "caller": "bf-5.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-49.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "92YCJt1WyWxcC8byVVkPKBWAC6mLZYNWSbQpAxWu5aN5",
+   "link": "https://testnet.nearblocks.io/txns/92YCJt1WyWxcC8byVVkPKBWAC6mLZYNWSbQpAxWu5aN5",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:02.030Z",
+   "caller": "bf-49.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-6.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "C7a56Yff9fvgw8YYx4TTyV3E6XZSHFW8nmgmivJCqSkT",
+   "link": "https://testnet.nearblocks.io/txns/C7a56Yff9fvgw8YYx4TTyV3E6XZSHFW8nmgmivJCqSkT",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:02.088Z",
+   "caller": "bf-6.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-48.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "HyVNocV9TARwvTMyr1hbRChxGFFLnr2vboMFmYmduAyA",
+   "link": "https://testnet.nearblocks.io/txns/HyVNocV9TARwvTMyr1hbRChxGFFLnr2vboMFmYmduAyA",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:03.056Z",
+   "caller": "bf-48.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-7.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "H7auSQAryYvdJgduy5u8x9ZBaspz2hXxRn44NGrQ2rua",
+   "link": "https://testnet.nearblocks.io/txns/H7auSQAryYvdJgduy5u8x9ZBaspz2hXxRn44NGrQ2rua",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:03.077Z",
+   "caller": "bf-7.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-50.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "JCcahSDkYzHBUB3N17GjzhJMHD7j2nqDYqeeBqyJfiU4",
+   "link": "https://testnet.nearblocks.io/txns/JCcahSDkYzHBUB3N17GjzhJMHD7j2nqDYqeeBqyJfiU4",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:03.317Z",
+   "caller": "bf-50.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-8.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "B6z93CMoVD1pdWMJyXbq24SgEZzwDnHpvfj9Kj5TdVUh",
+   "link": "https://testnet.nearblocks.io/txns/B6z93CMoVD1pdWMJyXbq24SgEZzwDnHpvfj9Kj5TdVUh",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:04.466Z",
+   "caller": "bf-8.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-9.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "6RZDGbcezAQHoP62auFv985d2oWdsoHJ7AMjCaBf2a85",
+   "link": "https://testnet.nearblocks.io/txns/6RZDGbcezAQHoP62auFv985d2oWdsoHJ7AMjCaBf2a85",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:04.834Z",
+   "caller": "bf-9.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bl-10.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "9E1Sib5g5BTBofZzDXYLJQsAMVdnHoNPy8XWGBhtuYkG",
+   "link": "https://testnet.nearblocks.io/txns/9E1Sib5g5BTBofZzDXYLJQsAMVdnHoNPy8XWGBhtuYkG",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:09.195Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-11.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "DwB9mKQHPtZrgJ6sFd86VG2iLnEKm6Nw5mV6GjQjXovD",
+   "link": "https://testnet.nearblocks.io/txns/DwB9mKQHPtZrgJ6sFd86VG2iLnEKm6Nw5mV6GjQjXovD",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:15.851Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-1.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "BfHDuqJvuQyG41jnGPxUPWKytAtr9AcGAogqdsH5Bdjq",
+   "link": "https://testnet.nearblocks.io/txns/BfHDuqJvuQyG41jnGPxUPWKytAtr9AcGAogqdsH5Bdjq",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:21.418Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-12.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "6zTHyA81DR7DiVivUCX6du99kyPiWt7BR3Jxk5qSeA6j",
+   "link": "https://testnet.nearblocks.io/txns/6zTHyA81DR7DiVivUCX6du99kyPiWt7BR3Jxk5qSeA6j",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:27.513Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-13.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "BFsbNPzYQtA6Gp1zEyFBfbboPot8j71J6MQGMrbQSKt6",
+   "link": "https://testnet.nearblocks.io/txns/BFsbNPzYQtA6Gp1zEyFBfbboPot8j71J6MQGMrbQSKt6",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:32.776Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-14.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "HhaXY1SNe3exV91rVtfEPkPUyy1DbSrvewTPbTTkfuME",
+   "link": "https://testnet.nearblocks.io/txns/HhaXY1SNe3exV91rVtfEPkPUyy1DbSrvewTPbTTkfuME",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:38.252Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-15.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "BciH67y5dJouUXRznFso1GsYgXS9ndzgSBGWKxGZmWNV",
+   "link": "https://testnet.nearblocks.io/txns/BciH67y5dJouUXRznFso1GsYgXS9ndzgSBGWKxGZmWNV",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:44.443Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-16.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "ELNuzMAedKy1HDFpN6J7g5NLa7hpG6FtPSYYc2NnHcKa",
+   "link": "https://testnet.nearblocks.io/txns/ELNuzMAedKy1HDFpN6J7g5NLa7hpG6FtPSYYc2NnHcKa",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:50.053Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-17.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "27o9Sb2hStWWBQNyJ3qf4aa68okBioQ87RAAGyjcEhzd",
+   "link": "https://testnet.nearblocks.io/txns/27o9Sb2hStWWBQNyJ3qf4aa68okBioQ87RAAGyjcEhzd",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:10:55.154Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-18.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "5E3EqbS7cgrQ5rWnfRyjH8PFz5BfSSppfkVKedTDBUY8",
+   "link": "https://testnet.nearblocks.io/txns/5E3EqbS7cgrQ5rWnfRyjH8PFz5BfSSppfkVKedTDBUY8",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:11:00.185Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-19.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "Gf1ujhpbZM8buS61aRs9nfFtU4Un22RPMTofVedVnPDw",
+   "link": "https://testnet.nearblocks.io/txns/Gf1ujhpbZM8buS61aRs9nfFtU4Un22RPMTofVedVnPDw",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:11:05.506Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-2.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "4qRiZfrCbT5ZA2JHgUD82cM12epiNx6i1v1HCaCZNNzc",
+   "link": "https://testnet.nearblocks.io/txns/4qRiZfrCbT5ZA2JHgUD82cM12epiNx6i1v1HCaCZNNzc",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:11:11.678Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-20.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "9FusWYY6gSUu7H2RVZwBs5x6vfw2mKiDP4wD1WHsf5Di",
+   "link": "https://testnet.nearblocks.io/txns/9FusWYY6gSUu7H2RVZwBs5x6vfw2mKiDP4wD1WHsf5Di",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:11:17.692Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-21.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "2UppfyerxWdAUenNvUH5jQc8Tr6JKwULdv4HTg1n8ERP",
+   "link": "https://testnet.nearblocks.io/txns/2UppfyerxWdAUenNvUH5jQc8Tr6JKwULdv4HTg1n8ERP",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:11:23.074Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-22.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "2XdkVzxdq7hCWzmXfWNSJBMtkcu4TbKKtoiYBgyx4Gve",
+   "link": "https://testnet.nearblocks.io/txns/2XdkVzxdq7hCWzmXfWNSJBMtkcu4TbKKtoiYBgyx4Gve",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:11:28.548Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-23.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "9aNNmAfJHzMbaghM4QhR8fatbbQXVe4LHcWSUKQyy5h7",
+   "link": "https://testnet.nearblocks.io/txns/9aNNmAfJHzMbaghM4QhR8fatbbQXVe4LHcWSUKQyy5h7",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:11:33.355Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-24.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "5uFQmv6T7ZwR8c1fNnUjYsgNzuTEdQzP2AhpSeQq2QQA",
+   "link": "https://testnet.nearblocks.io/txns/5uFQmv6T7ZwR8c1fNnUjYsgNzuTEdQzP2AhpSeQq2QQA",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:11:40.252Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-25.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "DDHcbC2Hpjs4HBeXF9p2kJS3aAJAN2GqVyQBEJqSU6qr",
+   "link": "https://testnet.nearblocks.io/txns/DDHcbC2Hpjs4HBeXF9p2kJS3aAJAN2GqVyQBEJqSU6qr",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:11:46.081Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-26.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "5jv3DKigVg4xF3Z2CS28BTiy1PAwVabEi4arFeUkHSGa",
+   "link": "https://testnet.nearblocks.io/txns/5jv3DKigVg4xF3Z2CS28BTiy1PAwVabEi4arFeUkHSGa",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:11:51.896Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-27.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "392TRcf6ma63yfyerDLJ5VSLZB5eE4HGU1VzwAbCPiwr",
+   "link": "https://testnet.nearblocks.io/txns/392TRcf6ma63yfyerDLJ5VSLZB5eE4HGU1VzwAbCPiwr",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:11:56.671Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-28.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "CfaZBHi7jCc5hVs52iNJshCpUcFYeQh5BbuXe4re8zMZ",
+   "link": "https://testnet.nearblocks.io/txns/CfaZBHi7jCc5hVs52iNJshCpUcFYeQh5BbuXe4re8zMZ",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:03.058Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-29.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "8cEwEfWo93qKe6xx2TeYfpCWDUhkt7HBEbBsV2tvXEVC",
+   "link": "https://testnet.nearblocks.io/txns/8cEwEfWo93qKe6xx2TeYfpCWDUhkt7HBEbBsV2tvXEVC",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:07.492Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-3.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "GaFHyuR3ZWi4SrLNFGFhs8sFmTa2nCYzwjwUoivWNm4k",
+   "link": "https://testnet.nearblocks.io/txns/GaFHyuR3ZWi4SrLNFGFhs8sFmTa2nCYzwjwUoivWNm4k",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:12.365Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-30.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "3sTmgEneotCZGckMUJBiEoUnwdQ7YLatA3jV1ciyEior",
+   "link": "https://testnet.nearblocks.io/txns/3sTmgEneotCZGckMUJBiEoUnwdQ7YLatA3jV1ciyEior",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:17.234Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim bl-4.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "4PMCpbGAVz3qHQkcQ1rBMc29Ye9pYCUpGp1rXwmJH3TK",
+   "link": "https://testnet.nearblocks.io/txns/4PMCpbGAVz3qHQkcQ1rBMc29Ye9pYCUpGp1rXwmJH3TK",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:22.885Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim hb2-1.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "CRUn3SaZx4mxnYEQQy83iWacUyreGJDogXxoGeZSezV",
+   "link": "https://testnet.nearblocks.io/txns/CRUn3SaZx4mxnYEQQy83iWacUyreGJDogXxoGeZSezV",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:26.342Z",
+   "caller": "hb2-1.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bl-5.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "DkooHVAmpDNHMpXE8Hbu2MHckww9iowWGFeVUnwBi87p",
+   "link": "https://testnet.nearblocks.io/txns/DkooHVAmpDNHMpXE8Hbu2MHckww9iowWGFeVUnwBi87p",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:27.989Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim hb2-2.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "9R9gPFdJGWCiugnYHoeUpU6Vk8yzr5UWzNrZfMHBCvuB",
+   "link": "https://testnet.nearblocks.io/txns/9R9gPFdJGWCiugnYHoeUpU6Vk8yzr5UWzNrZfMHBCvuB",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:30.024Z",
+   "caller": "hb2-2.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb2-3.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "CaUfAeJqDqfG98T2Qi6Hp7nx3C2H7FaQQTuzTUn1Ph87",
+   "link": "https://testnet.nearblocks.io/txns/CaUfAeJqDqfG98T2Qi6Hp7nx3C2H7FaQQTuzTUn1Ph87",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:31.131Z",
+   "caller": "hb2-3.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bl-6.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "CQmeq4BvEQcneEPQAASPzSAoHHiHDAjbEneA93AQ7dcG",
+   "link": "https://testnet.nearblocks.io/txns/CQmeq4BvEQcneEPQAASPzSAoHHiHDAjbEneA93AQ7dcG",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:34.403Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim hb2-4.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "9unPzCd2AAXVfD5t45hBDW7erade6154hteLqi6db8ep",
+   "link": "https://testnet.nearblocks.io/txns/9unPzCd2AAXVfD5t45hBDW7erade6154hteLqi6db8ep",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:34.491Z",
+   "caller": "hb2-4.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb2-5.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "9v4kaGBQfPfvA1xVTyTCZ8MyT1omFrCzFS4wCpUjNT8s",
+   "link": "https://testnet.nearblocks.io/txns/9v4kaGBQfPfvA1xVTyTCZ8MyT1omFrCzFS4wCpUjNT8s",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:34.950Z",
+   "caller": "hb2-5.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb3-1.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "FahGnYqoUSdGqxkMDjWikmSR1Jy4ywXnVqGsoMvjCWYh",
+   "link": "https://testnet.nearblocks.io/txns/FahGnYqoUSdGqxkMDjWikmSR1Jy4ywXnVqGsoMvjCWYh",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:37.353Z",
+   "caller": "hb3-1.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb2-6.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "BYXyn1ppZv44xGKmSHCx7uVwWdU8yGEejwx6ZtCrXqst",
+   "link": "https://testnet.nearblocks.io/txns/BYXyn1ppZv44xGKmSHCx7uVwWdU8yGEejwx6ZtCrXqst",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:38.558Z",
+   "caller": "hb2-6.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bl-7.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "9LKskJAZbh2pbzh8pmHLhDqFut6CaT9wsABcr5py2Dcg",
+   "link": "https://testnet.nearblocks.io/txns/9LKskJAZbh2pbzh8pmHLhDqFut6CaT9wsABcr5py2Dcg",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:39.188Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim hb3-2.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "5nntRZedjUH6uZBbkghXP5uYJLvocdh7woxDqRC5fspf",
+   "link": "https://testnet.nearblocks.io/txns/5nntRZedjUH6uZBbkghXP5uYJLvocdh7woxDqRC5fspf",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:40.035Z",
+   "caller": "hb3-2.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb3-4.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "141iq7PxpjfPpt7h6fGbnBFfcKhrv7QZVDY5gjgmDYSW",
+   "link": "https://testnet.nearblocks.io/txns/141iq7PxpjfPpt7h6fGbnBFfcKhrv7QZVDY5gjgmDYSW",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:41.586Z",
+   "caller": "hb3-4.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb3-3.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "8GpPTBBjTD4LGKZy8d9H4ky8dRTqApBjJ14E9hB9SETJ",
+   "link": "https://testnet.nearblocks.io/txns/8GpPTBBjTD4LGKZy8d9H4ky8dRTqApBjJ14E9hB9SETJ",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:41.593Z",
+   "caller": "hb3-3.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb3-5.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "8Ku8RuKnmDbt7LmwGCuhVQsAoRyx87vhyhbCELnGwLuU",
+   "link": "https://testnet.nearblocks.io/txns/8Ku8RuKnmDbt7LmwGCuhVQsAoRyx87vhyhbCELnGwLuU",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:41.904Z",
+   "caller": "hb3-5.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb3-6.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "2mHBvDsqgfeckvBiwWXzRgkgRZj8aRRnUM8NuEYMhBKF",
+   "link": "https://testnet.nearblocks.io/txns/2mHBvDsqgfeckvBiwWXzRgkgRZj8aRRnUM8NuEYMhBKF",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:43.134Z",
+   "caller": "hb3-6.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb3-7.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "2KnZnv3z3ZkBYYMGVg9QyzFm63BBdae5rE9MPKBgG1bV",
+   "link": "https://testnet.nearblocks.io/txns/2KnZnv3z3ZkBYYMGVg9QyzFm63BBdae5rE9MPKBgG1bV",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:45.862Z",
+   "caller": "hb3-7.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bl-8.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "AojA5HcNfi7AdTu84mtVKMSuxzSrR63omEgn4vkDgpfP",
+   "link": "https://testnet.nearblocks.io/txns/AojA5HcNfi7AdTu84mtVKMSuxzSrR63omEgn4vkDgpfP",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:46.368Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "claim hb3-8.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "jYgd6a4TtA81yjuw8F6uSKzfgooSRdJATMpqBsRZiz3",
+   "link": "https://testnet.nearblocks.io/txns/jYgd6a4TtA81yjuw8F6uSKzfgooSRdJATMpqBsRZiz3",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:47.402Z",
+   "caller": "hb3-8.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bl-9.deathstalker-sl.testnet",
+   "ok": false,
+   "tx": "9g3P59KN422aEmMbk1wB4xxU3qLZEK8Ex3crwACV18Uh",
+   "link": "https://testnet.nearblocks.io/txns/9g3P59KN422aEmMbk1wB4xxU3qLZEK8Ex3crwACV18Uh",
+   "error": "{\"index\":0,\"kind\":{\"index\":0,\"kind\":{\"FunctionCallError\":{\"ExecutionError\":\"Exceeded the prepaid gas.\"}}}}",
+   "at": "2026-11-11T07:12:51.192Z",
+   "caller": "deathstalker-sl-7.testnet"
+  },
+  {
+   "name": "settle",
+   "ok": true,
+   "tx": "2GhCfVL8K79BPvQB68hv7zFHFDSdVSp3DYc5FrckhD6H",
+   "link": "https://testnet.nearblocks.io/txns/2GhCfVL8K79BPvQB68hv7zFHFDSdVSp3DYc5FrckhD6H",
+   "gas_burnt": "51867888052663",
+   "at": "2026-11-11T07:13:06.953Z"
+  }
+ ],
+ "bids": [],
+ "clearing": {
+  "p_star": "257439600000000000000",
+  "sold": "1000000000000000000000",
+  "burned": "0",
+  "raise": "257439600000000000000000",
+  "alloc_root": "8ce6e7c33249df927833a2ea8862bed7a6a1c733f06e7ef8c66b9c9c116d6dfb",
+  "leaf_count": 94,
+  "input_hash": "d90452b964b9b9a928226b202df13bec3950039ab5571800b46707471ad04199",
+  "status": "Cleared",
+  "verified_onchain": true
+ },
+ "lp_status": "Done",
+ "claims_ok": 0,
+ "verify": {
+  "sale": "sale-n100.sealedlaunch.deathstalker-sl.testnet",
+  "status": "Settled",
+  "pass": true,
+  "checks": [
+   {
+    "name": "sale account has 0 access keys",
+    "level": "PASS",
+    "expected": "0",
+    "actual": "0"
+   },
+   {
+    "name": "sale wasm sha256 == factory's current embedded sale wasm",
+    "level": "PASS",
+    "expected": "84068b3e9268313b9de9567ef7e2e75f68eb9f6684d03df01d4307f60bbfe670",
+    "actual": "84068b3e9268313b9de9567ef7e2e75f68eb9f6684d03df01d4307f60bbfe670",
+    "note": "older sales deployed before a sale-wasm fix legitimately differ"
+   },
+   {
+    "name": "sale lives under the factory account",
+    "level": "PASS",
+    "expected": "*.sealedlaunch.deathstalker-sl.testnet",
+    "actual": "sale-n100.sealedlaunch.deathstalker-sl.testnet"
+   },
+   {
+    "name": "sale.params.factory == factory in deployments.json",
+    "level": "PASS",
+    "expected": "sealedlaunch.deathstalker-sl.testnet",
+    "actual": "sealedlaunch.deathstalker-sl.testnet"
+   },
+   {
+    "name": "bid_count == number of slots read",
+    "level": "PASS",
+    "expected": "100",
+    "actual": "100"
+   },
+   {
+    "name": "sum(slot deposits) == get_deposits_total",
+    "level": "PASS",
+    "expected": "428044853000000000000000",
+    "actual": "428044853000000000000000"
+   },
+   {
+    "name": "fees_accrued == bid_count * bid_fee (+ any bonds/slashes)",
+    "level": "PASS",
+    "expected": "100000000000000000000000",
+    "actual": "100000000000000000000000",
+    "note": "can differ legitimately after cancel/slash flows"
+   },
+   {
+    "name": "P* recomputed == on-chain p_star",
+    "level": "PASS",
+    "expected": "257439600000000000000",
+    "actual": "257439600000000000000"
+   },
+   {
+    "name": "alloc_root recomputed == on-chain",
+    "level": "PASS",
+    "expected": "8ce6e7c33249df927833a2ea8862bed7a6a1c733f06e7ef8c66b9c9c116d6dfb",
+    "actual": "8ce6e7c33249df927833a2ea8862bed7a6a1c733f06e7ef8c66b9c9c116d6dfb"
+   },
+   {
+    "name": "leaf_count recomputed == on-chain",
+    "level": "PASS",
+    "expected": "94",
+    "actual": "94"
+   },
+   {
+    "name": "input_hash recomputed == on-chain",
+    "level": "PASS",
+    "expected": "d90452b964b9b9a928226b202df13bec3950039ab5571800b46707471ad04199",
+    "actual": "d90452b964b9b9a928226b202df13bec3950039ab5571800b46707471ad04199"
+   },
+   {
+    "name": "sold recomputed == on-chain",
+    "level": "PASS",
+    "expected": "1000000000000000000000",
+    "actual": "1000000000000000000000"
+   },
+   {
+    "name": "burned recomputed == on-chain",
+    "level": "PASS",
+    "expected": "0",
+    "actual": "0"
+   },
+   {
+    "name": "raise recomputed == on-chain",
+    "level": "PASS",
+    "expected": "257439600000000000000000",
+    "actual": "257439600000000000000000"
+   },
+   {
+    "name": "sold + burned == auction_supply",
+    "level": "PASS",
+    "expected": "1000000000000000000000",
+    "actual": "1000000000000000000000"
+   },
+   {
+    "name": "P* >= reserve_price",
+    "level": "PASS",
+    "expected": ">= 200000000000000000000",
+    "actual": "257439600000000000000"
+   },
+   {
+    "name": "on-chain recompute flag (verified_onchain)",
+    "level": "PASS",
+    "expected": "true",
+    "actual": "true",
+    "note": "false = result accepted above recompute cap / via challenge window"
+   },
+   {
+    "name": "every filled bid offered >= P* (uniform price)",
+    "level": "PASS",
+    "expected": "true",
+    "actual": "true",
+    "note": "93 filled slots"
+   },
+   {
+    "name": "every leaf Merkle proof verifies against alloc_root",
+    "level": "PASS",
+    "expected": "true",
+    "actual": "true"
+   },
+   {
+    "name": "per-bidder: refund == deposit - ceil(P* * tokens)",
+    "level": "PASS",
+    "expected": "true",
+    "actual": "true"
+   },
+   {
+    "name": "sum(per-bidder cost) == raise",
+    "level": "PASS",
+    "expected": "257439600000000000000000",
+    "actual": "257439600000000000000000"
+   },
+   {
+    "name": "CONSERVATION: sum(deposits) == raise + sum(refunds)",
+    "level": "PASS",
+    "expected": "428044853000000000000000",
+    "actual": "428044853000000000000000",
+    "note": "deposits are net of bid fees"
+   },
+   {
+    "name": "CONSERVATION incl. fees: sum(deposits)+n*fee == raise + sum(refunds) + fees_accrued",
+    "level": "PASS",
+    "expected": "528044853000000000000000",
+    "actual": "528044853000000000000000"
+   }
+  ],
+  "summary": {
+   "bids": 100,
+   "status": "Settled",
+   "mode": "Tee",
+   "lp_status": "Done",
+   "deposits_total": "428044853000000000000000",
+   "fees_accrued": "100000000000000000000000",
+   "p_star": "257439600000000000000",
+   "sold": "1000000000000000000000",
+   "raise": "257439600000000000000000",
+   "burned": "0",
+   "alloc_root": "8ce6e7c33249df927833a2ea8862bed7a6a1c733f06e7ef8c66b9c9c116d6dfb",
+   "leaf_count": 94,
+   "input_hash": "d90452b964b9b9a928226b202df13bec3950039ab5571800b46707471ad04199",
+   "sum_refunds": "170605253000000000000000",
+   "sum_deposits": "428044853000000000000000",
+   "fill_rate_pct": 100
+  },
+  "bidders": [
+   {
+    "bidder": "bf-1.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-10.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-11.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-12.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-13.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-14.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-15.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-16.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-17.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-18.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-19.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-2.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-20.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-21.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-22.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-23.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-24.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-25.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-26.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-27.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-28.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-29.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-3.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-30.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-31.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-32.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-33.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-34.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-35.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-36.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-37.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-38.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-39.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-4.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-40.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-41.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-42.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-43.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-44.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-45.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-46.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-47.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-48.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-49.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-5.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-50.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-6.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-7.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-8.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-9.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-1.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-10.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-11.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-12.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-13.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-14.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-15.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-16.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-17.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-18.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-19.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-2.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-20.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-21.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-22.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-23.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-24.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-25.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-26.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-27.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-28.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-29.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-3.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-30.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-4.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-5.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-6.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-7.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-8.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bl-9.deathstalker-sl.testnet",
+    "tokens": "6250000000000000000",
+    "refund": "266002500000000000000",
+    "cost": "1608997500000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb2-1.deathstalker-sl.testnet",
+    "tokens": "27000000000000000000",
+    "refund": "15148453000000000000000",
+    "cost": "6950869200000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb2-2.deathstalker-sl.testnet",
+    "tokens": "56000000000000000000",
+    "refund": "18565320000000000000000",
+    "cost": "14416617600000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb2-3.deathstalker-sl.testnet",
+    "tokens": "62000000000000000000",
+    "refund": "27520752200000000000000",
+    "cost": "15961255200000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb2-4.deathstalker-sl.testnet",
+    "tokens": "33000000000000000000",
+    "refund": "26753588600000000000000",
+    "cost": "8495506800000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb2-5.deathstalker-sl.testnet",
+    "tokens": "24000000000000000000",
+    "refund": "27485625200000000000000",
+    "cost": "6178550400000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb2-6.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "8765130600000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-1.deathstalker-sl.testnet",
+    "tokens": "20000000000000000000",
+    "refund": "4633912800000000000000",
+    "cost": "5148792000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-2.deathstalker-sl.testnet",
+    "tokens": "34000000000000000000",
+    "refund": "439341200000000000000",
+    "cost": "8752946400000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-3.deathstalker-sl.testnet",
+    "tokens": "56000000000000000000",
+    "refund": "1545465600000000000000",
+    "cost": "14416617600000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-4.deathstalker-sl.testnet",
+    "tokens": "18000000000000000000",
+    "refund": "799956000000000000000",
+    "cost": "4633912800000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-5.deathstalker-sl.testnet",
+    "tokens": "36000000000000000000",
+    "refund": "2304633600000000000000",
+    "cost": "9267825600000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-6.deathstalker-sl.testnet",
+    "tokens": "44000000000000000000",
+    "refund": "3832831200000000000000",
+    "cost": "11327342400000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-7.deathstalker-sl.testnet",
+    "tokens": "55000000000000000000",
+    "refund": "6316849000000000000000",
+    "cost": "14159178000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-8.deathstalker-sl.testnet",
+    "tokens": "35000000000000000000",
+    "refund": "5213194000000000000000",
+    "cost": "9010386000000000000000",
+    "proofOk": true
+   }
+  ]
+ }
+}

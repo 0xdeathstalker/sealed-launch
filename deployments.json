@@ -139,6 +139,144 @@
         ],
         "settle_with_ref_lp": "6PyY1jBkhyWHJMpP9YB3BKXgs4jCRV7uJ9pCaCQbn67P"
       }
+    },
+    "n30": {
+      "account": "sale-n30.sealedlaunch.deathstalker-sl.testnet",
+      "purpose": "scale run: 30 house bids from 8 hb3-* wallets (house-only)",
+      "creator": "deathstalker-sl-4.testnet",
+      "sale_wasm_sha256": "84068b3e9268313b9de9567ef7e2e75f68eb9f6684d03df01d4307f60bbfe670",
+      "access_keys_on_chain": 0,
+      "bids_on_chain": 30,
+      "p_star": "200000000000000000000",
+      "evidence": ["scripts/evidence/sale-n30.sealedlaunch.deathstalker-sl.testnet.json", "scripts/evidence/verify-sale-n30.sealedlaunch.deathstalker-sl.testnet.txt"],
+      "txs": {
+        "create_sale": null,
+        "create_sale_note": "created by an earlier runner invocation; tx hash not recorded in scripts/evidence",
+        "house_bids": "30 txs in the evidence json, steps[name=bids].txs",
+        "finalize_real_outlayer_cleared": "3UTkRa3giNifwJRnCNP6gq8R2XXdyQukijHYQi4yNvJt",
+        "settle_with_ref_lp": "6HbavGHKGXqQDrbjLqk9h1vLrFoE5TcAmE7ELjXWV3DF"
+      }
+    },
+    "n50": {
+      "account": "sale-n50.sealedlaunch.deathstalker-sl.testnet",
+      "purpose": "scale run: 50 house bids planned, 39 landed (11 failed on RPC 429), from 10 hb4-* wallets. The sniper 'first' attempt on this sale landed 0 of 50 (failed run, scripts/evidence/sniper-first-n50.json)",
+      "creator": "deathstalker-sl-3.testnet",
+      "sale_wasm_sha256": "84068b3e9268313b9de9567ef7e2e75f68eb9f6684d03df01d4307f60bbfe670",
+      "access_keys_on_chain": 0,
+      "bids_on_chain": 39,
+      "p_star": "384000000000000000000",
+      "evidence": ["scripts/evidence/sale-n50.sealedlaunch.deathstalker-sl.testnet.json", "scripts/evidence/verify-sale-n50.sealedlaunch.deathstalker-sl.testnet.txt", "scripts/evidence/sniper-first-n50.json"],
+      "txs": {
+        "create_sale": null,
+        "create_sale_note": "created by an earlier runner invocation; tx hash not recorded in scripts/evidence",
+        "house_bids": "50 attempts (39 ok) in the evidence json, steps[name=bids].txs",
+        "finalize_real_outlayer_cleared": "DuCJC2WXDg1GDwcDXFvd9Uy25qbHRNWTA6ckLinmc5jv",
+        "settle_with_ref_lp": "8YN6ckBT6nz5DihGGs1tWsJvZ33HZbSHomwDsTCFg3Jt"
+      }
+    },
+    "n10": {
+      "account": "sale-n10.sealedlaunch.deathstalker-sl.testnet",
+      "purpose": "sniper 'first' run: 50 bot bids (bf-* wallets, landed 298-309 s before the deadline) + 10 house bids = 60 bids; also the target of the live attack suite (bidding window and cleared)",
+      "creator": "deathstalker-sl-5.testnet",
+      "sale_wasm_sha256": "84068b3e9268313b9de9567ef7e2e75f68eb9f6684d03df01d4307f60bbfe670",
+      "access_keys_on_chain": 0,
+      "bids_on_chain": 60,
+      "p_star": "260752454000000000000",
+      "evidence": ["scripts/evidence/sale-n10.sealedlaunch.deathstalker-sl.testnet.json", "scripts/evidence/verify-sale-n10.sealedlaunch.deathstalker-sl.testnet.txt", "scripts/evidence/sniper-first-n10.json", "scripts/evidence/attacks-sale-n10.sealedlaunch.deathstalker-sl.testnet.bidding-window.md", "scripts/evidence/attacks-sale-n10.sealedlaunch.deathstalker-sl.testnet.cleared.md"],
+      "txs": {
+        "create_sale": "7UfGEYQPhEYeWoFJYaMPAMP64YWZ7kXcPurPvBD9JgcE",
+        "house_bids": "10 txs in the evidence json, steps[name=bids].txs; 50 bot bid txs in sniper-first-n10.json",
+        "finalize_real_outlayer_cleared": "2qF97doT9vqfrJ7i4hYXhzWqjwLXcsdGzYUnNat6BWYF",
+        "settle_with_ref_lp": "AkZ5RwqMf7QBAAcAxbkeoUhPAdsGTemmgYCJ81XbSuok",
+        "attack_bidding_window": {
+          "forged_on_clear_rejected": "5jSaoQQ1gYqcxeK7TKKWeqK3VEA93p7ZYsAqExEh1qcy",
+          "finalize_while_bidding_rejected": "J5r1aniCxKHB189byMi66iRjdtAJUQ3XHuHNysogsSgf",
+          "refund_not_refund_mode_rejected": "Dx7Qz3iqV3fTWXHByjYaVcxhDvZpqSi5Y8r9fuY7XHTh"
+        },
+        "attack_cleared": {
+          "forged_on_clear_rejected": "CHDdVLtToNXCqYFzb5Rgk72ap23FKtJR2xcKE6Sx1zU4",
+          "claim_tokens_plus_1_rejected": "BpxKrsZ4EHGhhBMCVVaymQzWmZj3oRSWZNGwdPHbgoZk",
+          "claim_refund_plus_1_rejected": "5hQB9U7YSbTg7fPaAJEJTnih7DeZR7QCppUpwD1k3Zpf",
+          "claim_empty_proof_rejected": "46s8fQcpSkjdznx8e6YisRBx6pDn2Cz3UfNbQESFaiGN",
+          "claim_name_swap_rejected": "FkT7Ew1jSyKeWwLvR2ZCxAhELvkk14HRG4MhRKCmRjJ3",
+          "double_claim_setup_first_claim": "6aT2ev6R8gyW59Zv2SfsmCPVQhfuWNQjxpeGfVWPfGd7",
+          "double_claim_rejected": "G8txPx6TQZfVBPUDLsv22ZLzDv8mV7u8M9Vqt1sXXQ7B",
+          "bid_after_deadline_rejected": "D67FQqTcA3UcdRs3acRBSUkjhMbhRRb4CYGuJiEq44UC",
+          "finalize_on_cleared_rejected": "Cf8Bppg3Pk3GUMBBnSgkWij8Y28WhJuVBRhXAw9Fypos",
+          "refund_not_refund_mode_rejected": "B8Q1Uuo2jJ225rTqogvuBhaVuRkrR4vkwkL1LQx4Qnjo"
+        }
+      }
+    },
+    "n20b": {
+      "account": "sale-n20b.sealedlaunch.deathstalker-sl.testnet",
+      "purpose": "house-only run: 16 of 20 house bids landed (4 underfunded). The sniper 'last' attempt on this sale landed 0 of 50 (failed run, scripts/evidence/sniper-last-n20b.json)",
+      "creator": "deathstalker-sl-6.testnet",
+      "sale_wasm_sha256": "84068b3e9268313b9de9567ef7e2e75f68eb9f6684d03df01d4307f60bbfe670",
+      "access_keys_on_chain": 0,
+      "bids_on_chain": 16,
+      "p_star": "210328800000000000000",
+      "evidence": ["scripts/evidence/sale-n20b.sealedlaunch.deathstalker-sl.testnet.json", "scripts/evidence/verify-sale-n20b.sealedlaunch.deathstalker-sl.testnet.txt", "scripts/evidence/sniper-last-n20b.json"],
+      "txs": {
+        "create_sale": "31ksWqxhsq8DjBkiXz2nkoevi3BYuE2SFb2doD69C9n2",
+        "house_bids": "20 attempts (16 ok) in the evidence json, steps[name=bids].txs",
+        "finalize_real_outlayer_cleared": "8ATF5exEBkzNWX1sbiCruA3jYrZo2oQPMw4f7AzDW2aP",
+        "settle_with_ref_lp": "CTFh34PVHS9yXSVHrtDm35WudervDZ3sJ8NkTAcDNrAU"
+      }
+    },
+    "n20c": {
+      "account": "sale-n20c.sealedlaunch.deathstalker-sl.testnet",
+      "purpose": "NOT EVIDENCE for bot-vs-honest: house bids were never placed (operator shell bug), 44 of 50 sniper 'last' bids landed, so it is a bot-only sale that cleared at the reserve price. Kept because it settled and verifies",
+      "creator": "deathstalker-sl-8.testnet",
+      "sale_wasm_sha256": "84068b3e9268313b9de9567ef7e2e75f68eb9f6684d03df01d4307f60bbfe670",
+      "access_keys_on_chain": 0,
+      "bids_on_chain": 44,
+      "p_star": "200000000000000000000",
+      "evidence": ["scripts/evidence/sale-n20c.sealedlaunch.deathstalker-sl.testnet.json", "scripts/evidence/verify-sale-n20c.sealedlaunch.deathstalker-sl.testnet.txt", "scripts/evidence/sniper-last-n20c.json"],
+      "txs": {
+        "create_sale": "AhvsuEU4cqCqZ4FPmGZFvuXBBa6MqECJqFHkFJN9bbox",
+        "create_sale_source": "scripts/out/logs/n20c.log (not in the evidence json); confirmed on chain by RPC tx lookup",
+        "bot_bids": "50 attempts (44 ok) in sniper-last-n20c.json",
+        "finalize_real_outlayer_cleared": "3qGgzLXGtXfs88RV8BdUGdfJdgkeTQNL3PLwKhiVMN3k",
+        "settle_with_ref_lp": "B2REKmtbvsGCS7b4L2V7aCTz1ukQ3Dye11zkwogaoSf2"
+      }
+    },
+    "n20d": {
+      "account": "sale-n20d.sealedlaunch.deathstalker-sl.testnet",
+      "purpose": "sniper 'last' run: 50 bot bids (bf-* wallets, landed 2.4-17.6 s before the deadline) + 19 of 20 house bids = 69 bids",
+      "creator": "deathstalker-sl-9.testnet",
+      "sale_wasm_sha256": "84068b3e9268313b9de9567ef7e2e75f68eb9f6684d03df01d4307f60bbfe670",
+      "access_keys_on_chain": 0,
+      "bids_on_chain": 69,
+      "p_star": "270361400000000000000",
+      "evidence": ["scripts/evidence/sale-n20d.sealedlaunch.deathstalker-sl.testnet.json", "scripts/evidence/verify-sale-n20d.sealedlaunch.deathstalker-sl.testnet.txt", "scripts/evidence/sniper-last-n20d.json"],
+      "txs": {
+        "create_sale": "2nafGAMsZB147J6pdrYChPHmdixyxoKtwz9XF6UCAYCy",
+        "house_bids": "20 attempts (19 ok) in the evidence json, steps[name=bids].txs; 50 bot bid txs in sniper-last-n20d.json",
+        "finalize_real_outlayer_cleared": "4jL5UEFtAZsWPeSAT7LfNbUvGYHP4sfcq3LWMGmJrtVZ",
+        "settle_with_ref_lp": "22K7xGnHgzommCGafKnkYfq97V3FFcfH6t2GsYvompH9"
+      }
+    },
+    "n100": {
+      "account": "sale-n100.sealedlaunch.deathstalker-sl.testnet",
+      "purpose": "sniper 'split' run: 80 bl-* wallets all bidding 0.0003 NEAR/token + 20 house bids = 100 bids. First finalize with a flat 0.1 NEAR deposit was rejected by OutLayer (needed 0.1745305 NEAR); retried with 0.5 NEAR inside the refund window",
+      "creator": "deathstalker-sl-7.testnet",
+      "sale_wasm_sha256": "84068b3e9268313b9de9567ef7e2e75f68eb9f6684d03df01d4307f60bbfe670",
+      "access_keys_on_chain": 0,
+      "bids_on_chain": 100,
+      "p_star": "257439600000000000000",
+      "evidence": ["scripts/evidence/sale-n100.sealedlaunch.deathstalker-sl.testnet.json", "scripts/evidence/verify-sale-n100.sealedlaunch.deathstalker-sl.testnet.txt", "scripts/evidence/sniper-split-n100.json"],
+      "txs": {
+        "create_sale": "DQJmCGyxVEMjVmFZqfXkbZHYbTny95nhCFh2KVtWiZZh",
+        "create_sale_source": "scripts/out/logs/n100-create-fetchfailed.log (the runner saw 'fetch failed' but the tx succeeded); confirmed on chain by RPC tx lookup",
+        "house_bids": null,
+        "house_bids_note": "20 of 20 accepted per scripts/out/logs/n100.log; their tx hashes were not saved (that runner run died at finalize)",
+        "bot_bids": "80 txs in sniper-split-n100.json",
+        "finalize_rejected_outlayer_insufficient_payment_0_1_near": "3h4JaX8NU7vCAffTB7wAkWMsRjFWkmDaCKRrAN7vWZjN",
+        "finalize_rejected_source": "scripts/out/logs/n100.log; confirmed on chain by RPC tx lookup (outlayer.testnet receipt failed: required 174530500000000000000000 yocto, got 100000000000000000000000)",
+        "finalize_real_outlayer_cleared": "Bxm8JevV474zfbuLTRCo2Eb4vLXQgYrxtPEWxhTaidCD",
+        "settle_with_ref_lp": "2GhCfVL8K79BPvQB68hv7zFHFDSdVSp3DYc5FrckhD6H",
+        "claims": "94 runner claims failed (12 Tgas too low, recorded in the evidence json); all 94 leaves then claimed by scripts/evidence/claimrest.mts with 30 Tgas, tx hashes not saved"
+      }
     }
   }
 }

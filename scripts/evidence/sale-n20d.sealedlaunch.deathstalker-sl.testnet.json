@@ -1,0 +1,1756 @@
+{
+ "sale": "sale-n20d.sealedlaunch.deathstalker-sl.testnet",
+ "factory": "sealedlaunch.deathstalker-sl.testnet",
+ "created_at_ms": 1794379433926,
+ "bid_end_ms": 1794379740065,
+ "params": {
+  "symbol": "N20D",
+  "token_name": "SealedLaunch n20d",
+  "icon": null,
+  "token_decimals": 18,
+  "auction_supply": "1000000000000000000000",
+  "lp_token_reserve": "501000000000000000000",
+  "creator_supply": "100000000000000000000",
+  "reserve_price": "200000000000000000000",
+  "min_size": "1000000000000000000",
+  "bid_fee": "1000000000000000000000",
+  "payment_token": null,
+  "bid_end_ms": "1794379740065",
+  "challenge_secs": 30,
+  "lp_bps": 5000,
+  "vesting_secs": 600,
+  "outlayer_project": "deathstalker-sl.testnet/sealedlaunch",
+  "code_hash": "607df359c7c0f340aba2cc9cc0eabefbb2785466f395855b839e2568195307b6",
+  "max_bids": 100,
+  "creator": "deathstalker-sl-9.testnet",
+  "factory": "sealedlaunch.deathstalker-sl.testnet",
+  "outlayer": "outlayer.testnet",
+  "finalize_timeout_secs": 420,
+  "recompute_cap": 200,
+  "mode": null,
+  "reveal_secs": 0,
+  "reveal_bond": "0",
+  "pubkey": null,
+  "ref_exchange": "ref-finance-101.testnet",
+  "wnear": "wrap.testnet"
+ },
+ "row": {
+  "sale": "sale-n20d.sealedlaunch.deathstalker-sl.testnet",
+  "bids": 69,
+  "p_star_near": "0.000270",
+  "fill_rate_pct": 100,
+  "raise_near": "0.270361",
+  "lp_funds_near": "0.135181",
+  "lp_tokens": "500",
+  "burn_tokens": "1",
+  "finalize_to_on_clear_s": 8.519,
+  "finalize_to_on_clear_wall_s": 1.147,
+  "gas_total_tgas": 656.438,
+  "gas_cost_near": "0.065644",
+  "outlayer_net_cost_near": "0.001002",
+  "creation_deposit_near": "5.004230",
+  "verify_pass": true
+ },
+ "steps": [
+  {
+   "name": "create_sale",
+   "ok": true,
+   "tx": "2nafGAMsZB147J6pdrYChPHmdixyxoKtwz9XF6UCAYCy",
+   "link": "https://testnet.nearblocks.io/txns/2nafGAMsZB147J6pdrYChPHmdixyxoKtwz9XF6UCAYCy",
+   "gas_burnt": "79247357033923",
+   "at": "2026-11-11T06:43:53.925Z"
+  },
+  {
+   "name": "bids",
+   "ok": false,
+   "accepted": 19,
+   "total": 20,
+   "txs": [
+    "ESVPZegZcUotxS1KXJmrakwiu3GJjuEnWRTNFtK941bJ",
+    "94daUSYHXjPhD4hJ8sj5bunbWkaTTkKFMg2yfyv2xWp6",
+    "29vaq5Gjw4qboWdtQTLr8oJp6KrZVh3uzxSGCZbKrwps",
+    "2zA7461Kke5HERgY9uJ4r5dsRBtGbPNQAokhX8Siru26",
+    "FCWNS9iQGKV1qdP9zeHZRA56oPw7JMvNzzUdT5mUFMoe",
+    "5QuJkXjZVWau2hqKzVgLzEvGmPeMLfRoC5qCoKcRZ76c",
+    "6yJ4QCjaXg5GfAvgTv7MokhmpDCucSkdb8WyHkSksSC3",
+    "6g85aDmvJ2jE9AG2K1DeT2KidRdUd2bBp5UXCmmn2eoP",
+    "g3FmVv43f89H7yYTkks7YgKkhEEaEVJU8uGPFjHSJMZ",
+    "8fGpTGvecoVxtcsanaaMLrnsexpETZWiPW4nFsYXb4Dj",
+    "HSRQ5RqjJ6yeFZBdrPcsBBnrnYEdN9CfizZoyUuKBrUz",
+    "35c4HCsY4hbCNaKbbrp4qyHmD1AUro9cGgNgdvKDvbHH",
+    "DtpANrLkUiLt2LPWeZMVfPiBWAxPsP9LMaTLutpDMFGx",
+    "AJqZptBw2xm8EsbfkVvC1YwkuhUEu3TMfKdMJMM8b7is",
+    "oz4stZ2QvPbPRjMZ6bj5PxKmdgw3nHEkf8r8byUL6uh",
+    "ArXzAcXBK57bHVuz4M1VwdbuFPziMusdUcL6fcVUtr4q",
+    "31zADh3G2dMiuYNaq4oNd8RV7TKAMSyqDYgqAxGWDoAs",
+    "6NygsLHf2ztYLwMNcSwwdWHv3ejsAzBujvWhpywMLYb7",
+    "7LPGFVp7LdkMSZnufG5ZWL4t8ixCWJyydeNNk549vzgg",
+    "4tXyvqUo34ovd47Rhq8Q6BgFQ8xWS13q2iebtuUovH92"
+   ]
+  },
+  {
+   "name": "finalize",
+   "ok": true,
+   "tx": "4jL5UEFtAZsWPeSAT7LfNbUvGYHP4sfcq3LWMGmJrtVZ",
+   "link": "https://testnet.nearblocks.io/txns/4jL5UEFtAZsWPeSAT7LfNbUvGYHP4sfcq3LWMGmJrtVZ",
+   "gas_burnt": "65673227718839",
+   "at": "2026-11-11T06:50:21.049Z",
+   "gas_prepaid": "155221888000000"
+  },
+  {
+   "name": "claim bf-11.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "7mm2DGmZgxfnoSwXDo9tvNxq2mLDDNRCsbZmBvpe4nSx",
+   "link": "https://testnet.nearblocks.io/txns/7mm2DGmZgxfnoSwXDo9tvNxq2mLDDNRCsbZmBvpe4nSx",
+   "gas_burnt": "6188799041859",
+   "at": "2026-11-11T06:51:07.013Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-1.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "EtLU9kvPeA68zr6kMNZ74siFTQhsbN22eMLioisnNKFE",
+   "link": "https://testnet.nearblocks.io/txns/EtLU9kvPeA68zr6kMNZ74siFTQhsbN22eMLioisnNKFE",
+   "gas_burnt": "5513701975575",
+   "at": "2026-11-11T06:51:14.168Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-12.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "C7NVCgrij6pVf39FMVcbnZ2mDoi6ViGxSMStVWBenBdJ",
+   "link": "https://testnet.nearblocks.io/txns/C7NVCgrij6pVf39FMVcbnZ2mDoi6ViGxSMStVWBenBdJ",
+   "gas_burnt": "6200119234527",
+   "at": "2026-11-11T06:51:20.824Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-14.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "C2pqUxk59FaBGPsjMVUrjxa8nR3JnGbaf1MxUXWUyv6c",
+   "link": "https://testnet.nearblocks.io/txns/C2pqUxk59FaBGPsjMVUrjxa8nR3JnGbaf1MxUXWUyv6c",
+   "gas_burnt": "6204180934738",
+   "at": "2026-11-11T06:51:27.478Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-10.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "BzGqM3o91MUeHvtb7i4LErqz2Xr5xWgmeQpSQGvDrq6W",
+   "link": "https://testnet.nearblocks.io/txns/BzGqM3o91MUeHvtb7i4LErqz2Xr5xWgmeQpSQGvDrq6W",
+   "gas_burnt": "6204181757494",
+   "at": "2026-11-11T06:51:34.338Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-13.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "xCRfDWL4PcN55eNjGMhr1bkUFc4fBwcnTE6UeZWk9TA",
+   "link": "https://testnet.nearblocks.io/txns/xCRfDWL4PcN55eNjGMhr1bkUFc4fBwcnTE6UeZWk9TA",
+   "gas_burnt": "6203520552017",
+   "at": "2026-11-11T06:51:40.729Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-15.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "3VXX6XX4cEB9UnpfVFjis8zSnLn8V7CaeSkhYaL9ZJxT",
+   "link": "https://testnet.nearblocks.io/txns/3VXX6XX4cEB9UnpfVFjis8zSnLn8V7CaeSkhYaL9ZJxT",
+   "gas_burnt": "6204190807810",
+   "at": "2026-11-11T06:51:47.444Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-16.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "F1mnDKjr4gwSCMGh6j6H7J96Xh2oh8uutXeTKMLjvBt3",
+   "link": "https://testnet.nearblocks.io/txns/F1mnDKjr4gwSCMGh6j6H7J96Xh2oh8uutXeTKMLjvBt3",
+   "gas_burnt": "5521389408902",
+   "at": "2026-11-11T06:51:54.149Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-17.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "J5gD7g9R1mDZ9HcvGmhFZFvNvvVWGuvkUTWryP5T1aHH",
+   "link": "https://testnet.nearblocks.io/txns/J5gD7g9R1mDZ9HcvGmhFZFvNvvVWGuvkUTWryP5T1aHH",
+   "gas_burnt": "6204023788342",
+   "at": "2026-11-11T06:52:00.561Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-18.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "1RKFQoH4H6wcEDHHqUw6ZQfBLSaprDsYsELEoMRkiHH",
+   "link": "https://testnet.nearblocks.io/txns/1RKFQoH4H6wcEDHHqUw6ZQfBLSaprDsYsELEoMRkiHH",
+   "gas_burnt": "6204022965586",
+   "at": "2026-11-11T06:52:07.583Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-19.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "HF5pYoaB2oFVt4b5dDYTBB45fBuxmq9jL28SzVKdsuaz",
+   "link": "https://testnet.nearblocks.io/txns/HF5pYoaB2oFVt4b5dDYTBB45fBuxmq9jL28SzVKdsuaz",
+   "gas_burnt": "6203425197920",
+   "at": "2026-11-11T06:52:14.487Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-2.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "E8bX2NVD3x7hm1fEmgvA8mgStBKu9xrsXvXiM9jSoopP",
+   "link": "https://testnet.nearblocks.io/txns/E8bX2NVD3x7hm1fEmgvA8mgStBKu9xrsXvXiM9jSoopP",
+   "gas_burnt": "6197319974610",
+   "at": "2026-11-11T06:52:20.632Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-20.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "HFyvD7mqn5tnggJKKMxzVWRV5B1gzdDQnMfqyAS1DGMa",
+   "link": "https://testnet.nearblocks.io/txns/HFyvD7mqn5tnggJKKMxzVWRV5B1gzdDQnMfqyAS1DGMa",
+   "gas_burnt": "5519199174905",
+   "at": "2026-11-11T06:52:25.518Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-21.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "EYZVUxrf7p1dTyhQdXnKWoF6ZkdFSFSnixWHNTmQyGPp",
+   "link": "https://testnet.nearblocks.io/txns/EYZVUxrf7p1dTyhQdXnKWoF6ZkdFSFSnixWHNTmQyGPp",
+   "gas_burnt": "5523748479077",
+   "at": "2026-11-11T06:52:30.750Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-22.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "E4wv9Aib9Q5HZ12vttENDXdq6uxFMZSMV1HFc78n916h",
+   "link": "https://testnet.nearblocks.io/txns/E4wv9Aib9Q5HZ12vttENDXdq6uxFMZSMV1HFc78n916h",
+   "gas_burnt": "6208648871665",
+   "at": "2026-11-11T06:52:36.877Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-23.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "C8DUj5MW7yAdp2NDQrdSu7sBvCwoEbRHfXnJSNrfPZ99",
+   "link": "https://testnet.nearblocks.io/txns/C8DUj5MW7yAdp2NDQrdSu7sBvCwoEbRHfXnJSNrfPZ99",
+   "gas_burnt": "6213119191261",
+   "at": "2026-11-11T06:52:43.454Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-24.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "7tp3Jiqf4BNjoyUdB3qUFGBhDh3bsNheGyFhxsnT39b6",
+   "link": "https://testnet.nearblocks.io/txns/7tp3Jiqf4BNjoyUdB3qUFGBhDh3bsNheGyFhxsnT39b6",
+   "gas_burnt": "6215470771033",
+   "at": "2026-11-11T06:52:49.604Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-25.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "FJKckmZbhR68XHQxpyEx1aEVL5Hs5EnKLLCMfRgfciTd",
+   "link": "https://testnet.nearblocks.io/txns/FJKckmZbhR68XHQxpyEx1aEVL5Hs5EnKLLCMfRgfciTd",
+   "gas_burnt": "5525970063401",
+   "at": "2026-11-11T06:52:55.784Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-26.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "9uFKiFGrbyeXg8auQ9AwyhY881LLXzb7QPuSiorrYnAH",
+   "link": "https://testnet.nearblocks.io/txns/9uFKiFGrbyeXg8auQ9AwyhY881LLXzb7QPuSiorrYnAH",
+   "gas_burnt": "6215489694421",
+   "at": "2026-11-11T06:53:01.760Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-27.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "GQfrAGvRA93Vcuj36WwU2ajwNKSUKH9ptTyDMeCkfPMD",
+   "link": "https://testnet.nearblocks.io/txns/GQfrAGvRA93Vcuj36WwU2ajwNKSUKH9ptTyDMeCkfPMD",
+   "gas_burnt": "6215459252449",
+   "at": "2026-11-11T06:53:08.144Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-28.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "AfWgz5jpyrJK5S5rTVXM3Q2zaAPJ7qutuZbUvXTEhsHd",
+   "link": "https://testnet.nearblocks.io/txns/AfWgz5jpyrJK5S5rTVXM3Q2zaAPJ7qutuZbUvXTEhsHd",
+   "gas_burnt": "6215420582917",
+   "at": "2026-11-11T06:53:15.033Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-29.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "4Z679AVQb5hCvkAiV614pZuF3E8JPagwJksCAuAtT4Yb",
+   "link": "https://testnet.nearblocks.io/txns/4Z679AVQb5hCvkAiV614pZuF3E8JPagwJksCAuAtT4Yb",
+   "gas_burnt": "5525919875285",
+   "at": "2026-11-11T06:53:21.661Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-3.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "F7MxYR4bft19RMsVqERrm9eqNj73kdEHgERLryfThUWr",
+   "link": "https://testnet.nearblocks.io/txns/F7MxYR4bft19RMsVqERrm9eqNj73kdEHgERLryfThUWr",
+   "gas_burnt": "5520593894802",
+   "at": "2026-11-11T06:53:28.545Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-30.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "EqDmZ1MLBga8uWPw7ssqsWaJtghdVkqUFg93rPD1Er9h",
+   "link": "https://testnet.nearblocks.io/txns/EqDmZ1MLBga8uWPw7ssqsWaJtghdVkqUFg93rPD1Er9h",
+   "gas_burnt": "5521408417889",
+   "at": "2026-11-11T06:53:35.883Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-31.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "3wgwYXC7gp2qeF1paWPKCPH3U6vH5MZWaTPD5MQvbd5m",
+   "link": "https://testnet.nearblocks.io/txns/3wgwYXC7gp2qeF1paWPKCPH3U6vH5MZWaTPD5MQvbd5m",
+   "gas_burnt": "6208541090629",
+   "at": "2026-11-11T06:53:42.544Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-32.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "5LWWwbcUqoPCJJ9aMUM6u3Jo7GMi3iGD4GTcacio36ff",
+   "link": "https://testnet.nearblocks.io/txns/5LWWwbcUqoPCJJ9aMUM6u3Jo7GMi3iGD4GTcacio36ff",
+   "gas_burnt": "5525919875285",
+   "at": "2026-11-11T06:53:49.328Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-33.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "6r7uHP1quLboB75cXDT9jXcHyLnkbtYwoxwoygttk1fg",
+   "link": "https://testnet.nearblocks.io/txns/6r7uHP1quLboB75cXDT9jXcHyLnkbtYwoxwoygttk1fg",
+   "gas_burnt": "5525890256069",
+   "at": "2026-11-11T06:53:55.901Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-34.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "Fj6fKFBFDndmcQca3hwCq35bmT8f9z1qGfy8bodhaiE8",
+   "link": "https://testnet.nearblocks.io/txns/Fj6fKFBFDndmcQca3hwCq35bmT8f9z1qGfy8bodhaiE8",
+   "gas_burnt": "5525938798673",
+   "at": "2026-11-11T06:54:03.190Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-35.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "AC1hsq3PbJFnuJg3wcwpcuW8PGurMF6ia2Z5pWZSo9tv",
+   "link": "https://testnet.nearblocks.io/txns/AC1hsq3PbJFnuJg3wcwpcuW8PGurMF6ia2Z5pWZSo9tv",
+   "gas_burnt": "5525949494501",
+   "at": "2026-11-11T06:54:10.522Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-36.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "BKSTXZZmyfc2sSuHYvCxSa2xSsWAqxYn1JKzXCQcu5qe",
+   "link": "https://testnet.nearblocks.io/txns/BKSTXZZmyfc2sSuHYvCxSa2xSsWAqxYn1JKzXCQcu5qe",
+   "gas_burnt": "5525928925601",
+   "at": "2026-11-11T06:54:18.372Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-37.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "2zxK5XJJCzjUKYFovhBoQ1HRsBcut2bsYDX3Q7eBFC35",
+   "link": "https://testnet.nearblocks.io/txns/2zxK5XJJCzjUKYFovhBoQ1HRsBcut2bsYDX3Q7eBFC35",
+   "gas_burnt": "6213089572045",
+   "at": "2026-11-11T06:54:24.908Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-38.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "6xU2EtW6VQwCNuLHXHTkQ2YN1akqBCMgQiVciYzgNT83",
+   "link": "https://testnet.nearblocks.io/txns/6xU2EtW6VQwCNuLHXHTkQ2YN1akqBCMgQiVciYzgNT83",
+   "gas_burnt": "6215299637785",
+   "at": "2026-11-11T06:54:31.521Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-39.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "5pBSytVG4WeUXxYmpzzcU5DjNF1wEWSoC3xuU4QnfN5E",
+   "link": "https://testnet.nearblocks.io/txns/5pBSytVG4WeUXxYmpzzcU5DjNF1wEWSoC3xuU4QnfN5E",
+   "gas_burnt": "6215342421097",
+   "at": "2026-11-11T06:54:38.811Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-4.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "EEZrRszi9jgsEHwKtXgcHhdq2is8quH41bSgbMNHxtnM",
+   "link": "https://testnet.nearblocks.io/txns/EEZrRszi9jgsEHwKtXgcHhdq2is8quH41bSgbMNHxtnM",
+   "gas_burnt": "6201821558934",
+   "at": "2026-11-11T06:54:45.396Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-40.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "2PWa82hR3Zo4sLB5aVyPFj2BLioGKETGfHQ73NgJwgfX",
+   "link": "https://testnet.nearblocks.io/txns/2PWa82hR3Zo4sLB5aVyPFj2BLioGKETGfHQ73NgJwgfX",
+   "gas_burnt": "6206785718610",
+   "at": "2026-11-11T06:54:52.098Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-41.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "A2VVokFvUiPZfLNG543X5K14fK96ZNzbWTEi7DQk3BHj",
+   "link": "https://testnet.nearblocks.io/txns/A2VVokFvUiPZfLNG543X5K14fK96ZNzbWTEi7DQk3BHj",
+   "gas_burnt": "6211335022782",
+   "at": "2026-11-11T06:54:58.701Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-42.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "3qbMqHznuQsTPUnvfEJE3tNAQcgsxVfKfCaooUFgugce",
+   "link": "https://testnet.nearblocks.io/txns/3qbMqHznuQsTPUnvfEJE3tNAQcgsxVfKfCaooUFgugce",
+   "gas_burnt": "6216043941618",
+   "at": "2026-11-11T06:55:05.698Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-43.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "DJ8UCjji7ApiDvZXuhutrMrJNVMaNLaNsPYAaxaWFWtv",
+   "link": "https://testnet.nearblocks.io/txns/DJ8UCjji7ApiDvZXuhutrMrJNVMaNLaNsPYAaxaWFWtv",
+   "gas_burnt": "6215360521729",
+   "at": "2026-11-11T06:55:12.458Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-44.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "EX4r3wvBFYK8WHETwRqqHcQA9YbStjcx6eqYXW18QQVU",
+   "link": "https://testnet.nearblocks.io/txns/EX4r3wvBFYK8WHETwRqqHcQA9YbStjcx6eqYXW18QQVU",
+   "gas_burnt": "6215439506305",
+   "at": "2026-11-11T06:55:18.829Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-45.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "8T3V61zDnLDNJ4WoiEDAdrL6QYx5TXR8QgUf8eC4tFPo",
+   "link": "https://testnet.nearblocks.io/txns/8T3V61zDnLDNJ4WoiEDAdrL6QYx5TXR8QgUf8eC4tFPo",
+   "gas_burnt": "5525968417889",
+   "at": "2026-11-11T06:55:25.565Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-46.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "ELShbsqesXn9CvDUxCDkzA6YxqmdasLnSYt9ptjVX6L5",
+   "link": "https://testnet.nearblocks.io/txns/ELShbsqesXn9CvDUxCDkzA6YxqmdasLnSYt9ptjVX6L5",
+   "gas_burnt": "6215311979125",
+   "at": "2026-11-11T06:55:32.209Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-47.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "HgbWiuViw9KKFmPjHqzzVsdSmAg1dGLNoQUeTBfXtnJ4",
+   "link": "https://testnet.nearblocks.io/txns/HgbWiuViw9KKFmPjHqzzVsdSmAg1dGLNoQUeTBfXtnJ4",
+   "gas_burnt": "6216013499646",
+   "at": "2026-11-11T06:55:38.556Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-48.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "2DwCw9fWCQqhWJpgPwJVHxWDzeQRxPsr2L2iLzB7H4rz",
+   "link": "https://testnet.nearblocks.io/txns/2DwCw9fWCQqhWJpgPwJVHxWDzeQRxPsr2L2iLzB7H4rz",
+   "gas_burnt": "6215281537153",
+   "at": "2026-11-11T06:55:45.217Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-49.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "4yufNrSKW7M6r1AQwMVTHHG15hRX9jR9Yb9L2unck6Wz",
+   "link": "https://testnet.nearblocks.io/txns/4yufNrSKW7M6r1AQwMVTHHG15hRX9jR9Yb9L2unck6Wz",
+   "gas_burnt": "6215339952829",
+   "at": "2026-11-11T06:55:51.731Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-5.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "DzHSfvrb3XtxYSATawv3m4iVKmaUfwaWDQBxXT2DBFsr",
+   "link": "https://testnet.nearblocks.io/txns/DzHSfvrb3XtxYSATawv3m4iVKmaUfwaWDQBxXT2DBFsr",
+   "gas_burnt": "5520356941074",
+   "at": "2026-11-11T06:55:57.844Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim bf-50.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "HFkAFVCzAXZ68yxptDoe2Lms3mBNoacj4ydsZmadwL75",
+   "link": "https://testnet.nearblocks.io/txns/HFkAFVCzAXZ68yxptDoe2Lms3mBNoacj4ydsZmadwL75",
+   "gas_burnt": "5525859814097",
+   "at": "2026-11-11T06:56:04.469Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim hb2-1.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "HnJi71nF85sjoeE3kVUsKG3LDoBtZjqw3XgFCLuYKkGi",
+   "link": "https://testnet.nearblocks.io/txns/HnJi71nF85sjoeE3kVUsKG3LDoBtZjqw3XgFCLuYKkGi",
+   "gas_burnt": "5742841367662",
+   "at": "2026-11-11T06:56:05.667Z",
+   "caller": "hb2-1.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-6.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "D137rpZMbCLoPGSDTVx6fkTAqyZqdER6NKq6PPVUtt6m",
+   "link": "https://testnet.nearblocks.io/txns/D137rpZMbCLoPGSDTVx6fkTAqyZqdER6NKq6PPVUtt6m",
+   "gas_burnt": "6204879595763",
+   "at": "2026-11-11T06:56:10.657Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim hb2-2.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "FxuQnQFwthbQWn9sWAfi4Y3S9AMHR6FcRgxLJhwBaE1k",
+   "link": "https://testnet.nearblocks.io/txns/FxuQnQFwthbQWn9sWAfi4Y3S9AMHR6FcRgxLJhwBaE1k",
+   "gas_burnt": "5418699814097",
+   "at": "2026-11-11T06:56:12.472Z",
+   "caller": "hb2-2.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb2-3.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "D1SvzCLKEwh9nBWFXCGC62yLfsXZpcfUaqnAJwc1MPMD",
+   "link": "https://testnet.nearblocks.io/txns/D1SvzCLKEwh9nBWFXCGC62yLfsXZpcfUaqnAJwc1MPMD",
+   "gas_burnt": "5524287916666",
+   "at": "2026-11-11T06:56:12.701Z",
+   "caller": "hb2-3.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-7.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "7iHs2bZWeNBQ1ffAKksSoW54LsMf1mQrFkNAfsNYzqVt",
+   "link": "https://testnet.nearblocks.io/txns/7iHs2bZWeNBQ1ffAKksSoW54LsMf1mQrFkNAfsNYzqVt",
+   "gas_burnt": "5467964660922",
+   "at": "2026-11-11T06:56:16.897Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim hb2-4.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "CnNrSoyQE3WeZuQ6VoBrWKmMFvc7YHy7wcREvx7VWRMw",
+   "link": "https://testnet.nearblocks.io/txns/CnNrSoyQE3WeZuQ6VoBrWKmMFvc7YHy7wcREvx7VWRMw",
+   "gas_burnt": "5526488109334",
+   "at": "2026-11-11T06:56:17.721Z",
+   "caller": "hb2-4.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb2-6.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "2r4s32pfZmHruq44FXNyd8BL5UZxGFa2JofP9yNWrWCo",
+   "link": "https://testnet.nearblocks.io/txns/2r4s32pfZmHruq44FXNyd8BL5UZxGFa2JofP9yNWrWCo",
+   "gas_burnt": "5526595890370",
+   "at": "2026-11-11T06:56:21.577Z",
+   "caller": "hb2-6.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-8.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "EnRczvd8BkWbZdcQkfT4wN7q1VCLP2xiRCuYXFw8quc",
+   "link": "https://testnet.nearblocks.io/txns/EnRczvd8BkWbZdcQkfT4wN7q1VCLP2xiRCuYXFw8quc",
+   "gas_burnt": "5467878271542",
+   "at": "2026-11-11T06:56:22.651Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim hb3-1.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "J4mC6yKWSAajZtGvmPnNu2aNxT1vdCeqg51besQM85EV",
+   "link": "https://testnet.nearblocks.io/txns/J4mC6yKWSAajZtGvmPnNu2aNxT1vdCeqg51besQM85EV",
+   "gas_burnt": "5524366901242",
+   "at": "2026-11-11T06:56:23.521Z",
+   "caller": "hb3-1.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb3-2.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "7V5FZmKzLCb5RD9uSoUrzzsUpSoobHL6aBvFGiDnaprU",
+   "link": "https://testnet.nearblocks.io/txns/7V5FZmKzLCb5RD9uSoUrzzsUpSoobHL6aBvFGiDnaprU",
+   "gas_burnt": "6212097427247",
+   "at": "2026-11-11T06:56:25.134Z",
+   "caller": "hb3-2.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb2-5.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "XU2g9DMN7r7kmbojHZ7uBYixFASjUi5NwjLYU9UdFvh",
+   "link": "https://testnet.nearblocks.io/txns/XU2g9DMN7r7kmbojHZ7uBYixFASjUi5NwjLYU9UdFvh",
+   "gas_burnt": "5749720037194",
+   "at": "2026-11-11T06:56:26.519Z",
+   "caller": "hb2-5.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb3-3.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "7Ctbr6Ubt6FCtimRABUHjipQurxZGQvWE9dhmrV91jfP",
+   "link": "https://testnet.nearblocks.io/txns/7Ctbr6Ubt6FCtimRABUHjipQurxZGQvWE9dhmrV91jfP",
+   "gas_burnt": "6217738429693",
+   "at": "2026-11-11T06:56:27.336Z",
+   "caller": "hb3-3.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim bf-9.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "124ZQGpfxjDHo2g3VRmctfotinriLmp2uhLDWbAdvzW5",
+   "link": "https://testnet.nearblocks.io/txns/124ZQGpfxjDHo2g3VRmctfotinriLmp2uhLDWbAdvzW5",
+   "gas_burnt": "6205279987588",
+   "at": "2026-11-11T06:56:27.900Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim hb3-5.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "8s9eeginZGzZwjekpGDAohpx2dQS4fqJjx4ZpCvSRoEA",
+   "link": "https://testnet.nearblocks.io/txns/8s9eeginZGzZwjekpGDAohpx2dQS4fqJjx4ZpCvSRoEA",
+   "gas_burnt": "6169030483491",
+   "at": "2026-11-11T06:56:28.824Z",
+   "caller": "hb3-5.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb3-6.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "7bxR4zfSKEf5VNBbTFecZUUJJwiB1RP2TG6Gt9gXhtiZ",
+   "link": "https://testnet.nearblocks.io/txns/7bxR4zfSKEf5VNBbTFecZUUJJwiB1RP2TG6Gt9gXhtiZ",
+   "gas_burnt": "6058691854134",
+   "at": "2026-11-11T06:56:30.341Z",
+   "caller": "hb3-6.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb3-4.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "ABSMXy4oj55ZPzeG3wkikMTcRNow8QtLLq2SfvDUZwQo",
+   "link": "https://testnet.nearblocks.io/txns/ABSMXy4oj55ZPzeG3wkikMTcRNow8QtLLq2SfvDUZwQo",
+   "gas_burnt": "6220670584854",
+   "at": "2026-11-11T06:56:30.344Z",
+   "caller": "hb3-4.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb3-7.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "CLqzFNE9xyk9oiHcMMxV56H7NYkLVrfXFHBzrfX8N836",
+   "link": "https://testnet.nearblocks.io/txns/CLqzFNE9xyk9oiHcMMxV56H7NYkLVrfXFHBzrfX8N836",
+   "gas_burnt": "6168121981062",
+   "at": "2026-11-11T06:56:33.738Z",
+   "caller": "hb3-7.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb4-1.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "6SD2WJNx6MfRnwvkrGEdhSaZtamCyPY4WQP3LvSdBzm8",
+   "link": "https://testnet.nearblocks.io/txns/6SD2WJNx6MfRnwvkrGEdhSaZtamCyPY4WQP3LvSdBzm8",
+   "gas_burnt": "6126649786059",
+   "at": "2026-11-11T06:56:35.257Z",
+   "caller": "hb4-1.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb3-8.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "BksZZSKYMJ3B91L4LSTfw7nRKZ1wWAL7BZ4232kUMLc",
+   "link": "https://testnet.nearblocks.io/txns/BksZZSKYMJ3B91L4LSTfw7nRKZ1wWAL7BZ4232kUMLc",
+   "gas_burnt": "6443723974662",
+   "at": "2026-11-11T06:56:35.863Z",
+   "caller": "hb3-8.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb4-2.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "GbhDWDTZdxAfVgipEKoWxp6vrQ5YNSnWquQbdFGiBaoK",
+   "link": "https://testnet.nearblocks.io/txns/GbhDWDTZdxAfVgipEKoWxp6vrQ5YNSnWquQbdFGiBaoK",
+   "gas_burnt": "6134035805696",
+   "at": "2026-11-11T06:56:36.725Z",
+   "caller": "hb4-2.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb4-6.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "FNtY47r1N3gyrJqKpW66butjFzMXRxAsHsmSm3Eg8DHz",
+   "link": "https://testnet.nearblocks.io/txns/FNtY47r1N3gyrJqKpW66butjFzMXRxAsHsmSm3Eg8DHz",
+   "gas_burnt": "5607513942032",
+   "at": "2026-11-11T06:56:42.160Z",
+   "caller": "hb4-6.deathstalker-sl.testnet"
+  },
+  {
+   "name": "claim hb4-4.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "GXzBEF3sxVrK6EZUP4EfM2GrBuJdwUTbBeP2PobuUCHz",
+   "link": "https://testnet.nearblocks.io/txns/GXzBEF3sxVrK6EZUP4EfM2GrBuJdwUTbBeP2PobuUCHz",
+   "gas_burnt": "6138437013788",
+   "at": "2026-11-11T06:56:43.194Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "claim hb4-3.deathstalker-sl.testnet",
+   "ok": true,
+   "tx": "7hNW2MgiFRkcP8NT5XtYP7nk12pYSwmzioAkiwGTwsHW",
+   "link": "https://testnet.nearblocks.io/txns/7hNW2MgiFRkcP8NT5XtYP7nk12pYSwmzioAkiwGTwsHW",
+   "gas_burnt": "6138516821120",
+   "at": "2026-11-11T06:56:49.806Z",
+   "caller": "deathstalker-sl-9.testnet"
+  },
+  {
+   "name": "settle",
+   "ok": true,
+   "tx": "22K7xGnHgzommCGafKnkYfq97V3FFcfH6t2GsYvompH9",
+   "link": "https://testnet.nearblocks.io/txns/22K7xGnHgzommCGafKnkYfq97V3FFcfH6t2GsYvompH9",
+   "gas_burnt": "51956791597543",
+   "at": "2026-11-11T06:57:05.412Z"
+  }
+ ],
+ "bids": [
+  {
+   "account": "hb4-5.deathstalker-sl.testnet",
+   "price": "911679400000000000000",
+   "size": "81000000000000000000",
+   "salt": "128857f811940b142a4716132148a8fd0a476f71768bdb0cf7106225de65d18f",
+   "commit": "9d6753018f1d12b277bb093eddfbe26845c05c0b7bf75714fb9ce8cf52a7748b",
+   "ciphertext_len": 161,
+   "deposit": "73846031400000000000000",
+   "attached": "74846031400000000000000",
+   "submit_ms": 1794379438021,
+   "send_done_ms": 1794379443900,
+   "tx": "ESVPZegZcUotxS1KXJmrakwiu3GJjuEnWRTNFtK941bJ",
+   "ok": false,
+   "error": "Sender hb4-5.deathstalker-sl.testnet does not have enough balance 0.0353731353416494 for operation costing 0.081767824649699",
+   "idx": null
+  },
+  {
+   "account": "hb2-5.deathstalker-sl.testnet",
+   "price": "235677400000000000000",
+   "size": "59000000000000000000",
+   "salt": "07b6d956016878dd23d6df7bc27845c0b45963379adbcf878c514cf988393c99",
+   "commit": "9f385c539ffef11eae02a1772d60b41d542e3a87c192132a05efa95d7275e201",
+   "ciphertext_len": 161,
+   "deposit": "13904966600000000000000",
+   "attached": "14904966600000000000000",
+   "submit_ms": 1794379438004,
+   "send_done_ms": 1794379443658,
+   "tx": "94daUSYHXjPhD4hJ8sj5bunbWkaTTkKFMg2yfyv2xWp6",
+   "ok": true,
+   "idx": 0,
+   "gas_burnt": "2563214440275",
+   "block_ts_ms": 1794379432630,
+   "before_deadline": true
+  },
+  {
+   "account": "hb4-4.deathstalker-sl.testnet",
+   "price": "704530400000000000000",
+   "size": "52000000000000000000",
+   "salt": "13341e761d3db6480816cec6702aa878732f941ceb81baf8e6915175c19ef19f",
+   "commit": "6b84aeefae5ebe8d868aab5e428d173c99269d2bcc87578b2b64a2aa1117c0c4",
+   "ciphertext_len": 161,
+   "deposit": "36635580800000000000000",
+   "attached": "37635580800000000000000",
+   "submit_ms": 1794379438013,
+   "send_done_ms": 1794379444299,
+   "tx": "29vaq5Gjw4qboWdtQTLr8oJp6KrZVh3uzxSGCZbKrwps",
+   "ok": true,
+   "idx": 2,
+   "gas_burnt": "2522095455699",
+   "block_ts_ms": 1794379433111,
+   "before_deadline": true
+  },
+  {
+   "account": "hb4-3.deathstalker-sl.testnet",
+   "price": "585291400000000000000",
+   "size": "68000000000000000000",
+   "salt": "be9d2fe19c5ca9b51dfa8a2a869b3f8bf7a5270d51750065d979f9fb6976a72d",
+   "commit": "d967524f17c064c9b6a9e9a865fb7bd63b72d2659e54491d12c91de41063d7f7",
+   "ciphertext_len": 161,
+   "deposit": "39799815200000000000000",
+   "attached": "40799815200000000000000",
+   "submit_ms": 1794379438018,
+   "send_done_ms": 1794379444936,
+   "tx": "2zA7461Kke5HERgY9uJ4r5dsRBtGbPNQAokhX8Siru26",
+   "ok": true,
+   "idx": 3,
+   "gas_burnt": "2579075709555",
+   "block_ts_ms": 1794379433800,
+   "before_deadline": true
+  },
+  {
+   "account": "hb2-6.deathstalker-sl.testnet",
+   "price": "245958600000000000000",
+   "size": "89000000000000000000",
+   "salt": "1870f29942bc3242013a4eb79a33f410ec1c9acf083846035bf16a6b8090afa4",
+   "commit": "441b9c3e98c4a222a7e0e9601be13649a0b8426022b4b2f40848edfa39260bdc",
+   "ciphertext_len": 161,
+   "deposit": "21890315400000000000000",
+   "attached": "22890315400000000000000",
+   "submit_ms": 1794379438016,
+   "send_done_ms": 1794379444282,
+   "tx": "FCWNS9iQGKV1qdP9zeHZRA56oPw7JMvNzzUdT5mUFMoe",
+   "ok": true,
+   "idx": 1,
+   "gas_burnt": "2574377486547",
+   "block_ts_ms": 1794379433111,
+   "before_deadline": true
+  },
+  {
+   "account": "hb4-2.deathstalker-sl.testnet",
+   "price": "506334000000000000000",
+   "size": "81000000000000000000",
+   "salt": "c0a15dc1aa7f5b717a71e72c531c4725599dc43a2e70b46d9d8fa2caf62e8ac4",
+   "commit": "62ba716213f6926249906a778fa6871cc956ed03fd3a1612cee870f5895bb105",
+   "ciphertext_len": 161,
+   "deposit": "41013054000000000000000",
+   "attached": "42013054000000000000000",
+   "submit_ms": 1794379438007,
+   "send_done_ms": 1794379445363,
+   "tx": "5QuJkXjZVWau2hqKzVgLzEvGmPeMLfRoC5qCoKcRZ76c",
+   "ok": true,
+   "idx": 8,
+   "gas_burnt": "2528737994259",
+   "block_ts_ms": 1794379434487,
+   "before_deadline": true
+  },
+  {
+   "account": "hb3-6.deathstalker-sl.testnet",
+   "price": "344549400000000000000",
+   "size": "64000000000000000000",
+   "salt": "5fa442585602e186bbc0ef1df9861ed308109bcec94ae9ba71a3a0f6191a1f4e",
+   "commit": "5f64e750ba894ced537a00e4e6f3f1d070ce6c5f3ae05e493a46e88306c1d052",
+   "ciphertext_len": 161,
+   "deposit": "22051161600000000000000",
+   "attached": "23051161600000000000000",
+   "submit_ms": 1794379438019,
+   "send_done_ms": 1794379445216,
+   "tx": "6yJ4QCjaXg5GfAvgTv7MokhmpDCucSkdb8WyHkSksSC3",
+   "ok": true,
+   "idx": 5,
+   "gas_burnt": "2578878248115",
+   "block_ts_ms": 1794379434487,
+   "before_deadline": true
+  },
+  {
+   "account": "hb3-2.deathstalker-sl.testnet",
+   "price": "270361400000000000000",
+   "size": "88000000000000000000",
+   "salt": "ee124f3ab4eb468b48a78b0cd181fed358dbfb0faad172f1b0d82390ead6b703",
+   "commit": "3b159af6e70265432063ff3ab3fdd4e3fb1069fcb10e61f20a03a089b0474524",
+   "ciphertext_len": 161,
+   "deposit": "23791803200000000000000",
+   "attached": "24791803200000000000000",
+   "submit_ms": 1794379438011,
+   "send_done_ms": 1794379445970,
+   "tx": "6g85aDmvJ2jE9AG2K1DeT2KidRdUd2bBp5UXCmmn2eoP",
+   "ok": true,
+   "idx": 9,
+   "gas_burnt": "2578937486547",
+   "block_ts_ms": 1794379435022,
+   "before_deadline": true
+  },
+  {
+   "account": "hb3-7.deathstalker-sl.testnet",
+   "price": "372291400000000000000",
+   "size": "33000000000000000000",
+   "salt": "7862ca982b848a400900f6e92e0a826f62e9368e8c5dd2f03d81e0b2ad0dcd88",
+   "commit": "95b14bc7fd4079bc191807316a4c20eb8e17657426d78eeaf8ba4bbd302d7949",
+   "ciphertext_len": 161,
+   "deposit": "12285616200000000000000",
+   "attached": "13285616200000000000000",
+   "submit_ms": 1794379438021,
+   "send_done_ms": 1794379446185,
+   "tx": "g3FmVv43f89H7yYTkks7YgKkhEEaEVJU8uGPFjHSJMZ",
+   "ok": true,
+   "idx": 6,
+   "gas_burnt": "2751910683687",
+   "block_ts_ms": 1794379434487,
+   "before_deadline": true
+  },
+  {
+   "account": "hb2-4.deathstalker-sl.testnet",
+   "price": "226407400000000000000",
+   "size": "59000000000000000000",
+   "salt": "ee1f0a21071ce6386fe77c56984ec5c831749fe1cbd4571ac7a7a199fca06111",
+   "commit": "203fb23dc0abb6659c2e2ade191d80fcac4c96f6ad8b65715b7b1a2202696bb3",
+   "ciphertext_len": 161,
+   "deposit": "13358036600000000000000",
+   "attached": "14358036600000000000000",
+   "submit_ms": 1794379438010,
+   "send_done_ms": 1794379446037,
+   "tx": "8fGpTGvecoVxtcsanaaMLrnsexpETZWiPW4nFsYXb4Dj",
+   "ok": true,
+   "idx": 12,
+   "gas_burnt": "2527033658115",
+   "block_ts_ms": 1794379435022,
+   "before_deadline": true
+  },
+  {
+   "account": "hb3-4.deathstalker-sl.testnet",
+   "price": "301881600000000000000",
+   "size": "73000000000000000000",
+   "salt": "77a6bd31ef3ceef6e35f8d918bc9ab9de2d352149f30a0819a71e3d86e908492",
+   "commit": "83d589a057c252573289bf3ea2881cfae8f9fa90406ea19435b4955d7128d415",
+   "ciphertext_len": 161,
+   "deposit": "22037356800000000000000",
+   "attached": "23037356800000000000000",
+   "submit_ms": 1794379438006,
+   "send_done_ms": 1794379445369,
+   "tx": "HSRQ5RqjJ6yeFZBdrPcsBBnrnYEdN9CfizZoyUuKBrUz",
+   "ok": true,
+   "idx": 7,
+   "gas_burnt": "2526418501971",
+   "block_ts_ms": 1794379434487,
+   "before_deadline": true
+  },
+  {
+   "account": "hb3-5.deathstalker-sl.testnet",
+   "price": "321457200000000000000",
+   "size": "102000000000000000000",
+   "salt": "74f0bc8e4d101b49bff1580ede40050cbe7680141acedb37d594699211261dbd",
+   "commit": "60ec565be86e02253ff0efbf71a48fc55fb99995ee3c242d89b49aea4d90aa49",
+   "ciphertext_len": 161,
+   "deposit": "32788634400000000000000",
+   "attached": "33788634400000000000000",
+   "submit_ms": 1794379438017,
+   "send_done_ms": 1794379445833,
+   "tx": "35c4HCsY4hbCNaKbbrp4qyHmD1AUro9cGgNgdvKDvbHH",
+   "ok": true,
+   "idx": 4,
+   "gas_burnt": "2751960049047",
+   "block_ts_ms": 1794379433800,
+   "before_deadline": true
+  },
+  {
+   "account": "hb4-6.deathstalker-sl.testnet",
+   "price": "100000000000000000000",
+   "size": "32000000000000000000",
+   "salt": "94b8c8f8f2fe0410d13031dcf3d6e5a53958c4c6113c30379b863a4439379919",
+   "commit": "3037fc5a9753c993895f5be161c1e39e99d7b9ba433e98cca3f608eb9a8eba94",
+   "ciphertext_len": 161,
+   "deposit": "3200000000000000000000",
+   "attached": "4200000000000000000000",
+   "submit_ms": 1794379438012,
+   "send_done_ms": 1794379446956,
+   "tx": "DtpANrLkUiLt2LPWeZMVfPiBWAxPsP9LMaTLutpDMFGx",
+   "ok": true,
+   "idx": 15,
+   "gas_burnt": "2529214927395",
+   "block_ts_ms": 1794379436049,
+   "before_deadline": true
+  },
+  {
+   "account": "hb3-1.deathstalker-sl.testnet",
+   "price": "257439600000000000000",
+   "size": "47000000000000000000",
+   "salt": "406dcd51b450dc44c8e815b1b2577e3c76d9ff7977baf4aff03b6a236282f29c",
+   "commit": "eaf5cc43e9007afa19b4764486ca792ceae8ddb74ea701e28d0a8298fde8e043",
+   "ciphertext_len": 161,
+   "deposit": "12099661200000000000000",
+   "attached": "13099661200000000000000",
+   "submit_ms": 1794379438014,
+   "send_done_ms": 1794379445976,
+   "tx": "AJqZptBw2xm8EsbfkVvC1YwkuhUEu3TMfKdMJMM8b7is",
+   "ok": true,
+   "idx": 11,
+   "gas_burnt": "2526984292755",
+   "block_ts_ms": 1794379435022,
+   "before_deadline": true
+  },
+  {
+   "account": "hb2-3.deathstalker-sl.testnet",
+   "price": "217998200000000000000",
+   "size": "86000000000000000000",
+   "salt": "facf18681daaaeeb1c28dc4e45d698dbb6c5087cd135ffec2fa3f69630b4bfb3",
+   "commit": "8b045266d5ad3d9391343e0310c702ab58294db9f7a0300219b6cb90fa0f1bee",
+   "ciphertext_len": 161,
+   "deposit": "18747845200000000000000",
+   "attached": "19747845200000000000000",
+   "submit_ms": 1794379438016,
+   "send_done_ms": 1794379445976,
+   "tx": "oz4stZ2QvPbPRjMZ6bj5PxKmdgw3nHEkf8r8byUL6uh",
+   "ok": true,
+   "idx": 10,
+   "gas_burnt": "2529135942819",
+   "block_ts_ms": 1794379435022,
+   "before_deadline": true
+  },
+  {
+   "account": "hb3-8.deathstalker-sl.testnet",
+   "price": "406388000000000000000",
+   "size": "53000000000000000000",
+   "salt": "26a62292970faa4044dd2279b4fe037eae2f101d03f73ccb4396ecb119ac8b30",
+   "commit": "e153bb0b82ec6ddac90af8281c9c083af1f1e181a3f5d5312e46d7ff247c52cb",
+   "ciphertext_len": 161,
+   "deposit": "21538564000000000000000",
+   "attached": "22538564000000000000000",
+   "submit_ms": 1794379438009,
+   "send_done_ms": 1794379447189,
+   "tx": "ArXzAcXBK57bHVuz4M1VwdbuFPziMusdUcL6fcVUtr4q",
+   "ok": true,
+   "idx": 14,
+   "gas_burnt": "2581753658115",
+   "block_ts_ms": 1794379436049,
+   "before_deadline": true
+  },
+  {
+   "account": "hb2-2.deathstalker-sl.testnet",
+   "price": "210328800000000000000",
+   "size": "46000000000000000000",
+   "salt": "0451a74ece920ce91e6b51977280e30c38ec5ddc9b87dcabbd0831a18995f9f7",
+   "commit": "cd14a770834756dcf36550718772f3b4211ece56a3104650f2bcf9a9a1b9fe93",
+   "ciphertext_len": 161,
+   "deposit": "9675124800000000000000",
+   "attached": "10675124800000000000000",
+   "submit_ms": 1794379438020,
+   "send_done_ms": 1794379446432,
+   "tx": "31zADh3G2dMiuYNaq4oNd8RV7TKAMSyqDYgqAxGWDoAs",
+   "ok": true,
+   "idx": 13,
+   "gas_burnt": "2579295942819",
+   "block_ts_ms": 1794379435448,
+   "before_deadline": true
+  },
+  {
+   "account": "hb4-1.deathstalker-sl.testnet",
+   "price": "449541200000000000000",
+   "size": "50000000000000000000",
+   "salt": "b7eb6c585b07045585d6fa0380c3e1af2375cbbfb827338856117b4a36c1ea6f",
+   "commit": "2e5fb598ed2fb76eee8d209ba7b3a56243b41cf2823b337bf38dc1dce44bbad7",
+   "ciphertext_len": 161,
+   "deposit": "22477060000000000000000",
+   "attached": "23477060000000000000000",
+   "submit_ms": 1794379438020,
+   "send_done_ms": 1794379447502,
+   "tx": "6NygsLHf2ztYLwMNcSwwdWHv3ejsAzBujvWhpywMLYb7",
+   "ok": true,
+   "idx": 17,
+   "gas_burnt": "2581635181251",
+   "block_ts_ms": 1794379436630,
+   "before_deadline": true
+  },
+  {
+   "account": "hb3-3.deathstalker-sl.testnet",
+   "price": "285037200000000000000",
+   "size": "63000000000000000000",
+   "salt": "6c35cb92f97ddafa85efde875b525f077496c5d003e5b417d4c62bff455306aa",
+   "commit": "bf5cd51d118131672dd4addb015aece359b77f2edec6ed19fbaa7a07450fc3c9",
+   "ciphertext_len": 161,
+   "deposit": "17957343600000000000000",
+   "attached": "18957343600000000000000",
+   "submit_ms": 1794379438018,
+   "send_done_ms": 1794379448162,
+   "tx": "7LPGFVp7LdkMSZnufG5ZWL4t8ixCWJyydeNNk549vzgg",
+   "ok": true,
+   "idx": 18,
+   "gas_burnt": "2579572388835",
+   "block_ts_ms": 1794379437233,
+   "before_deadline": true
+  },
+  {
+   "account": "hb2-1.deathstalker-sl.testnet",
+   "price": "203300200000000000000",
+   "size": "59000000000000000000",
+   "salt": "8c2d0bec13336d26bcf037912c9c777465967b1a2d963fbe314f13e2659f52f6",
+   "commit": "8e77e05252e251203757df6c4fe2c31322383ed4ba1952fe1712c751e97b1c8a",
+   "ciphertext_len": 161,
+   "deposit": "11994711800000000000000",
+   "attached": "12994711800000000000000",
+   "submit_ms": 1794379438015,
+   "send_done_ms": 1794379447023,
+   "tx": "4tXyvqUo34ovd47Rhq8Q6BgFQ8xWS13q2iebtuUovH92",
+   "ok": true,
+   "idx": 16,
+   "gas_burnt": "2524487085171",
+   "block_ts_ms": 1794379436049,
+   "before_deadline": true
+  }
+ ],
+ "clearing": {
+  "p_star": "270361400000000000000",
+  "sold": "1000000000000000000000",
+  "burned": "0",
+  "raise": "270361400000000000000000",
+  "alloc_root": "7fc060f82cd0d6ab9d633491db7d3123327194d70e2bbf38df3a3de37dca122a",
+  "leaf_count": 69,
+  "input_hash": "c10d5bec1d29c3f91fd4629996ff9bdc6bbbf49d0a6d738ebdfa0a94fc1becb9",
+  "status": "Cleared",
+  "verified_onchain": true
+ },
+ "lp_status": "Done",
+ "claims_ok": 69,
+ "verify": {
+  "sale": "sale-n20d.sealedlaunch.deathstalker-sl.testnet",
+  "status": "Settled",
+  "pass": true,
+  "checks": [
+   {
+    "name": "sale account has 0 access keys",
+    "level": "PASS",
+    "expected": "0",
+    "actual": "0"
+   },
+   {
+    "name": "sale wasm sha256 == factory's current embedded sale wasm",
+    "level": "PASS",
+    "expected": "84068b3e9268313b9de9567ef7e2e75f68eb9f6684d03df01d4307f60bbfe670",
+    "actual": "84068b3e9268313b9de9567ef7e2e75f68eb9f6684d03df01d4307f60bbfe670",
+    "note": "older sales deployed before a sale-wasm fix legitimately differ"
+   },
+   {
+    "name": "sale lives under the factory account",
+    "level": "PASS",
+    "expected": "*.sealedlaunch.deathstalker-sl.testnet",
+    "actual": "sale-n20d.sealedlaunch.deathstalker-sl.testnet"
+   },
+   {
+    "name": "sale.params.factory == factory in deployments.json",
+    "level": "PASS",
+    "expected": "sealedlaunch.deathstalker-sl.testnet",
+    "actual": "sealedlaunch.deathstalker-sl.testnet"
+   },
+   {
+    "name": "bid_count == number of slots read",
+    "level": "PASS",
+    "expected": "69",
+    "actual": "69"
+   },
+   {
+    "name": "sum(slot deposits) == get_deposits_total",
+    "level": "PASS",
+    "expected": "546223212304000000000000",
+    "actual": "546223212304000000000000"
+   },
+   {
+    "name": "fees_accrued == bid_count * bid_fee (+ any bonds/slashes)",
+    "level": "PASS",
+    "expected": "69000000000000000000000",
+    "actual": "69000000000000000000000",
+    "note": "can differ legitimately after cancel/slash flows"
+   },
+   {
+    "name": "P* recomputed == on-chain p_star",
+    "level": "PASS",
+    "expected": "270361400000000000000",
+    "actual": "270361400000000000000"
+   },
+   {
+    "name": "alloc_root recomputed == on-chain",
+    "level": "PASS",
+    "expected": "7fc060f82cd0d6ab9d633491db7d3123327194d70e2bbf38df3a3de37dca122a",
+    "actual": "7fc060f82cd0d6ab9d633491db7d3123327194d70e2bbf38df3a3de37dca122a"
+   },
+   {
+    "name": "leaf_count recomputed == on-chain",
+    "level": "PASS",
+    "expected": "69",
+    "actual": "69"
+   },
+   {
+    "name": "input_hash recomputed == on-chain",
+    "level": "PASS",
+    "expected": "c10d5bec1d29c3f91fd4629996ff9bdc6bbbf49d0a6d738ebdfa0a94fc1becb9",
+    "actual": "c10d5bec1d29c3f91fd4629996ff9bdc6bbbf49d0a6d738ebdfa0a94fc1becb9"
+   },
+   {
+    "name": "sold recomputed == on-chain",
+    "level": "PASS",
+    "expected": "1000000000000000000000",
+    "actual": "1000000000000000000000"
+   },
+   {
+    "name": "burned recomputed == on-chain",
+    "level": "PASS",
+    "expected": "0",
+    "actual": "0"
+   },
+   {
+    "name": "raise recomputed == on-chain",
+    "level": "PASS",
+    "expected": "270361400000000000000000",
+    "actual": "270361400000000000000000"
+   },
+   {
+    "name": "sold + burned == auction_supply",
+    "level": "PASS",
+    "expected": "1000000000000000000000",
+    "actual": "1000000000000000000000"
+   },
+   {
+    "name": "P* >= reserve_price",
+    "level": "PASS",
+    "expected": ">= 200000000000000000000",
+    "actual": "270361400000000000000"
+   },
+   {
+    "name": "on-chain recompute flag (verified_onchain)",
+    "level": "PASS",
+    "expected": "true",
+    "actual": "true",
+    "note": "false = result accepted above recompute cap / via challenge window"
+   },
+   {
+    "name": "every filled bid offered >= P* (uniform price)",
+    "level": "PASS",
+    "expected": "true",
+    "actual": "true",
+    "note": "43 filled slots"
+   },
+   {
+    "name": "every leaf Merkle proof verifies against alloc_root",
+    "level": "PASS",
+    "expected": "true",
+    "actual": "true"
+   },
+   {
+    "name": "per-bidder: refund == deposit - ceil(P* * tokens)",
+    "level": "PASS",
+    "expected": "true",
+    "actual": "true"
+   },
+   {
+    "name": "sum(per-bidder cost) == raise",
+    "level": "PASS",
+    "expected": "270361400000000000000000",
+    "actual": "270361400000000000000000"
+   },
+   {
+    "name": "CONSERVATION: sum(deposits) == raise + sum(refunds)",
+    "level": "PASS",
+    "expected": "546223212304000000000000",
+    "actual": "546223212304000000000000",
+    "note": "deposits are net of bid fees"
+   },
+   {
+    "name": "CONSERVATION incl. fees: sum(deposits)+n*fee == raise + sum(refunds) + fees_accrued",
+    "level": "PASS",
+    "expected": "615223212304000000000000",
+    "actual": "615223212304000000000000"
+   }
+  ],
+  "summary": {
+   "bids": 69,
+   "status": "Settled",
+   "mode": "Tee",
+   "lp_status": "Done",
+   "deposits_total": "546223212304000000000000",
+   "fees_accrued": "69000000000000000000000",
+   "p_star": "270361400000000000000",
+   "sold": "1000000000000000000000",
+   "raise": "270361400000000000000000",
+   "burned": "0",
+   "alloc_root": "7fc060f82cd0d6ab9d633491db7d3123327194d70e2bbf38df3a3de37dca122a",
+   "leaf_count": 69,
+   "input_hash": "c10d5bec1d29c3f91fd4629996ff9bdc6bbbf49d0a6d738ebdfa0a94fc1becb9",
+   "sum_refunds": "275861812304000000000000",
+   "sum_deposits": "546223212304000000000000",
+   "fill_rate_pct": 100
+  },
+  "bidders": [
+   {
+    "bidder": "bf-1.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2520322994000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-10.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "163655664000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-11.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "1183199228000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-12.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "1103286136000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-13.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "31010930000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-14.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "533609900000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-15.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "914305936000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-16.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2253654346000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-17.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "732586224000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-18.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "975545940000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-19.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "41391188000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-2.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "69030160000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-20.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2323148876000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-21.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2655017888000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-22.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "697719758000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-23.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "442189796000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-24.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "373521956000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-25.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2007706428000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-26.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "753059192000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-27.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "869762524000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-28.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "819371624000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-29.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2260626832000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-3.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2018635066000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-30.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2471932142000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-31.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "549550706000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-32.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2332368066000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-33.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2053038250000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-34.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2233771608000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-35.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2446270496000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-36.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2249130542000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-37.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "489234144000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-38.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "104598250000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-39.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "263359426000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-4.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "44343050000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-40.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "1188867548000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-41.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "1232104176000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-42.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "1061001270000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-43.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "961784302000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-44.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "330576102000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-45.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2163374250000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-46.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "966079056000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-47.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "1196471496000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-48.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "574936272000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-49.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "549875956000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-5.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2562791366000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-50.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2479894934000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-6.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "537125472000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-7.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2509145400000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-8.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "2157144258000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "bf-9.deathstalker-sl.testnet",
+    "tokens": "10000000000000000000",
+    "refund": "1009785780000000000000",
+    "cost": "2703614000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb2-1.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "11994711800000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb2-2.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "9675124800000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb2-3.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "18747845200000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb2-4.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "13358036600000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb2-5.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "13904966600000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb2-6.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "21890315400000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-1.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "12099661200000000000000",
+    "cost": "0",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-2.deathstalker-sl.testnet",
+    "tokens": "41000000000000000000",
+    "refund": "12706985800000000000000",
+    "cost": "11084817400000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-3.deathstalker-sl.testnet",
+    "tokens": "63000000000000000000",
+    "refund": "924575400000000000000",
+    "cost": "17032768200000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-4.deathstalker-sl.testnet",
+    "tokens": "73000000000000000000",
+    "refund": "2300974600000000000000",
+    "cost": "19736382200000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-5.deathstalker-sl.testnet",
+    "tokens": "102000000000000000000",
+    "refund": "5211771600000000000000",
+    "cost": "27576862800000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-6.deathstalker-sl.testnet",
+    "tokens": "64000000000000000000",
+    "refund": "4748032000000000000000",
+    "cost": "17303129600000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-7.deathstalker-sl.testnet",
+    "tokens": "33000000000000000000",
+    "refund": "3363690000000000000000",
+    "cost": "8921926200000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb3-8.deathstalker-sl.testnet",
+    "tokens": "53000000000000000000",
+    "refund": "7209409800000000000000",
+    "cost": "14329154200000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb4-1.deathstalker-sl.testnet",
+    "tokens": "50000000000000000000",
+    "refund": "8958990000000000000000",
+    "cost": "13518070000000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb4-2.deathstalker-sl.testnet",
+    "tokens": "81000000000000000000",
+    "refund": "19113780600000000000000",
+    "cost": "21899273400000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb4-3.deathstalker-sl.testnet",
+    "tokens": "68000000000000000000",
+    "refund": "21415240000000000000000",
+    "cost": "18384575200000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb4-4.deathstalker-sl.testnet",
+    "tokens": "52000000000000000000",
+    "refund": "22576788000000000000000",
+    "cost": "14058792800000000000000",
+    "proofOk": true
+   },
+   {
+    "bidder": "hb4-6.deathstalker-sl.testnet",
+    "tokens": "0",
+    "refund": "3200000000000000000000",
+    "cost": "0",
+    "proofOk": true
+   }
+  ]
+ }
+}

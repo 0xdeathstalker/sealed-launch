@@ -5,6 +5,7 @@ import { formatUnits, parseUnits } from "../lib/format";
 import { ftBidMsg, sealBid } from "../lib/bid";
 import { claimFor, compareWithChain, recompute } from "../lib/claim";
 import { mockApi, mockExec } from "../lib/mock";
+import { estimateFinalizeDeposit, estimateInputLen, outlayerRequiredDeposit, recommendedDeposit } from "../lib/deposit";
 import { resultToWire } from "sealedlaunch-clearing";
 
 describe("format", () => {
@@ -73,11 +74,32 @@ describe("mock chain end to end (real clearing-js)", () => {
     expect((await mockApi.bidStatus(id, s.commitHex)).state).toBe("accepted");
     expect(() => mockExec("alice.testnet", { receiverId: id, methodName: "finalize", args: {}, gas: 1n, deposit: 0n })).toThrow(/still open/);
     await mockApi.mockFastForward!(id);
-    mockExec("bob.testnet", { receiverId: id, methodName: "finalize", args: {}, gas: 1n, deposit: 0n });
+    expect(() => mockExec("bob.testnet", { receiverId: id, methodName: "finalize", args: {}, gas: 1n, deposit: 0n })).toThrow(/deposit too low/);
+    const fd = await mockApi.finalizeDeposit(id);
+    expect(fd.required).toBeGreaterThan(0n);
+    mockExec("bob.testnet", { receiverId: id, methodName: "finalize", args: {}, gas: 1n, deposit: fd.recommended });
     const cl = (await mockApi.clearing(id))!;
     expect(cl.status).toBe("Cleared");
     const info = await mockApi.saleInfo(id);
     const { result } = recompute(info, await mockApi.bids(id, info.bid_count), await mockApi.revealed(id, info.bid_count), id);
     expect(compareWithChain(result, cl).every((c) => c.ok)).toBe(true);
+  });
+});
+
+describe("finalize deposit", () => {
+  it("matches the contract / OutLayer formula and grows with bid count", () => {
+    // spike-outlayer/RESULTS.md (c) input sizes; same values as contracts/sale deposit_tests
+    expect(outlayerRequiredDeposit(4_904, 10)).toBe(7_000_500_000_000_000_000_000n);
+    expect(outlayerRequiredDeposit(48_734, 100)).toBe(166_660_500_000_000_000_000_000n);
+    expect(outlayerRequiredDeposit(97_734, 200)).toBe(656_660_700_000_000_000_000_000n);
+    // the live failure: 100 bids, 49,521 B -> 0.17453 NEAR, above the old flat 0.1
+    expect(outlayerRequiredDeposit(49_521, 100)).toBe(174_530_500_000_000_000_000_000n);
+    expect(recommendedDeposit(174_530_500_000_000_000_000_000n)).toBe(219_000_000_000_000_000_000_000n);
+    expect(outlayerRequiredDeposit(0, 0)).toBe(0n);
+    const slot = { bidder: "b.testnet", commit: "11".repeat(32), ciphertext: "ab".repeat(161), deposit: "1000000000000000000000" };
+    const at = (n: number) => estimateFinalizeDeposit(Array.from({ length: n }, () => slot)).required;
+    expect(at(10)).toBeLessThan(at(100));
+    expect(at(100)).toBeLessThan(at(200));
+    expect(estimateInputLen(Array.from({ length: 100 }, () => slot))).toBeGreaterThan(32_768);
   });
 });

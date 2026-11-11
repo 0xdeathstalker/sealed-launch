@@ -55,7 +55,7 @@ The contract suites (`contracts/sale`: 17 sandbox tests, `contracts/factory`: 5)
 ```sh
 cd scripts
 pnpm install
-pnpm verify gamma      # also: beta, alpha, or a full account id; --all; --json
+pnpm verify gamma      # also: beta, alpha, n10, n20b, n20c, n20d, n30, n50, n100, a full account id; --all; --json
 ```
 `verify` reads the sale's state over public testnet RPC (no keys), recomputes the clearing with `clearing-js`, and checks it against what the contract stored. Output obtained on 2026-11-11 (`sale-gamma`, exit code 0):
 
@@ -96,6 +96,7 @@ SealedLaunch verify: sale-gamma.sealedlaunch.deathstalker-sl.testnet   status=Se
 ```
 `pnpm verify beta` also ends `RESULT: PASS (23 pass, 0 fail, 1 warn, 0 skip)`; the warning is expected (beta was created from an older sale wasm than the factory's current one). `pnpm verify alpha` ends `RESULT: PASS (8 pass, 0 fail, 1 warn, 1 skip)`: alpha is the failed-run case in Refund mode, so there is no clearing to recompute.
 Read as: 3 bidders, 7 bids (one below reserve and dropped), P* = 0.0102 NEAR/token, 500 tokens sold, raise 5.1 NEAR, and every yocto of deposits is accounted for. The public RPC default is `https://test.rpc.fastnear.com`; override with `NEAR_RPC`.
+The larger runs work the same way: `pnpm verify n100` checks the 100-bid sale (94 bidders). The saved outputs for all 7 larger sales are in `scripts/evidence/verify-*.txt`; each ends `RESULT: PASS (23 pass, 0 fail, 0 warn, 0 skip)`. A fresh run shows 24 checks because the sale wasm hash is now recorded in `deployments.json`.
 
 ### 4. Look at it on the explorer
 
@@ -118,29 +119,77 @@ Explorer is https://testnet.nearblocks.io. All ids and transaction hashes are in
 | beta: settle (Ref LP, see limitation on pool price) | [DWD7gpeq...](https://testnet.nearblocks.io/txns/DWD7gpeqkrXfjih3zShEiYG5JWqdMc6pnxewkmZEGVW) |
 | alpha: decryption-oracle attack refused by the worker guard | [ATNfDi1v...](https://testnet.nearblocks.io/txns/ATNfDi1v13a6z3Atb4yUUzLudGztMJmWHFBeiYHSnnpi) |
 | alpha: refund_all (5 deposits returned) | [A46Dw6K8...](https://testnet.nearblocks.io/txns/A46Dw6K8ajUHxExG9NTU6zfcfQA4Npa6kBXGz4zqCKiW) |
+| sale-n10 (60 bids: sniper "first" + attack suite) | [account](https://testnet.nearblocks.io/address/sale-n10.sealedlaunch.deathstalker-sl.testnet), finalize [2qF97doT...](https://testnet.nearblocks.io/txns/2qF97doT9vqfrJ7i4hYXhzWqjwLXcsdGzYUnNat6BWYF) |
+| sale-n20d (69 bids: sniper "last") | [account](https://testnet.nearblocks.io/address/sale-n20d.sealedlaunch.deathstalker-sl.testnet), finalize [4jL5UEFt...](https://testnet.nearblocks.io/txns/4jL5UEFtAZsWPeSAT7LfNbUvGYHP4sfcq3LWMGmJrtVZ) |
+| sale-n100 (100 bids: sniper "split") | [account](https://testnet.nearblocks.io/address/sale-n100.sealedlaunch.deathstalker-sl.testnet), finalize [Bxm8JevV...](https://testnet.nearblocks.io/txns/Bxm8JevV474zfbuLTRCo2Eb4vLXQgYrxtPEWxhTaidCD); first finalize with 0.1 NEAR rejected by OutLayer [3h4JaX8N...](https://testnet.nearblocks.io/txns/3h4JaX8NU7vCAffTB7wAkWMsRjFWkmDaCKRrAN7vWZjN) |
+| sale-n30, n50, n20b, n20c | ids and txs in `deployments.json` (`sales.n30` etc.) |
 | Ref pool 2935 (gamma LP) | `ref-finance-101.testnet`, view `get_pool` with `pool_id: 2935`: 250e18 token + 2.55e24 wNEAR = 0.0102 NEAR/token = P* |
 
 To check the "zero keys" claim yourself: `bash contracts/factory/scripts/verify_keyless.sh sale-gamma.sealedlaunch.deathstalker-sl.testnet`, or call RPC `view_access_key_list` on the sale account (returns `[]`; `pnpm verify` also checks it).
 
 ## Evidence
 
-- Full table of runs, costs and results: [`scripts/evidence/TABLE.md`](scripts/evidence/TABLE.md) (produced by `scripts/launch-runner.ts` and `scripts/sniper-bot.ts`). **At the time this README was written that file did not exist yet; if it is missing from your checkout, the table was not produced and no sniper-simulation numbers are claimed.**
-- Live attack suite against sale-beta: [`scripts/evidence/attacks-sale-beta.sealedlaunch.deathstalker-sl.testnet.md`](scripts/evidence/attacks-sale-beta.sealedlaunch.deathstalker-sl.testnet.md) (raw: `.json`). Result: 6 of 9 rows PASS (forged `on_clear`, claim with a swapped bidder name, double claim, bid after deadline, finalize on a settled sale, refund outside refund mode). 3 rows (inflated tokens, refund+1, empty proof) are marked **INCONCLUSIVE**: by then every bidder had already claimed, so the "already claimed" check fired before the Merkle check. The Merkle check itself was exercised live by the swapped-name row and by `claim_forged_rejected` in `deployments.json` (rejected "invalid merkle proof").
-- Sandbox attack coverage (mock OutLayer): `contracts/sale/NOTES.md`.
-- OutLayer measurements (cost, latency, 10 to 200 bids): [`spike-outlayer/RESULTS.md`](spike-outlayer/RESULTS.md). Net cost 0.0026 NEAR at 10 bids to 0.0057 NEAR at 200 bids, latency 8 to 11 s, measured on testnet through a probe contract.
-- Live run summary and every integration bug found: [`INTEGRATION.md`](INTEGRATION.md).
+Full table, definitions and per-run notes: [`scripts/evidence/TABLE.md`](scripts/evidence/TABLE.md) (run notes and failures: [`scripts/evidence/NOTES.md`](scripts/evidence/NOTES.md)). All bidders, house and bot, are our own testnet wallets.
 
-Sale sizes actually run live: 5 bids (beta), 7 bids (gamma), 5 bids (alpha). Larger counts (up to 200) were measured only in the OutLayer spike and the contract gas benchmark in the sandbox.
+### Launch runs at 16 to 100 bids
+
+Besides alpha (5 bids), beta (5) and gamma (7), seven larger sales ran end to end on testnet with the real OutLayer worker and real Ref LP. The `nXX` in a name is a run tag, **not** the bid count:
+
+| sale | bids on chain | scenario | P* (NEAR/token) | finalize->on_clear (s) | verify |
+|---|---|---|---|---|---|
+| sale-n30 | 30 | house only | 0.000200 | 10.958 | PASS |
+| sale-n50 | 39 | house only (50 planned, 11 hit RPC 429) | 0.000384 | 7.252 | PASS |
+| sale-n10 | 60 | 50 sniper "first" + 10 house | 0.000261 | 6.839 | PASS |
+| sale-n20b | 16 | house only | 0.000210 | 6.744 | PASS |
+| sale-n20c | 44 | bot only, house bids never placed: **not counted as evidence** | 0.000200 (reserve) | 7.222 | PASS |
+| sale-n20d | 69 | 50 sniper "last" + 19 house | 0.000270 | 8.519 | PASS |
+| sale-n100 | 100 | 80 sniper "split" + 20 house | 0.000257 | 7.285 | PASS |
+
+- All 7 saved `verify` outputs pass 23/23 checks, including 0 access keys, on-chain recompute matched, every Merkle proof valid, per-bidder `refund == deposit - ceil(P* x tokens)`, and conservation `sum(deposits) == raise + sum(refunds)` exact to the yocto.
+- finalize->on_clear (chain time) was 6.7 to 8.5 s for 6 of the 7 runs (16 to 100 bids) and 11.0 s for n30. No growth with bid count is visible in this range; one sale per size.
+- OutLayer net cost was about 0.001 NEAR per finalize at every size.
+- Gas columns in TABLE.md are not comparable across rows (different runner invocations sent different transactions); TABLE.md flags each row. Finalize gas alone was 29 to 89 Tgas.
+
+### Sniper simulation (one run per scenario)
+
+50 bot wallets (80 for split) bid against house bidders. **Each scenario ran once.** Bots were sent from one machine over public testnet RPC and did **not** land in a single block: landed bids span 17 to 47 distinct block timestamps, and sending took about 22 to 52 s.
+
+- "first" (sale-n10): 50/50 landed 309 to 298 s before the deadline. 35 bot bids won, 346 tokens.
+- "last" (sale-n20d): 50/50 landed 17.6 to 2.4 s before the deadline. 32 bot bids won, 320 tokens.
+- "split" (sale-n100): 80 wallets all bid 0.0003 NEAR/token; all were filled and all paid P* = 0.000257.
+- In every valid run every winning bot paid exactly P*, and the bot average price equals the honest average price.
+- Spearman correlation of arrival time with fill: +0.04 ("first") and +0.12 ("last"), n = 50 each. Bid price with fill: +0.81 and +0.83. Price decided the fill, arrival time did not.
+- Two earlier attempts landed 0 of 50 and are recorded as failed runs: "first" on sale-n50 (40 RPC 429 errors, 10 underfunded wallets) and "last" on sale-n20b (31 sent after the deadline, 18 underfunded, 1 missing key). sale-n20c (bots only) is excluded from the comparison.
+
+### Live attack suites
+
+- **sale-n10** (60 bids), attacker `dsl-bidder3.testnet`, files `scripts/evidence/attacks-sale-n10.sealedlaunch.deathstalker-sl.testnet.{bidding-window,cleared}.md`. After clearing, 9 of 9 attack rows PASS, 0 inconclusive: forged `on_clear` ([CHDdVLtT](https://testnet.nearblocks.io/txns/CHDdVLtToNXCqYFzb5Rgk72ap23FKtJR2xcKE6Sx1zU4)), claim with tokens+1 ([BpxKrsZ4](https://testnet.nearblocks.io/txns/BpxKrsZ4EHGhhBMCVVaymQzWmZj3oRSWZNGwdPHbgoZk)), refund+1 yocto ([5hQB9U7Y](https://testnet.nearblocks.io/txns/5hQB9U7YSbTg7fPaAJEJTnih7DeZR7QCppUpwD1k3Zpf)), empty proof ([46s8fQcp](https://testnet.nearblocks.io/txns/46s8fQcpSkjdznx8e6YisRBx6pDn2Cz3UfNbQESFaiGN)) and swapped bidder name ([FkT7Ew1j](https://testnet.nearblocks.io/txns/FkT7Ew1jSyKeWwLvR2ZCxAhELvkk14HRG4MhRKCmRjJ3)) all rejected "invalid merkle proof"; double claim ([G8txPx6T](https://testnet.nearblocks.io/txns/G8txPx6TQZfVBPUDLsv22ZLzDv8mV7u8M9Vqt1sXXQ7B)) "already claimed"; bid after deadline ([D67FQqTc](https://testnet.nearblocks.io/txns/D67FQqTcA3UcdRs3acRBSUkjhMbhRRb4CYGuJiEq44UC)) "bidding is closed"; finalize on a Cleared sale ([Cf8Bppg3](https://testnet.nearblocks.io/txns/Cf8Bppg3Pk3GUMBBnSgkWij8Y28WhJuVBRhXAw9Fypos)) "not finalizable in this state"; refund outside refund mode ([B8Q1Uuo2](https://testnet.nearblocks.io/txns/B8Q1Uuo2jJ225rTqogvuBhaVuRkrR4vkwkL1LQx4Qnjo)) "not in refund mode". During the bidding window, forged `on_clear`, early finalize ("bidding still open") and refund were rejected; the other 6 rows do not apply before clearing and were skipped.
+- **sale-beta** (5 bids): [`scripts/evidence/attacks-sale-beta.sealedlaunch.deathstalker-sl.testnet.md`](scripts/evidence/attacks-sale-beta.sealedlaunch.deathstalker-sl.testnet.md). 6 of 9 rows PASS (forged `on_clear`, claim with a swapped bidder name, double claim, bid after deadline, finalize on a settled sale, refund outside refund mode). 3 rows (inflated tokens, refund+1, empty proof) are **INCONCLUSIVE**: every bidder had already claimed, so "already claimed" fired before the Merkle check. The sale-n10 run above closes that gap.
+- Sandbox attack coverage (mock OutLayer): `contracts/sale/NOTES.md`.
+
+### Not run
+
+- A literal one-block burst of bot bids (public RPC rate limits).
+- A 200-bid sale. The largest live sale has 100 bids; 200 bids was measured only in the OutLayer spike and the sandbox gas benchmark.
+- Live challenge flow, `refund_all` after a worker that never answers, and malicious-TEE variants (sandbox only).
+- The n100 house-bid tx records were lost: `create_sale` returned "fetch failed" although the tx succeeded, and the resumed runner later died at the rejected finalize. The bids are on chain and `verify` reads them.
+
+### Other measurements
+
+- OutLayer spike (cost, latency, 10 to 200 bids): [`spike-outlayer/RESULTS.md`](spike-outlayer/RESULTS.md). Net cost 0.0026 NEAR at 10 bids to 0.0057 NEAR at 200 bids, latency 8 to 11 s, measured on testnet through a probe contract.
+- Live integration log and every integration bug found: [`INTEGRATION.md`](INTEGRATION.md).
 
 ## Status: verified live vs sandbox vs not built
 
 | Capability | Status |
 |---|---|
-| Factory creates a keyless sale in one atomic batch (no `AddKey`) | **Live** (alpha, beta, gamma; 0 keys by RPC after create and after settle) |
-| OutLayer `derive_pubkey` per sale, ECIES bids from `eciesjs`, TEE clears, result returns to `on_clear` | **Live** (beta, gamma) |
-| On-chain recompute of the clearing in `on_clear` and rejection of mismatches | **Live** happy path (beta, gamma). Rejection paths for tampered results: **sandbox** only |
-| `claim` with Merkle proofs; forged and double claims rejected | **Live** (beta) |
-| `settle` with real Ref Finance LP | **Live** (beta pool 2934, gamma pool 2935). Pool opens at P* exactly only from gamma onward (see Known limitations) |
+| Factory creates a keyless sale in one atomic batch (no `AddKey`) | **Live** (alpha, beta, gamma and the 7 n-series sales; 0 keys by RPC, checked by every `verify`) |
+| OutLayer `derive_pubkey` per sale, ECIES bids from `eciesjs`, TEE clears, result returns to `on_clear` | **Live** (beta, gamma, 7 n-series sales with 16 to 100 bids) |
+| On-chain recompute of the clearing in `on_clear` and rejection of mismatches | **Live** happy path (beta, gamma, n-series up to 100 bids). Rejection paths for tampered results: **sandbox** only |
+| `claim` with Merkle proofs; forged, tampered and double claims rejected | **Live** (beta; sale-n10 attack suite: tokens+1, refund+1, empty proof, swapped name, double claim all rejected) |
+| `settle` with real Ref Finance LP | **Live** (beta pool 2934, gamma pool 2935, all 7 n-series sales `lp_status = Done`; n-series pool ids not recorded). Pool opens at P* exactly only from gamma onward (see Known limitations) |
+| Bots versus honest bidders (sniper simulation) | **Live, one run per scenario** ("first" n10, "last" n20d, "split" n100); not a one-block burst. See Evidence |
+| `finalize` deposit sized for large bid counts | **Known issue, fix in progress.** A flat 0.1 NEAR failed at 100 bids (OutLayer needed 0.1745 NEAR); see Known limitations |
 | Refund mode via `refund_all` after a failed OutLayer run | **Live** (alpha). It was a worker error, not a worker that never answers |
 | Decryption-oracle guard refuses a direct `clear` | **Live** (one refusal, alpha) plus native tests |
 | `claim_vested`, `withdraw_fees` | **Live** (beta); other callers' access not probed |
@@ -175,8 +224,9 @@ A build-locked WASM will decrypt whatever ciphertexts it is handed, so anyone al
 - **Pool creation front-running** on Ref (pool creation and first liquidity are separate calls) is not mitigated.
 - **Cost:** creating a sale needs about 5.0 NEAR (wasm storage, mostly locked in the keyless account).
 - **Unclaimed transfers** (malformed `ft_on_transfer` messages) have no storage payer; small grief vector, not mitigated.
-- **Small live samples:** 5 to 7 bids per live sale. No outside bidders; all live bidders are our own testnet accounts.
-- Not live-tested: a worker that never responds at all, the 10-minute stale re-finalize path, anything above 7 bids on a real run.
+- **Finalize deposit does not scale with bid count (known issue, being fixed, not fixed in the runs above).** OutLayer charges for input above 32,768 B. At 100 bids it required 0.1745305 NEAR (0.0070005 compute + 0.16753 held for 49,521 B of input beyond the free 32,768 B), and `finalize` with a flat 0.1 NEAR was rejected ("Insufficient payment", tx [3h4JaX8N...](https://testnet.nearblocks.io/txns/3h4JaX8NU7vCAffTB7wAkWMsRjFWkmDaCKRrAN7vWZjN)). The sale stayed retryable and a second finalize with 0.5 NEAR inside the 420 s window cleared it; the net OutLayer charge was still about 0.001 NEAR. The evidence runner attached 0.5 NEAR for more than 40 bids as a workaround. Sizing the deposit from the input size in the contract, scripts and UI is in progress.
+- **Live samples are small and ours.** Live sales range from 5 to 100 bids, one sale per configuration. No outside bidders; every live bidder (house and bot) is our own testnet wallet.
+- Not live-tested: a worker that never responds at all, the 10-minute stale re-finalize path, a sale above 100 bids, a one-block bot burst.
 - Mainnet and Intents: none; legal and real-money considerations are out of scope for this testnet build.
 
 ## NEAR AI Cloud is not used
@@ -197,23 +247,24 @@ The Privacy track lists NEAR AI Cloud, but it only signs inference and cannot ho
 | `scripts/` | `verify`, `sniper-bot`, `launch-runner`, `attack-suite`, evidence output in `scripts/evidence/` |
 | `spike-outlayer/` | The OutLayer feasibility spike and measured results |
 | `deployments.json` | Every testnet account, hash and transaction id |
-| `INTEGRATION.md`, `INTENTS.md`, `RESEARCH.md`, `SEALED_LAUNCH.md` | Live integration log, Intents research, version/Ref research, original design and plan |
+| `INTEGRATION.md`, `INTENTS.md`, `RESEARCH.md`, `SEALED_LAUNCH.md` | Live integration log, Intents research, version/Ref research, original design doc |
 
-Design notes (`SEALED_LAUNCH.md`) describe the full plan including items that are not built; this README and the status table are the source of truth for what runs.
+`SEALED_LAUNCH.md` is the original design doc written before the build; parts are outdated and it includes items that are not built. This README and the status table are the source of truth for what runs.
 
 ## Disclosure: what was built when
 
+<!-- TODO(human): confirm this "built in the window" statement (dates, no pre-hackathon code) before submission. -->
 - Everything in this repository was written during the hackathon window (the OutLayer spike began on 10 Nov 2026; all deployments are dated 2026-11-11). The git history has no earlier commits. There is no pre-hackathon codebase or previously existing product on another chain.
 - Much of the code was written with AI assistance (Claude Code agents).
 - Libraries: `near-sdk` 5.30.1 and `near-contract-standards` 5.30.1 (token), `near-workspaces` 0.24 (sandbox tests), `sha2`, `hkdf`, `ecies` 0.2 with `libsecp256k1`, `serde`, `base64` (Rust); `eciesjs` 0.4.x, `@noble/hashes`, `near-api-js` 5.1.1, `@near-wallet-selector/*`, Next.js 15.5, React 19, `vitest`, `tsx` (TypeScript).
 - Pattern followed, not copied: key derivation (`HKDF-SHA256` per account from a protected OutLayer secret) plus ECIES, as in `private-dao-example`.
 - Platforms used: OutLayer (`outlayer.testnet`, its CLI and FastFS hosting), Ref Finance testnet (`ref-finance-101.testnet`, `wrap.testnet`), NEAR testnet RPC.
-- Prior art we build on conceptually (see `SEALED_LAUNCH.md` section 4): uniform-price batch auctions (Gnosis EasyAuction, Uniswap CCA, Metaplex Genesis). The claim is the combination of sealed bids, keyless sale, on-chain recompute and NEAR, not the uniform price itself.
+- Prior art we build on conceptually: uniform-price batch auctions (Gnosis EasyAuction, Uniswap CCA, Metaplex Genesis). The claim is the combination of sealed bids, keyless sale, on-chain recompute and NEAR, not the uniform price itself.
 
 ## Other hackathon projects by the same team
 
 <!-- PLACEHOLDER (Q-015): the submitter fills this in before submission. Each README must name the other project. -->
-`<OTHER_PROJECT_NAME and REPO_URL, filled in by the submitter>`
+<!-- TODO(human): confirm the other project's name and repo URL and replace the line below. -->`<OTHER_PROJECT_NAME and REPO_URL, filled in by the submitter>`
 
 ## Tracks
 

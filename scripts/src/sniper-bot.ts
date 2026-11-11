@@ -64,6 +64,7 @@ if (a.collect) {
   // timing vs outcome among bot bids that were valid (price >= P* or not), correlation of arrival with fill ratio
   const timed = (res.bids as any[]).filter((b) => b.fill_ratio !== undefined && (b.block_ts_ms ?? b.submit_ms));
   const corr = pearson(rank(timed.map((b) => b.block_ts_ms ?? b.submit_ms)), rank(timed.map((b) => b.fill_ratio)));
+  const corrPrice = pearson(rank(timed.map((b) => Number(BigInt(b.price) / 10n ** 12n))), rank(timed.map((b) => b.fill_ratio)));
   const corrSlot = pearson(rank(timed.map((b) => b.slot)), rank(timed.map((b) => b.fill_ratio)));
   // conditional on equal bid price band this is only meaningful when prices are equal; report both
   const everyWinnerPaidPStar = botFilled.every((b) => BigInt(b.cost_paid) === (cost(pStar, BigInt(b.tokens_filled), D) ?? -1n));
@@ -73,7 +74,7 @@ if (a.collect) {
     bot_avg_price_paid: avg(botCost, botTokens)?.toString() ?? null,
     honest_winning_slots: honWinners, honest_tokens: honTokens.toString(), honest_avg_price_paid: avg(honCost, honTokens)?.toString() ?? null,
     every_bot_winner_paid_p_star: everyWinnerPaidPStar,
-    spearman_arrival_time_vs_fill_ratio: corr, spearman_slot_index_vs_fill_ratio: corrSlot,
+    spearman_arrival_time_vs_fill_ratio: corr, spearman_slot_index_vs_fill_ratio: corrSlot, spearman_bid_price_vs_fill_ratio_contrast: corrPrice,
     note: "price paid per whole token is identical (P*) for every winner by construction; correlation near 0 means arrival time does not predict outcome. With few distinct bid prices the correlation is confounded by price, so also compare fill ratio at equal bid price.",
   };
   fs.writeFileSync(f, JSON.stringify(res, null, 1));
@@ -136,7 +137,7 @@ if (!dry) {
   }
   // pre-flight balances
   const need = new Map<string, bigint>();
-  for (const p of plans) need.set(p.account, (need.get(p.account) ?? 0n) + (cost(p.price, p.size, P.token_decimals) ?? 0n) + BigInt(P.bid_fee) + toYocto("0.01"));
+  for (const p of plans) need.set(p.account, (need.get(p.account) ?? 0n) + (cost(p.price, p.size, P.token_decimals) ?? 0n) + BigInt(P.bid_fee) + toYocto("0.007"));
   for (const [acc, nd] of need) { const b = await balanceOf(acc); if (b < nd) die(`${acc} has ${near(b)} NEAR, needs ~${near(nd)}`); }
 }
 

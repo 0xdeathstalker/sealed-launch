@@ -63,6 +63,10 @@ export default function SalePage() {
   const slots = usePoll(() => (needSlots ? api.bids(id, count) : Promise.resolve(null)), `slots:${id}:${count}:${needSlots}`, 0);
   const revealed = usePoll(() => (post ? api.revealed(id, count) : Promise.resolve(null)), `rev:${id}:${count}:${post}`, 0);
   const times = usePoll(() => api.bidTimes(id), `times:${id}:${count}`, 0);
+  const finDep = usePoll(
+    () => (phase === "await-finalize" || phase === "clearing" ? api.finalizeDeposit(id) : Promise.resolve(null)),
+    `findep:${id}:${count}:${phase}`, 0,
+  );
   const claimedQ = usePoll(
     async () => (w.account && post ? api.isClaimed(id, w.account) : null),
     `claimed:${id}:${w.account}:${post}:${rcpt}`, 0,
@@ -78,7 +82,9 @@ export default function SalePage() {
   const reload = () => { info.reload(); clearing.reload(); claimedQ.reload(); setRcpt((x) => x + 1); };
 
   const finalize = useAction(async () => {
-    const tx = await w.call({ receiverId: id, methodName: "finalize", args: {}, gas: 300n * TGAS, deposit: 0n });
+    // OutLayer deposit sized from the bid set's input_data (+25% headroom); the unused part is refunded.
+    const dep = await api.finalizeDeposit(id);
+    const tx = await w.call({ receiverId: id, methodName: "finalize", args: {}, gas: 300n * TGAS, deposit: dep.recommended });
     reload();
     return tx.note ?? "Finalize sent. The TEE will clear and call back; this page refreshes itself.";
   });
@@ -178,6 +184,9 @@ export default function SalePage() {
         <div className="card">
           <h2>The bid window closed</h2>
           <p>{sale.bid_count} sealed bids are waiting. Anyone can call <code>finalize</code>: it sends the ciphertexts to the OutLayer TEE worker, which decrypts and clears them. {sale.bid_count === 0 ? "With zero bids the contract clears on its own." : ""}</p>
+          {finDep.data && finDep.data.recommended > 0n ? (
+            <p>Finalize attaches {formatUnits(finDep.data.recommended, 24, 4)} NEAR for the OutLayer run ({finDep.data.inputLen.toLocaleString()} bytes of bids; minimum {formatUnits(finDep.data.required, 24, 4)} NEAR). Everything above the actual fee (about 0.001 NEAR) is refunded to you.</p>
+          ) : null}
           <button className="btn primary" onClick={() => finalize.run()} disabled={finalize.busy || !w.account}>{finalize.busy ? "Sending…" : w.account ? "Finalize (needs about 300 Tgas)" : "Connect a wallet to finalize"}</button>
           <ActionStatus error={finalize.error} msg={finalize.msg} />
           <Receipts saleId={id} info={sale} pay={pay} canCancel={false} version={rcpt} />

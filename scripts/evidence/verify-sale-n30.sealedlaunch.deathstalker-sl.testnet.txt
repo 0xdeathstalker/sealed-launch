@@ -1,0 +1,41 @@
+
+SealedLaunch verify: sale-n30.sealedlaunch.deathstalker-sl.testnet   status=Settled
+
+  PASS  sale account has 0 access keys                                                       
+  PASS  sale wasm sha256 == factory's current embedded sale wasm                             
+  PASS  sale lives under the factory account                                                 
+  PASS  sale.params.factory == factory in deployments.json                                   
+  PASS  bid_count == number of slots read                                                    
+  PASS  sum(slot deposits) == get_deposits_total                                             
+  PASS  fees_accrued == bid_count * bid_fee (+ any bonds/slashes)                            
+  PASS  P* recomputed == on-chain p_star                                                     
+  PASS  alloc_root recomputed == on-chain                                                    
+  PASS  leaf_count recomputed == on-chain                                                    
+  PASS  input_hash recomputed == on-chain                                                    
+  PASS  sold recomputed == on-chain                                                          
+  PASS  burned recomputed == on-chain                                                        
+  PASS  raise recomputed == on-chain                                                         
+  PASS  sold + burned == auction_supply                                                      
+  PASS  P* >= reserve_price                                                                  
+  PASS  on-chain recompute flag (verified_onchain)                                           
+  PASS  every filled bid offered >= P* (uniform price)                                       
+  PASS  every leaf Merkle proof verifies against alloc_root                                  
+  PASS  per-bidder: refund == deposit - ceil(P* * tokens)                                    
+  PASS  sum(per-bidder cost) == raise                                                        
+  PASS  CONSERVATION: sum(deposits) == raise + sum(refunds)                                  
+  PASS  CONSERVATION incl. fees: sum(deposits)+n*fee == raise + sum(refunds) + fees_accrued  
+
+  per bidder (yocto / base units):
+    hb3-1.deathstalker-sl.testnet      tokens=119000000000000000000 cost=23800000000000000000000 refund=15774500600000000000000 proof=ok
+    hb3-2.deathstalker-sl.testnet      tokens=108000000000000000000 cost=21600000000000000000000 refund=17595862200000000000000 proof=ok
+    hb3-3.deathstalker-sl.testnet      tokens=112000000000000000000 cost=22400000000000000000000 refund=21546129400000000000000 proof=ok
+    hb3-4.deathstalker-sl.testnet      tokens=117000000000000000000 cost=23400000000000000000000 refund=27186756400000000000000 proof=ok
+    hb3-5.deathstalker-sl.testnet      tokens=130000000000000000000 cost=26000000000000000000000 refund=43451212400000000000000 proof=ok
+    hb3-6.deathstalker-sl.testnet      tokens=68000000000000000000 cost=13600000000000000000000 refund=12262391600000000000000 proof=ok
+    hb3-7.deathstalker-sl.testnet      tokens=68000000000000000000 cost=13600000000000000000000 refund=6835152400000000000000 proof=ok
+    hb3-8.deathstalker-sl.testnet      tokens=78000000000000000000 cost=15600000000000000000000 refund=9749184200000000000000 proof=ok
+
+  summary: {"bids":30,"status":"Settled","mode":"Tee","lp_status":"Done","deposits_total":"314401189200000000000000","fees_accrued":"30000000000000000000000","p_star":"200000000000000000000","sold":"800000000000000000000","raise":"160000000000000000000000","burned":"200000000000000000000","alloc_root":"6b3b52a7a1d9844104d1aa909ce719634afefd4048a6419d1f4830ab1662fd10","leaf_count":8,"input_hash":"62df041cf2b34a825f549c46fe0f390c9b569dcf68a1c05e8854c838fe26a6bd","sum_refunds":"154401189200000000000000","sum_deposits":"314401189200000000000000","fill_rate_pct":80}
+
+  RESULT: PASS  (23 pass, 0 fail, 0 warn, 0 skip)
+

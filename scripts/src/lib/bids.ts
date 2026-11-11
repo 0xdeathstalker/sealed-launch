@@ -45,7 +45,7 @@ export function prepareBid(sale: string, pk: string, info: SaleInfo, plan: BidPl
 export async function sendBid(sale: string, prepared: ReturnType<typeof prepareBid>, bidEndMs: number): Promise<BidRecord> {
   const { rec, ciphertext, attached } = prepared;
   rec.submit_ms = Date.now();
-  const r: CallResult = await call(rec.account, sale, "bid", { ciphertext, commit: rec.commit }, { gas: 30n * TGAS, deposit: attached });
+  const r: CallResult = await call(rec.account, sale, "bid", { ciphertext, commit: rec.commit }, { gas: BigInt(process.env.BID_GAS_TGAS ?? 6) * TGAS, deposit: attached });
   rec.send_done_ms = Date.now();
   rec.tx = r.tx; rec.ok = r.ok; rec.error = r.error ?? r.receiptFailure;
   rec.idx = typeof r.result === "number" ? r.result : null;

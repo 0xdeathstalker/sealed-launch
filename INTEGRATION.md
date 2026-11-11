@@ -43,7 +43,7 @@ Test accounts together went from 55.38 NEAR (deathstalker-sl.testnet 5.38 plus 5
 
 ## Not verified / caveats
 
-- Not run live: NEP-141 payment path and Intents-style `ft_on_transfer`, fallback commit-reveal, `challenge`, `challenge_recompute`, the above-cap (>200 bids) Challenge path, `cancel_bid`, `top_up`, `retry_pk`, `retry_payout`, more than 5 bids (so real gas/instruction numbers above 5 slots come only from the earlier spike and sandbox).
+- Not run live: NEP-141 payment path and Intents-style `ft_on_transfer`, fallback commit-reveal, `challenge`, `challenge_recompute`, the above-cap (>200 bids) Challenge path, `cancel_bid`, `top_up`, `retry_pk`, `retry_payout`. (Round 1 had only 5 bids; live runs with 16 to 100 bids were done later, see "Round 3" below.)
 - Ref LP: pool price is not P*. `lp_tokens = floor(lp_funds*10^D/P*)` was 500 tokens but capped at `lp_token_reserve` (200), so the pool opened at about 0.025 NEAR/token versus P* 0.0101. LP shares sit in Ref under the keyless sale account with no withdraw path (intended: locked). If any step of the chain fails midway `lp_status = Failed` with no recovery; did not happen here.
 - The `code_hash` in the worker output is only an echo; real binding is the OutLayer `--build` lock (unchanged, not re-tested here beyond the working run) and attestation. On-chain attestation verification still not done.
 - The sale "OutLayer refund of unused deposit" destination was not traced; `finalize` was sent with 0.1 NEAR and OutLayer reported 0.0989 NEAR refunded.
@@ -79,3 +79,22 @@ Six project accounts together went from 33.77 to 26.18 NEAR (-7.60). Breakdown: 
 ### Notes
 - The CLI output parse in `scripts/e2e/bids.mjs` did not capture bid tx hashes (`tx undefined`); they were recovered from nearblocks v3 (`/v3/accounts/<id>/txns`). `scripts/e2e/bids2.mjs` is the 7-bid variant used here; `cj.cjs` is the esbuild bundle (rebuild with the esbuild in `clearing-js/node_modules/.pnpm/esbuild@0.21.5`).
 - Public RPC `rpc.testnet.near.org` now returns a deprecation notice; `rpc.testnet.fastnear.com` worked.
+
+## Round 3: scale, sniper and attack runs (n-series)
+
+Date 2026-11-11, testnet only, same factory and sale wasm as round 2 (`84068b3e...bfe670`), real OutLayer worker `607df359...`, real Ref. Driven by `scripts/src/launch-runner.ts`, `sniper-bot.ts` and `attack-suite.ts`. Full table, column definitions and failures: [`scripts/evidence/TABLE.md`](scripts/evidence/TABLE.md) and [`scripts/evidence/NOTES.md`](scripts/evidence/NOTES.md). Ids and lifecycle txs: `deployments.json` `sales.n10` ... `sales.n100`.
+
+- Seven sales ran create (or resume) -> bids -> finalize with the real worker -> on-chain recompute -> claims -> settle with Ref LP: n30 (30 bids), n50 (39), n10 (60), n20b (16), n20c (44, bot only, not counted as evidence), n20d (69), n100 (100). Sale names are run tags, not bid counts.
+- All 7 saved `verify` outputs: `RESULT: PASS (23 pass, 0 fail, 0 warn, 0 skip)`, with `sum(deposits) == raise + sum(refunds)` exact to the yocto.
+- finalize->on_clear (chain time): 6.7 to 8.5 s in 6 of 7 runs (16 to 100 bids), 11.0 s for n30. OutLayer net cost about 0.001 NEAR per finalize at every size. Finalize gas 29 to 89 Tgas.
+- Sniper simulation, one run per scenario, bots from one machine over public RPC (not one block): "first" (n10) and "last" (n20d) 50/50 landed, "split" (n100) 80/80. Every bot winner paid P*; bot and honest average prices identical; Spearman arrival vs fill +0.04 / +0.12, bid price vs fill +0.81 / +0.83. Two earlier attempts landed 0 of 50 (n50: RPC 429 and underfunded wallets; n20b: sent after the deadline and underfunded) and are recorded as failed runs.
+- Attack suite on sale-n10 after clearing: 9 of 9 rows rejected as expected, 0 inconclusive (the tampered-claim rows that were INCONCLUSIVE on sale-beta reached the Merkle check here).
+
+### New integration finding: finalize deposit (being fixed)
+
+At 100 bids `finalize` with the flat 0.1 NEAR deposit failed inside OutLayer: `Insufficient payment: required 174530500000000000000000 yoctoNEAR (7000500000000000000000 for compute, 167530000000000000000000 held for 49521 bytes of input_data beyond the free 32768), got 100000000000000000000000` (tx `3h4JaX8NU7vCAffTB7wAkWMsRjFWkmDaCKRrAN7vWZjN`; the top-level finalize returned `false` and the sale stayed retryable). A second finalize with 0.5 NEAR inside the 420 s window cleared it (tx `Bxm8JevV474zfbuLTRCo2Eb4vLXQgYrxtPEWxhTaidCD`), net OutLayer charge about 0.001 NEAR. The round 1 note above ("finalize was sent with 0.1 NEAR") is only safe for small sales: OutLayer input grows about 1.4 KB per bid and only 32,768 B is free. The evidence runner used 0.5 NEAR for more than 40 bids as a workaround; deposit sizing in the contract, scripts and UI is being fixed separately and is not reflected in these runs.
+
+### Other problems hit (recorded, not hidden)
+- Public RPC rate limits (-429) were the main failure mode for parallel bots and bids.
+- n100: `create_sale` returned "fetch failed" although the tx succeeded (`DQJmCGyxVEMjVmFZqfXkbZHYbTny95nhCFh2KVtWiZZh`); house-bid tx records were lost. Runner claims with 12 Tgas failed ("Exceeded the prepaid gas"); all 94 leaves were then claimed with 30 Tgas by `scripts/evidence/claimrest.mts`.
+- Not run: a one-block bot burst, a 200-bid sale, live challenge / never-answering worker / malicious-TEE variants.

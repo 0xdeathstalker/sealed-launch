@@ -1,0 +1,93 @@
+
+SealedLaunch verify: sale-n10.sealedlaunch.deathstalker-sl.testnet   status=Settled
+
+  PASS  sale account has 0 access keys                                                       
+  PASS  sale wasm sha256 == factory's current embedded sale wasm                             
+  PASS  sale lives under the factory account                                                 
+  PASS  sale.params.factory == factory in deployments.json                                   
+  PASS  bid_count == number of slots read                                                    
+  PASS  sum(slot deposits) == get_deposits_total                                             
+  PASS  fees_accrued == bid_count * bid_fee (+ any bonds/slashes)                            
+  PASS  P* recomputed == on-chain p_star                                                     
+  PASS  alloc_root recomputed == on-chain                                                    
+  PASS  leaf_count recomputed == on-chain                                                    
+  PASS  input_hash recomputed == on-chain                                                    
+  PASS  sold recomputed == on-chain                                                          
+  PASS  burned recomputed == on-chain                                                        
+  PASS  raise recomputed == on-chain                                                         
+  PASS  sold + burned == auction_supply                                                      
+  PASS  P* >= reserve_price                                                                  
+  PASS  on-chain recompute flag (verified_onchain)                                           
+  PASS  every filled bid offered >= P* (uniform price)                                       
+  PASS  every leaf Merkle proof verifies against alloc_root                                  
+  PASS  per-bidder: refund == deposit - ceil(P* * tokens)                                    
+  PASS  sum(per-bidder cost) == raise                                                        
+  PASS  CONSERVATION: sum(deposits) == raise + sum(refunds)                                  
+  PASS  CONSERVATION incl. fees: sum(deposits)+n*fee == raise + sum(refunds) + fees_accrued  
+
+  per bidder (yocto / base units):
+    bf-1.deathstalker-sl.testnet       tokens=0 cost=0 refund=2563130282000000000000 proof=ok
+    bf-10.deathstalker-sl.testnet      tokens=0 cost=0 refund=2135504078000000000000 proof=ok
+    bf-11.deathstalker-sl.testnet      tokens=0 cost=0 refund=2429442062000000000000 proof=ok
+    bf-12.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=803676834000000000000 proof=ok
+    bf-13.deathstalker-sl.testnet      tokens=0 cost=0 refund=2140368122000000000000 proof=ok
+    bf-14.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=1234305308000000000000 proof=ok
+    bf-15.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=457463940000000000000 proof=ok
+    bf-16.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=67787552000000000000 proof=ok
+    bf-17.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=581021944000000000000 proof=ok
+    bf-18.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=1368656298000000000000 proof=ok
+    bf-19.deathstalker-sl.testnet      tokens=0 cost=0 refund=2556945118000000000000 proof=ok
+    bf-2.deathstalker-sl.testnet       tokens=0 cost=0 refund=2027828100000000000000 proof=ok
+    bf-20.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=480284352000000000000 proof=ok
+    bf-21.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=619033742000000000000 proof=ok
+    bf-22.deathstalker-sl.testnet      tokens=0 cost=0 refund=2205342066000000000000 proof=ok
+    bf-23.deathstalker-sl.testnet      tokens=0 cost=0 refund=2409649538000000000000 proof=ok
+    bf-24.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=494606262000000000000 proof=ok
+    bf-25.deathstalker-sl.testnet      tokens=0 cost=0 refund=2076379462000000000000 proof=ok
+    bf-26.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=1183780376000000000000 proof=ok
+    bf-27.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=585082494000000000000 proof=ok
+    bf-28.deathstalker-sl.testnet      tokens=0 cost=0 refund=2216704702000000000000 proof=ok
+    bf-29.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=425843576000000000000 proof=ok
+    bf-3.deathstalker-sl.testnet       tokens=0 cost=0 refund=2319339368000000000000 proof=ok
+    bf-30.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=703971530000000000000 proof=ok
+    bf-31.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=206239386000000000000 proof=ok
+    bf-32.deathstalker-sl.testnet      tokens=0 cost=0 refund=2137724606000000000000 proof=ok
+    bf-33.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=160608172000000000000 proof=ok
+    bf-34.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=213621734000000000000 proof=ok
+    bf-35.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=675732392000000000000 proof=ok
+    bf-36.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=678028298000000000000 proof=ok
+    bf-37.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=670975452000000000000 proof=ok
+    bf-38.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=1086689296000000000000 proof=ok
+    bf-39.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=797565502000000000000 proof=ok
+    bf-4.deathstalker-sl.testnet       tokens=10000000000000000000 cost=2607524540000000000000 refund=1039523450000000000000 proof=ok
+    bf-40.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=647246404000000000000 proof=ok
+    bf-41.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=192851268000000000000 proof=ok
+    bf-42.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=213227528000000000000 proof=ok
+    bf-43.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=79973396000000000000 proof=ok
+    bf-44.deathstalker-sl.testnet      tokens=0 cost=0 refund=2219713720000000000000 proof=ok
+    bf-45.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=918402892000000000000 proof=ok
+    bf-46.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=1002701630000000000000 proof=ok
+    bf-47.deathstalker-sl.testnet      tokens=0 cost=0 refund=2585826940000000000000 proof=ok
+    bf-48.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=617180700000000000000 proof=ok
+    bf-49.deathstalker-sl.testnet      tokens=6000000000000000000 cost=1564514724000000000000 refund=1043009816000000000000 proof=ok
+    bf-5.deathstalker-sl.testnet       tokens=10000000000000000000 cost=2607524540000000000000 refund=1077289716000000000000 proof=ok
+    bf-50.deathstalker-sl.testnet      tokens=10000000000000000000 cost=2607524540000000000000 refund=325361500000000000000 proof=ok
+    bf-6.deathstalker-sl.testnet       tokens=10000000000000000000 cost=2607524540000000000000 refund=376582112000000000000 proof=ok
+    bf-7.deathstalker-sl.testnet       tokens=0 cost=0 refund=2522797800000000000000 proof=ok
+    bf-8.deathstalker-sl.testnet       tokens=10000000000000000000 cost=2607524540000000000000 refund=1231076292000000000000 proof=ok
+    bf-9.deathstalker-sl.testnet       tokens=10000000000000000000 cost=2607524540000000000000 refund=827675940000000000000 proof=ok
+    hb4-1.deathstalker-sl.testnet      tokens=0 cost=0 refund=31010970000000000000000 proof=ok
+    hb4-10.deathstalker-sl.testnet     tokens=0 cost=0 refund=13100000000000000000000 proof=ok
+    hb4-2.deathstalker-sl.testnet      tokens=0 cost=0 refund=49973265000000000000000 proof=ok
+    hb4-3.deathstalker-sl.testnet      tokens=0 cost=0 refund=41637778400000000000000 proof=ok
+    hb4-4.deathstalker-sl.testnet      tokens=114000000000000000000 cost=29725779756000000000000 refund=336339444000000000000 proof=ok
+    hb4-5.deathstalker-sl.testnet      tokens=98000000000000000000 cost=25553740492000000000000 refund=3175684708000000000000 proof=ok
+    hb4-6.deathstalker-sl.testnet      tokens=167000000000000000000 cost=43545659818000000000000 refund=11982341182000000000000 proof=ok
+    hb4-7.deathstalker-sl.testnet      tokens=79000000000000000000 cost=20599443866000000000000 refund=10084709134000000000000 proof=ok
+    hb4-8.deathstalker-sl.testnet      tokens=123000000000000000000 cost=32072551842000000000000 refund=26454611958000000000000 proof=ok
+    hb4-9.deathstalker-sl.testnet      tokens=73000000000000000000 cost=19034929142000000000000 refund=27541698858000000000000 proof=ok
+
+  summary: {"bids":60,"status":"Settled","mode":"Tee","lp_status":"Done","deposits_total":"533683625732000000000000","fees_accrued":"60000000000000000000000","p_star":"260752454000000000000","sold":"1000000000000000000000","raise":"260752454000000000000000","burned":"0","alloc_root":"1e01e977cc21dad6db2976af904b3fc1aecc10086c2d7e330c8e47af0942d756","leaf_count":60,"input_hash":"170286c35c73cbeca845cb1eafc11d0c0563eb63c86d95e8e87eb7ac8c098aa8","sum_refunds":"272931171732000000000000","sum_deposits":"533683625732000000000000","fill_rate_pct":100}
+
+  RESULT: PASS  (23 pass, 0 fail, 0 warn, 0 skip)
+

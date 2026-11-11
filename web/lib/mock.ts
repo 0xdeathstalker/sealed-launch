@@ -7,6 +7,7 @@ import {
 import type { Api } from "./api";
 import { FACTORY } from "./config";
 import { sealBid } from "./bid";
+import { estimateFinalizeDeposit } from "./deposit";
 import type {
   BidSlot, BidStatus, ClearingSummary, CreateParamsWire, FactorySaleRecord, PayToken, RevealedBid, SaleInfo,
   TxCall, TxResult,
@@ -232,6 +233,9 @@ export function mockExec(caller: string, c: TxCall): TxResult {
     case "finalize": {
       if (s.info.status !== "Bidding") err("not in Bidding");
       if (!ended) err("bid window still open");
+      // like the contract: the attached NEAR must cover OutLayer's floor for this input size
+      const need = estimateFinalizeDeposit(s.slots).required;
+      if (BigInt(c.deposit ?? 0n) < need) err(`attached deposit too low for OutLayer: need >= ${need} yoctoNEAR`);
       runClearing(s);
       return { note: "mock: TEE decrypted + cleared instantly (real flow: OutLayer, then on_clear)" };
     }
@@ -285,6 +289,7 @@ export const mockApi: Api = {
   },
   isClaimed: (id, a) => delay(get(id).claimed.has(a)),
   bidTimes: (id) => delay([...get(id).times]),
+  finalizeDeposit: (id) => delay(estimateFinalizeDeposit(get(id).slots)),
   payToken: (t): Promise<PayToken> => delay({ symbol: t ? "mUSD" : "NEAR", decimals: t ? 6 : 24, account: t }),
   accessKeys: (a) => {
     seed();

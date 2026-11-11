@@ -138,7 +138,29 @@ async fn settle_with_ref_lp_against_mocks() -> anyhow::Result<()> {
 
 async fn bench(n: usize, cap: u32) -> anyhow::Result<()> {
     let w = near_workspaces::sandbox().await?;
-    let mut e = Env::new(&w, |p, mock| {
+    let e = bulk_env(&w, n, cap).await?;
+    let caller = w.dev_create_account().await?;
+    e.set_response(&e.tee_output()).await?;
+    let need: u64 = e.sale.view("finalize_gas_needed").await?.json::<String>()?.parse()?;
+    let f = e.finalize(&caller).await?;
+    let used = f.logs().iter().find_map(|l| l.strip_prefix("on_clear_used_gas=").map(|x| x.parse::<u64>().unwrap()));
+    println!("BENCH n={n} cap={cap} success={} status={} finalize_gas_needed={:.0}T on_clear_used_gas={:?}T tx_total_gas_burnt={:.1}T",
+        f.is_success(), e.status().await, need as f64 / 1e12, used.map(|u| u as f64 / 1e12), f.total_gas_burnt.as_gas() as f64 / 1e12);
+    for o in f.outcomes() {
+        println!("   receipt {} gas_burnt={:.2}T", o.executor_id, o.gas_burnt.as_gas() as f64 / 1e12);
+    }
+    println!("   rejected_logs: {:?}", f.logs().iter().filter(|l| l.contains("rejected")).collect::<Vec<_>>());
+    if cap == 0 {
+        let c = caller.call(e.sale.id(), "challenge_recompute").gas(Gas::from_tgas(300)).transact().await?;
+        println!("BENCH n={n} challenge_recompute tx gas_burnt={:.1}T voided={:?} ok={}", c.total_gas_burnt.as_gas() as f64 / 1e12, c.clone().json::<bool>().ok(), c.is_success());
+    }
+    let _ = NearToken::from_near(0);
+    Ok(())
+}
+
+/// Sale with `n` NEP-141 bids placed through the mock token, fast-forwarded past bid_end.
+async fn bulk_env(w: &W, n: usize, cap: u32) -> anyhow::Result<Env> {
+    let mut e = Env::new(w, |p, mock| {
         p["payment_token"] = json!(mock);
         p["recompute_cap"] = json!(cap);
         p["auction_supply"] = json!((n * 3).to_string());
@@ -164,22 +186,47 @@ async fn bench(n: usize, cap: u32) -> anyhow::Result<()> {
     if !batch.is_empty() { fake(&e, batch).await?; }
     assert_eq!(e.sale.view("get_bid_count").await?.json::<u32>()? as usize, n);
     e.ff_past_bid_end().await?;
+    Ok(e)
+}
+
+/// The 100-bid live failure: a flat 0.1 NEAR is below OutLayer's floor once input_data passes 32 KiB.
+/// The sale now rejects it itself (state untouched, caller keeps the NEAR) and the view's amount works.
+#[tokio::test]
+async fn finalize_deposit_sized_from_input() -> anyhow::Result<()> {
+    let w = near_workspaces::sandbox().await?;
+    let e = bulk_env(&w, 100, 200).await?;
+    let d = e.finalize_deposit(None).await?;
+    let req: u128 = d["required"].as_str().unwrap().parse()?;
+    let rec: u128 = d["recommended"].as_str().unwrap().parse()?;
+    let len = d["input_len"].as_u64().unwrap();
+    println!("n=100 input_len={len} required={req} recommended={rec}");
+    assert_eq!(d["exact"], true);
+    assert_eq!(d["bid_count"], 100);
+    assert!(len > 32_768, "100 bids exceed the free 32 KiB");
+    // same formula as OutLayer: 0.0070005 compute (5e9 instr, 60 s) + 1e-5 NEAR per byte over 32 KiB
+    assert_eq!(req, 7_000_500_000_000_000_000_000 + (len as u128 - 32_768) * 10_000_000_000_000_000_000);
+    assert!(req > NEAR / 10 && rec > req && rec <= req + req * 3 / 10 + NEAR / 1000);
+    // the planning estimate grows with bid count
+    let est = |v: Value| v["required"].as_str().unwrap().parse::<u128>().unwrap();
+    let (e10, e100, e200) = (est(e.finalize_deposit(Some(10)).await?), est(e.finalize_deposit(Some(100)).await?), est(e.finalize_deposit(Some(200)).await?));
+    assert!(e10 < e100 && e100 < e200, "{e10} {e100} {e200}");
+
     let caller = w.dev_create_account().await?;
     e.set_response(&e.tee_output()).await?;
-    let need: u64 = e.sale.view("finalize_gas_needed").await?.json::<String>()?.parse()?;
-    let f = e.finalize(&caller).await?;
-    let used = f.logs().iter().find_map(|l| l.strip_prefix("on_clear_used_gas=").map(|x| x.parse::<u64>().unwrap()));
-    println!("BENCH n={n} cap={cap} success={} status={} finalize_gas_needed={:.0}T on_clear_used_gas={:?}T tx_total_gas_burnt={:.1}T",
-        f.is_success(), e.status().await, need as f64 / 1e12, used.map(|u| u as f64 / 1e12), f.total_gas_burnt.as_gas() as f64 / 1e12);
-    for o in f.outcomes() {
-        println!("   receipt {} gas_burnt={:.2}T", o.executor_id, o.gas_burnt.as_gas() as f64 / 1e12);
-    }
-    println!("   rejected_logs: {:?}", f.logs().iter().filter(|l| l.contains("rejected")).collect::<Vec<_>>());
-    if cap == 0 {
-        let c = caller.call(e.sale.id(), "challenge_recompute").gas(Gas::from_tgas(300)).transact().await?;
-        println!("BENCH n={n} challenge_recompute tx gas_burnt={:.1}T voided={:?} ok={}", c.total_gas_burnt.as_gas() as f64 / 1e12, c.clone().json::<bool>().ok(), c.is_success());
-    }
-    let _ = NearToken::from_near(0);
+    let ol_calls = || async { e.mock.view("get_calls").await.unwrap().json::<Vec<String>>().unwrap().iter().filter(|c| *c == "request_execution").count() };
+    let before = ol_calls().await;
+    // (panic text is not surfaced by this wasm build: it shows as an `unreachable` trap, so check effects)
+    let bad = e.finalize_with(&caller, NEAR / 10).await?;
+    assert!(bad.is_failure());
+    let bad = e.finalize_with(&caller, req - 1).await?;
+    assert!(bad.is_failure());
+    assert_eq!(ol_calls().await, before, "rejected in the sale, OutLayer never called");
+    let info = e.sale_view().await;
+    assert_eq!(info["status"], "Bidding");
+    assert_eq!(info["in_flight"], false);
+    let ok = e.finalize_with(&caller, req).await?;
+    assert!(ok.is_success(), "{:?}", ok.failures());
+    assert_eq!(e.status().await, "Cleared");
     Ok(())
 }
 

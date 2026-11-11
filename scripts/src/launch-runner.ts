@@ -7,14 +7,15 @@
 // Flags: --creator <acct> (default deathstalker-sl-3.testnet), --bidders a,b,c (default dsl-bidder1..3),
 //        --reserve <NEAR/token> (0.002), --supply <tokens> (1000), --oversub <x> (1.5), --curve linear|exp|pareto,
 //        --window <secs> (150), --max-bids <n> (default max(100,bids+10)), --hold-claims <secs> (pause before claims), --lp-bps (5000), --from <sale|alias> (skip create+bid, run finalize..verify on existing sale)
+//        --finalize-deposit <NEAR> (default: sale's get_finalize_deposit().recommended, sized from the bid set's input_data)
 import fs from "node:fs";
 import path from "node:path";
 import { randomBytes } from "node:crypto";
 import {
   parseArgs, requireTestnet, assertChainTestnet, die, loadDeployments, view, call, sleep, nowChainMs, txLink, toYocto, near, balanceOf, resolveSale,
-  txInfo, gasBurnt, blockTimeMs, SCRIPTS_DIR, TGAS, type CallResult,
+  txInfo, gasBurnt, loadSecretKey, blockTimeMs, SCRIPTS_DIR, TGAS, type CallResult,
 } from "./lib/chain.ts";
-import { fetchSale, recompute, type ChainSale } from "./lib/sale.ts";
+import { fetchSale, recompute, pmap, finalizeDeposit, outlayerRequiredDeposit, recommendedDeposit, type ChainSale } from "./lib/sale.ts";
 import { assertOurSale, getPubkey, prepareBid, sendBid, type BidRecord, type BidPlan } from "./lib/bids.ts";
 import { verifySale, printReport } from "./lib/verify-core.ts";
 import { clear, cost, paramsFromWire, entryFromWire, unhex, leafHash, merkleProof, hex } from "sealedlaunch-clearing";
@@ -118,7 +119,10 @@ if (dry) {
   console.log("create params:", JSON.stringify(p));
   console.log(`bids: ${plans.length} across ${bidders.length} bidders, curve=${curve}, oversub=${oversub}`);
   for (const [acc, v] of lockByAcc) console.log(`  ${acc} must hold >= ${near(v + toYocto("0.05"))} NEAR (locked ${near(v)} incl. fees, refunded after clear)`);
-  console.log(`creator ${creator} needs >= ${near(BigInt(need) + toYocto("0.5"))} NEAR (deposit + finalize 0.1 + gas)`);
+  { // finalize deposit estimate: ~500 B of input_data per bid (live n100: 49,521 B), refunded except ~0.001 NEAR
+  const finEst = recommendedDeposit(outlayerRequiredDeposit(600 + plans.length * 500, plans.length));
+  console.log(`creator ${creator} needs >= ${near(BigInt(need) + finEst + toYocto("0.4"))} NEAR (deposit + finalize ~${near(finEst)} for ${plans.length} bids + gas)`);
+}
   for (const acc of [creator, ...bidders]) console.log(`  balance ${acc}: ${near(await balanceOf(acc).catch(() => 0n))} NEAR`);
   const dropped = r.outcomes.filter((o) => "dropped" in o).length;
   console.log(`LOCAL SIMULATION: P*=${near(r.pStar)} NEAR/token, sold=${Number(r.sold / unit)} of ${supplyTok}, fill=${Number((r.sold * 10000n) / (supplyTok * unit)) / 100}%, raise=${near(r.raise)} NEAR, burned=${Number(r.burned / unit)}, dropped=${dropped}`);
@@ -147,6 +151,18 @@ if (a.from) {
   const cs0 = await fetchSale(sale); assertOurSale(sale, cs0.info);
   bidEndMs = Number(cs0.info.params.bid_end_ms);
   log("resuming existing sale", sale, cs0.info.status);
+  if (a["place-bids"]) {
+    const pk = await getPubkey(sale);
+    const prepared = planBids().map((pl) => prepareBid(sale, pk, cs0.info, pl));
+    const byAcc = new Map<string, typeof prepared>();
+    for (const x of prepared) (byAcc.get(x.rec.account) ?? byAcc.set(x.rec.account, []).get(x.rec.account)!).push(x);
+    log(`placing ${prepared.length} bids into existing sale (window ends in ${((bidEndMs - (await nowChainMs())) / 1000).toFixed(0)}s)`);
+    await Promise.all([...byAcc.values()].map(async (list) => { for (const x of list) bidRecs.push(await sendBid(sale, x, bidEndMs)); }));
+    const okBids = bidRecs.filter((b) => b.ok).length;
+    for (const b of bidRecs) totalGas += BigInt(b.gas_burnt ?? 0);
+    steps.push({ name: "bids", ok: okBids === bidRecs.length, accepted: okBids, total: bidRecs.length, txs: bidRecs.map((b) => b.tx) });
+    log(`bids accepted ${okBids}/${bidRecs.length}`);
+  }
 } else {
   bidEndMs = (await nowChainMs()) + windowSecs * 1000;
   const p = createParams(bidEndMs);
@@ -160,6 +176,7 @@ if (a.from) {
   const cs0 = await waitFor("sale Ready", async () => { try { const c = await fetchSale(sale); const pk = await view<string | null>(sale, "get_pubkey"); return pk ? c : null; } catch { return null; } }, 90_000);
   assertOurSale(sale, cs0.info);
   const pk = await getPubkey(sale);
+  if (a["bid-delay"]) { log(`delaying house bids ${a["bid-delay"]}s (lets a sniper bot go first)`); await sleep(Number(a["bid-delay"]) * 1000); }
   const plans = planBids();
   const prepared = plans.map((pl) => prepareBid(sale, pk, cs0.info, pl));
   const byAcc = new Map<string, typeof prepared>();
@@ -178,8 +195,14 @@ const preFin = await fetchSale(sale);
 const gasNeeded = BigInt(await view<string>(sale, "finalize_gas_needed").catch(() => (240n * TGAS).toString()));
 const finGas = gasNeeded + 20n * TGAS > 300n * TGAS ? 300n * TGAS : gasNeeded + 20n * TGAS;
 const balBeforeFin = await balanceOf(creator);
-const finRes = await call(creator, sale, "finalize", {}, { gas: finGas, deposit: toYocto("0.1") });
-step("finalize", finRes, { gas_prepaid: finGas.toString() });
+// OutLayer deposit sized from the actual input_data (sale view get_finalize_deposit; older wasm: estimate
+// from slots). --finalize-deposit <NEAR> overrides; it must still be >= required (the sale enforces it).
+const finDep = await finalizeDeposit(sale, preFin.slots);
+const finDeposit = a["finalize-deposit"] !== undefined ? toYocto(String(a["finalize-deposit"])) : finDep.recommended;
+if (finDeposit < finDep.required) die(`--finalize-deposit ${near(finDeposit)} < required ${near(finDep.required)} NEAR for ${preFin.info.bid_count} bids`);
+log(`finalize deposit ${near(finDeposit)} NEAR (required ${near(finDep.required)}, input ${finDep.inputLen} B, ${finDep.source}; unused part refunded)`);
+const finRes = await call(creator, sale, "finalize", {}, { gas: finGas, deposit: finDeposit });
+step("finalize", finRes, { gas_prepaid: finGas.toString(), deposit: finDeposit.toString(), deposit_required: finDep.required.toString(), input_len: finDep.inputLen });
 if (!finRes.ok) die("finalize failed");
 const finBlockMs = finRes.blockHash ? await blockTimeMs(finRes.blockHash) : Date.now();
 const finWall = Date.now();
@@ -211,12 +234,21 @@ const cs = await fetchSale(sale);
 const rc = recompute(cs);
 const lh = rc.result.leaves.map(leafHash);
 let claimOk = 0;
-for (let i = 0; i < rc.result.leaves.length; i++) {
+// Claims are permissionless (proof-checked), so each leaf is claimed by its own bidder account when we hold its key
+// (distinct signers => parallel nonces => fast), else by the creator. Evidence-run speedup, same contract call.
+let creatorQ: Promise<unknown> = Promise.resolve();
+const claimCall = (caller: string, l: (typeof rc.result.leaves)[number], i: number) =>
+  call(caller, sale, "claim", { bidder: l.bidder, index: i, tokens: l.tokens.toString(), refund: l.refund.toString(), proof: merkleProof(lh, i).map(hex) }, { gas: BigInt(String(a["claim-gas"] ?? 30)) * TGAS });
+const claimOne = async (i: number) => {
   const l = rc.result.leaves[i];
-  const proof = merkleProof(lh, i).map(hex);
-  const r = await call(creator, sale, "claim", { bidder: l.bidder, index: i, tokens: l.tokens.toString(), refund: l.refund.toString(), proof }, { gas: 60n * TGAS });
-  step(`claim ${l.bidder}`, r); if (r.ok) claimOk++;
-}
+  let caller = loadSecretKey(l.bidder) ? l.bidder : creator;
+  let r = caller === creator ? await (creatorQ = creatorQ.then(() => claimCall(creator, l, i))) as CallResult : await claimCall(caller, l, i);
+  if (!r.ok && caller !== creator && /enough balance/.test(r.error ?? "")) { // bidder cannot prepay gas: creator claims it (serialised)
+    caller = creator; r = await (creatorQ = creatorQ.then(() => claimCall(creator, l, i))) as CallResult;
+  }
+  step(`claim ${l.bidder}`, r, { caller }); if (r.ok) claimOk++;
+};
+await pmap(Array.from({ length: rc.result.leaves.length }, (_, i) => i), Number(a["claim-conc"] ?? 6), claimOne);
 const st = await call(creator, sale, "settle", {}, { gas: 300n * TGAS });
 step("settle", st);
 const afterSettle = await waitFor("lp done", async () => { const s = await view<any>(sale, "get_sale"); return s.lp_status === "Done" || s.lp_status === "Failed" ? s : null; }, 150_000, 3000).catch(() => view<any>(sale, "get_sale"));

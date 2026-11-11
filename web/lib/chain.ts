@@ -1,6 +1,7 @@
 import type { Api } from "./api";
 import { FACTORY } from "./config";
 import { viewAccessKeys, viewCall } from "./rpc";
+import { estimateFinalizeDeposit } from "./deposit";
 import type { BidSlot, BidStatus, ClearingSummary, FactorySaleRecord, PayToken, RevealedBid, SaleInfo } from "./types";
 
 async function inBatches<T, R>(items: T[], n: number, f: (x: T) => Promise<R>): Promise<R[]> {
@@ -30,6 +31,16 @@ export const chainApi: Api = {
   clearing: (id) => viewCall<ClearingSummary | null>(id, "get_clearing"),
   async bids(id, count) {
     return inBatches(Array.from({ length: count }, (_, i) => i), 16, (idx) => viewCall<BidSlot>(id, "get_bid", { idx }));
+  },
+  async finalizeDeposit(id) {
+    try {
+      const d = await viewCall<{ required: string; recommended: string; input_len: number }>(id, "get_finalize_deposit", {});
+      return { required: BigInt(d.required), recommended: BigInt(d.recommended), inputLen: Number(d.input_len), source: "contract" as const };
+    } catch {
+      // sale wasm older than the get_finalize_deposit view: estimate from the stored slots
+      const n = await viewCall<number>(id, "get_bid_count");
+      return estimateFinalizeDeposit(await chainApi.bids(id, n));
+    }
   },
   async revealed(id, count) {
     const out: (RevealedBid | null)[] = [];

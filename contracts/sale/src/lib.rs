@@ -286,8 +286,10 @@ impl Sale {
 
     // ============================================================== finalize / on_clear
 
-    /// Anyone, after bid_end. Attach NEAR for the OutLayer deposit (unused part is refunded to the caller).
-    /// Prepaid gas must be sized for the payload (see `finalize_gas_needed`).
+    /// Anyone, after bid_end. Attach NEAR for the OutLayer deposit: at least
+    /// `get_finalize_deposit().required` (compute estimate at our resource limits + refundable hold
+    /// on `input_data` beyond 32 KiB), `recommended` adds headroom. OutLayer refunds everything above
+    /// its actual charge to `payer_account_id` = the caller. Prepaid gas: see `finalize_gas_needed`.
     #[payable]
     pub fn finalize(&mut self) -> Promise {
         require!(self.mode() == Mode::Tee, "fallback mode: use clear()");
@@ -307,41 +309,26 @@ impl Sale {
             self.accept_clearing(&r, true);
             return Promise::new(env::predecessor_account_id()).transfer(env::attached_deposit());
         }
+        let input = self.clear_input();
+        // OutLayer rejects (panics) below its estimate, and the attached NEAR of a failed receipt
+        // goes back to the predecessor (this sale), not the caller. Enforce the minimum here so an
+        // underpaid finalize fails before any state change and the caller keeps the deposit.
         let deposit = env::attached_deposit();
-        require!(deposit.as_yoctonear() > 0, "attach NEAR for the OutLayer execution deposit");
-
-        let entries: Vec<_> = (0..n)
-            .map(|i| {
-                let s = self.slots.get(i).unwrap();
-                near_sdk::serde_json::json!({
-                    "bidder": s.bidder,
-                    "commit": hx(&s.commit),
-                    "deposit": s.deposit.to_string(),
-                    "ciphertext": hx(self.ciphertexts.get(&i).map(|v| v.as_slice()).unwrap_or(&[])),
-                })
-            })
-            .collect();
-        let input = near_sdk::serde_json::json!({
-            "action": "clear",
-            "params": {
-                "sale_id": env::current_account_id(),
-                "supply": self.cfg.auction_supply.0.to_string(),
-                "reserve": self.cfg.reserve_price.0.to_string(),
-                "token_decimals": self.cfg.token_decimals,
-                "min_size": self.cfg.min_size.0.to_string(),
-                "code_hash": self.cfg.code_hash,
-                "bid_end_ms": self.cfg.bid_end_ms.0,
-            },
-            "entries": entries,
-        })
-        .to_string();
+        let need = outlayer_required_deposit(input.len(), n);
+        require!(
+            deposit.as_yoctonear() >= need,
+            format!(
+                "attached deposit too low for OutLayer: need >= {need} yoctoNEAR for {n} bids / {} input bytes (see get_finalize_deposit); unused part is refunded to the caller",
+                input.len()
+            )
+        );
         let (project_id, _) = self.cfg.outlayer_project.split_once('/').unwrap();
         let args = near_sdk::serde_json::json!({
             "source": {"Project": {"project_id": self.cfg.outlayer_project, "version_key": null}},
             "resource_limits": {
                 "max_instructions": max_instructions(n),
                 "max_memory_mb": 256,
-                "max_execution_seconds": 60
+                "max_execution_seconds": MAX_EXECUTION_SECONDS
             },
             "input_data": input,
             "secrets_ref": {"profile": SECRETS_PROFILE, "account_id": project_id},
@@ -832,11 +819,58 @@ impl Sale {
             + n as u64 * 350_000_000_000 // finalize receipt itself: measured ~0.32 Tgas/slot building input_data
             + Gas::from_tgas(30).as_gas())
     }
+    /// NEAR to attach to `finalize`. With no argument: exact, from the stored bid set (the set is
+    /// frozen after bid_end, so this is what `finalize` will check). With `bid_count`: a planning
+    /// estimate assuming `EST_ENTRY_BYTES` per bid. `required` is what `finalize` enforces;
+    /// `recommended` = required + 25% (headroom capped at 1 NEAR). Unused NEAR is refunded to the caller.
+    pub fn get_finalize_deposit(&self, bid_count: Option<u32>) -> FinalizeDeposit {
+        let (n, len, exact) = match bid_count {
+            Some(n) => (n, estimate_input_len(n), false),
+            None => (self.slots.len(), if self.slots.is_empty() { 0 } else { self.clear_input().len() }, true),
+        };
+        let required = if n == 0 { 0 } else { outlayer_required_deposit(len, n) };
+        FinalizeDeposit {
+            bid_count: n,
+            input_len: len as u64,
+            exact,
+            required: U128(required),
+            recommended: U128(recommended_deposit(required)),
+        }
+    }
 }
 
 // ================================================================== internals
 
 impl Sale {
+    /// The OutLayer `input_data` string, built only from contract state.
+    fn clear_input(&self) -> String {
+        let n = self.slots.len();
+        let entries: Vec<_> = (0..n)
+            .map(|i| {
+                let s = self.slots.get(i).unwrap();
+                near_sdk::serde_json::json!({
+                    "bidder": s.bidder,
+                    "commit": hx(&s.commit),
+                    "deposit": s.deposit.to_string(),
+                    "ciphertext": hx(self.ciphertexts.get(&i).map(|v| v.as_slice()).unwrap_or(&[])),
+                })
+            })
+            .collect();
+        near_sdk::serde_json::json!({
+            "action": "clear",
+            "params": {
+                "sale_id": env::current_account_id(),
+                "supply": self.cfg.auction_supply.0.to_string(),
+                "reserve": self.cfg.reserve_price.0.to_string(),
+                "token_decimals": self.cfg.token_decimals,
+                "min_size": self.cfg.min_size.0.to_string(),
+                "code_hash": self.cfg.code_hash,
+                "bid_end_ms": self.cfg.bid_end_ms.0,
+            },
+            "entries": entries,
+        })
+        .to_string()
+    }
     fn mode(&self) -> Mode {
         self.cfg.mode.unwrap_or(Mode::Tee)
     }
@@ -1135,6 +1169,44 @@ fn max_instructions(n: u32) -> u64 {
     3_000_000_000 + 2_000_000_000 * (n as u64).div_ceil(100)
 }
 
+// --- OutLayer deposit. Mirrors outlayer.testnet `request_execution` admission (source:
+// `estimate_cost` + `input_storage_deposit`; live `get_pricing_full` and `estimate_execution_cost`
+// checked 2026-11-11): base_fee + max_instructions/1e6 * per_million_instructions_fee
+// + max_execution_seconds*1000 * per_ms_fee + (input_len - 32 KiB)^+ * 1e-5 NEAR (refundable hold).
+// If OutLayer raises prices, callers can attach more (this is only a floor); everything above the
+// actual charge is refunded by OutLayer to `payer_account_id` (the finalize caller).
+const MAX_EXECUTION_SECONDS: u64 = 60;
+const OL_BASE_FEE: u128 = 1_000_000_000_000_000_000_000; // 0.001 NEAR
+const OL_PER_MILLION_INSTRUCTIONS_FEE: u128 = 100_000_000_000_000; // 1e-10 NEAR
+const OL_PER_MS_FEE: u128 = 100_000_000_000_000_000; // 1e-7 NEAR
+const OL_INPUT_FREE_BYTES: usize = 32 * 1024;
+const OL_STORAGE_PRICE_PER_BYTE: u128 = 10_000_000_000_000_000_000; // 1e-5 NEAR
+/// Planning estimate of one `entries` item (live 100-bid sale: 49,521 B input -> ~490 B/bid;
+/// spike: 487 B/bid). Only used by `get_finalize_deposit(Some(n))`; finalize uses the real length.
+const EST_ENTRY_BYTES: usize = 500;
+const EST_INPUT_OVERHEAD_BYTES: usize = 600;
+const DEPOSIT_HEADROOM_CAP: u128 = 1_000_000_000_000_000_000_000_000; // 1 NEAR
+
+/// Minimum NEAR OutLayer accepts for a run over `n` bids with `input_len` bytes of `input_data`.
+fn outlayer_required_deposit(input_len: usize, n: u32) -> u128 {
+    let compute = OL_BASE_FEE
+        + (max_instructions(n) / 1_000_000) as u128 * OL_PER_MILLION_INSTRUCTIONS_FEE
+        + (MAX_EXECUTION_SECONDS * 1000) as u128 * OL_PER_MS_FEE;
+    compute + input_len.saturating_sub(OL_INPUT_FREE_BYTES) as u128 * OL_STORAGE_PRICE_PER_BYTE
+}
+/// required + 25% headroom (capped at +1 NEAR), rounded up to 0.001 NEAR.
+fn recommended_deposit(required: u128) -> u128 {
+    if required == 0 {
+        return 0;
+    }
+    let milli = 1_000_000_000_000_000_000_000u128;
+    let r = required + (required / 4).min(DEPOSIT_HEADROOM_CAP);
+    r.div_ceil(milli) * milli
+}
+fn estimate_input_len(n: u32) -> usize {
+    EST_INPUT_OVERHEAD_BYTES + n as usize * EST_ENTRY_BYTES
+}
+
 /// Gas reserved for the `on_clear` callback.
 fn callback_gas(n: usize, recompute: bool) -> Gas {
     let per = if recompute { CB_PER_BID_RECOMPUTE_GGAS } else { CB_PER_BID_STORE_GGAS };
@@ -1187,4 +1259,51 @@ impl FungibleTokenMetadataProvider for Sale {
 #[allow(dead_code)]
 fn _unused(_: ()) {
     assert_one_yocto();
+}
+
+#[cfg(test)]
+mod deposit_tests {
+    use super::*;
+    const MILLI: u128 = 1_000_000_000_000_000_000_000;
+
+    #[test]
+    fn finalize_deposit_matches_outlayer_formula_and_grows_with_bids() {
+        // spike-outlayer/RESULTS.md (c): input_data bytes for 10/100/200 bids. Expected =
+        // 0.001 base + max_instr/1e6 * 1e-10 + 60_000 ms * 1e-7 + (len - 32768)^+ * 1e-5 NEAR.
+        // max_instructions: 10 -> 5e9, 100 -> 5e9, 200 -> 7e9.
+        let cases: [(u32, usize, u128); 3] = [
+            (10, 4_904, 7_000_500_000_000_000_000_000),                           // 0.0070005 (no hold)
+            (100, 48_734, 7_000_500_000_000_000_000_000 + 15_966 * 10_000_000_000_000_000_000), // 0.1666605
+            (200, 97_734, 7_000_700_000_000_000_000_000 + 64_966 * 10_000_000_000_000_000_000), // 0.6566607
+        ];
+        for (n, len, want) in cases {
+            assert_eq!(outlayer_required_deposit(len, n), want, "n={n}");
+        }
+        // Live failure (n100 sale): OutLayer asked 0.1745 NEAR for a 49,521-byte input; flat 0.1 was < that.
+        let live = outlayer_required_deposit(49_521, 100);
+        assert_eq!(live, 7_000_500_000_000_000_000_000 + (49_521 - 32_768) as u128 * 10_000_000_000_000_000_000);
+        assert!(live > 100 * MILLI && live / MILLI == 174);
+        // Matches live outlayer.testnet estimate_execution_cost(limits{5e9,60s}, 82_289) = 502210500000000000000000.
+        assert_eq!(outlayer_required_deposit(82_289, 100), 502_210_500_000_000_000_000_000);
+
+        // Monotonic in bid count (estimate path) and strictly growing once over the free 32 KiB.
+        let mut prev = 0;
+        for n in [1u32, 10, 50, 64, 65, 100, 200, 500, 1000] {
+            let d = outlayer_required_deposit(estimate_input_len(n), n);
+            assert!(d >= prev, "n={n}");
+            if estimate_input_len(n) > OL_INPUT_FREE_BYTES {
+                assert!(d > prev);
+            }
+            prev = d;
+        }
+        // Recommended: +25%, rounded up to 0.001 NEAR, headroom capped at 1 NEAR.
+        assert_eq!(recommended_deposit(0), 0);
+        assert_eq!(recommended_deposit(live), 219 * MILLI); // 0.17453 * 1.25 = 0.21816 -> 0.219
+        let big = 10_000 * MILLI;
+        assert_eq!(recommended_deposit(big), big + 1000 * MILLI);
+        for (n, len, _) in cases {
+            let r = outlayer_required_deposit(len, n);
+            assert!(recommended_deposit(r) >= r + r / 5 && recommended_deposit(r) <= r + r * 3 / 10 + MILLI);
+        }
+    }
 }

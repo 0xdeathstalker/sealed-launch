@@ -1,0 +1,43 @@
+
+SealedLaunch verify: sale-n50.sealedlaunch.deathstalker-sl.testnet   status=Settled
+
+  PASS  sale account has 0 access keys                                                       
+  PASS  sale wasm sha256 == factory's current embedded sale wasm                             
+  PASS  sale lives under the factory account                                                 
+  PASS  sale.params.factory == factory in deployments.json                                   
+  PASS  bid_count == number of slots read                                                    
+  PASS  sum(slot deposits) == get_deposits_total                                             
+  PASS  fees_accrued == bid_count * bid_fee (+ any bonds/slashes)                            
+  PASS  P* recomputed == on-chain p_star                                                     
+  PASS  alloc_root recomputed == on-chain                                                    
+  PASS  leaf_count recomputed == on-chain                                                    
+  PASS  input_hash recomputed == on-chain                                                    
+  PASS  sold recomputed == on-chain                                                          
+  PASS  burned recomputed == on-chain                                                        
+  PASS  raise recomputed == on-chain                                                         
+  PASS  sold + burned == auction_supply                                                      
+  PASS  P* >= reserve_price                                                                  
+  PASS  on-chain recompute flag (verified_onchain)                                           
+  PASS  every filled bid offered >= P* (uniform price)                                       
+  PASS  every leaf Merkle proof verifies against alloc_root                                  
+  PASS  per-bidder: refund == deposit - ceil(P* * tokens)                                    
+  PASS  sum(per-bidder cost) == raise                                                        
+  PASS  CONSERVATION: sum(deposits) == raise + sum(refunds)                                  
+  PASS  CONSERVATION incl. fees: sum(deposits)+n*fee == raise + sum(refunds) + fees_accrued  
+
+  per bidder (yocto / base units):
+    hb4-1.deathstalker-sl.testnet      tokens=86000000000000000000 cost=33024000000000000000000 refund=54240000000000000000000 proof=ok
+    hb4-10.deathstalker-sl.testnet     tokens=98000000000000000000 cost=37632000000000000000000 refund=48128000000000000000000 proof=ok
+    hb4-2.deathstalker-sl.testnet      tokens=66000000000000000000 cost=25344000000000000000000 refund=27328000000000000000000 proof=ok
+    hb4-3.deathstalker-sl.testnet      tokens=103000000000000000000 cost=39552000000000000000000 refund=20848000000000000000000 proof=ok
+    hb4-4.deathstalker-sl.testnet      tokens=64000000000000000000 cost=24576000000000000000000 refund=28544000000000000000000 proof=ok
+    hb4-5.deathstalker-sl.testnet      tokens=128000000000000000000 cost=49152000000000000000000 refund=32384000000000000000000 proof=ok
+    hb4-6.deathstalker-sl.testnet      tokens=116000000000000000000 cost=44544000000000000000000 refund=45984000000000000000000 proof=ok
+    hb4-7.deathstalker-sl.testnet      tokens=117000000000000000000 cost=44928000000000000000000 refund=38960000000000000000000 proof=ok
+    hb4-8.deathstalker-sl.testnet      tokens=112000000000000000000 cost=43008000000000000000000 refund=53952000000000000000000 proof=ok
+    hb4-9.deathstalker-sl.testnet      tokens=110000000000000000000 cost=42240000000000000000000 refund=60608000000000000000000 proof=ok
+
+  summary: {"bids":39,"status":"Settled","mode":"Tee","lp_status":"Done","deposits_total":"794976000000000000000000","fees_accrued":"39000000000000000000000","p_star":"384000000000000000000","sold":"1000000000000000000000","raise":"384000000000000000000000","burned":"0","alloc_root":"b521d4562097ee1b83cbf8498a6e05e43fcd66a4752228e5b036c6816e77724a","leaf_count":10,"input_hash":"c043e83ba439a786c839aa013b93e53ffe9ace9b6642785762ae28a27d7ef449","sum_refunds":"410976000000000000000000","sum_deposits":"794976000000000000000000","fill_rate_pct":100}
+
+  RESULT: PASS  (23 pass, 0 fail, 0 warn, 0 skip)
+

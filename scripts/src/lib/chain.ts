@@ -11,6 +11,32 @@ if (!process.env.NEAR_VERBOSE) (utils as any).Logger.overrideLogger({ log() {}, 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
 export const SCRIPTS_DIR = path.resolve(ROOT, "scripts");
 export const RPC = process.env.NEAR_RPC ?? "https://test.rpc.fastnear.com";
+// Evidence-run hardening: the public testnet RPCs rate-limit hard (429 / -429) under parallel load.
+// Rotate over several endpoints and retry with backoff. Wraps global fetch for JSON-RPC POSTs only.
+const RPC_POOL = (process.env.NEAR_RPC_POOL ?? "https://test.rpc.fastnear.com,https://rpc.testnet.fastnear.com,https://rpc.testnet.near.org,https://near-testnet.drpc.org").split(",");
+if (!process.env.NEAR_RPC && !(globalThis as any).__rpcPatched) {
+  (globalThis as any).__rpcPatched = true;
+  const orig = globalThis.fetch.bind(globalThis);
+  let rr = 0;
+  globalThis.fetch = (async (input: any, init?: any) => {
+    const url = typeof input === "string" ? input : input?.url ?? String(input);
+    if (!RPC_POOL.includes(url.replace(/\/$/, "")) || init?.method !== "POST") return orig(input, init);
+    let last: Response | undefined;
+    for (let t = 0; t < 12; t++) {
+      // global pacing: at most ~1 RPC call per RPC_GAP_MS across all in-process callers
+      const now = Date.now(); const slot = Math.max(now, (globalThis as any).__rpcNext ?? 0); (globalThis as any).__rpcNext = slot + Number(process.env.RPC_GAP_MS ?? 90);
+      if (slot > now) await new Promise((r) => setTimeout(r, slot - now));
+      const u = RPC_POOL[(rr++) % RPC_POOL.length];
+      let res: Response;
+      try { res = await orig(u, init); } catch { await new Promise((r) => setTimeout(r, 400 * (t + 1))); continue; }
+      const txt = await res.clone().text();
+      if (res.status === 429 || /Rate limits exceeded|"code": ?-429/.test(txt.slice(0, 300))) { last = res; await new Promise((r) => setTimeout(r, 500 * (t + 1))); continue; }
+      return res;
+    }
+    return last ?? orig(input, init);
+  }) as any;
+}
+
 export const EXPLORER = "https://testnet.nearblocks.io/txns/";
 export const YOCTO = 10n ** 24n;
 export const TGAS = 10n ** 12n;
