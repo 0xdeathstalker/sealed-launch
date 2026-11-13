@@ -17,3 +17,5 @@ scripts/.keys/
 skills/
 vo/
 slideshow/
+.vercel
+.env*
