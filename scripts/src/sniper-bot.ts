@@ -1,5 +1,5 @@
 #!/usr/bin/env tsx
-// Sniper simulation (SEALED_LAUNCH section 9). Testnet + our factory only.
+// Sniper simulation (original design doc, section 9). Testnet + our factory only.
 //
 //  submit:  pnpm sniper-bot --testnet --sale <acct|alias> --scenario first|last|split --n 50 \
 //             (--accounts a.testnet,b.testnet | --create-accounts K) [--dry] [--out file.json]

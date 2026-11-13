@@ -1,5 +1,5 @@
 #!/usr/bin/env tsx
-// Cheap live attacks from SEALED_LAUNCH section 9. Each attack must be REJECTED; records expected vs actual + tx link.
+// Cheap live attacks from the original design doc, section 9. Each attack must be REJECTED; records expected vs actual + tx link.
 //
 //   pnpm attack-suite --testnet --sale <acct|alias> [--attacker dsl-bidder3.testnet] [--dry] [--only a,b] [--allow-claim]
 //

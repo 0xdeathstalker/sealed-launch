@@ -107,7 +107,7 @@ Rules:
 | C | `mt_on_transfer` receiver (Verifier `mt_transfer_call` into the sale contract). | Low. `mt_on_transfer` is a different interface; not researched here and would need new contract plumbing. UNVERIFIED. |
 | D | Relayer takes a signed bid and the 1Click delivery separately. | Medium-low. Introduces a trusted party. |
 
-Recommendation: build A as the guaranteed demo (it needs no mainnet 1Click msg path). Implement the single-step `customRecipientMsg` path behind a feature flag and test with ~1 USDC. Claim it in the README only after one successful mainnet run (SEALED_LAUNCH.md already says to hold this back unless it runs).
+Recommendation: build A as the guaranteed demo (it needs no mainnet 1Click msg path). Implement the single-step `customRecipientMsg` path behind a feature flag and test with ~1 USDC. Claim it in the README only after one successful mainnet run (the original design notes already said to hold this back unless it runs).
 
 ## 5. Open items to close before claiming mainnet bidding
 

@@ -54,7 +54,7 @@ Source: `INTEGRATION.md`, `deployments.json`; reproduced on 2026-11-11 with `pnp
 
 ## Tests (near-workspaces sandbox)
 
-`tests/sale.rs` (10) and `tests/ft_lp_bench.rs` (7, including bench), 17 in total after the round-2 changes (last run recorded in INTEGRATION.md "Tests (all green)"; not re-run for this refresh). Coverage vs SEALED_LAUNCH section 9: forged `on_clear` (private method), replay A->B, wrong code hash echo, tampered P*/root/input_hash/swapped plaintext, TEE `null`/`{"error"}`, mismatched/underfunded/garbage ciphertext dropped and fully refunded, false drop voided by `challenge`, TEE never answers, claim twice/forged proof, keyless account, Intents-style transfers, LP chain (asserts `funds == tokens * p_star` against the mock Ref), and `init_rejects_lp_reserve_too_small_and_bids_carry_ts`.
+`tests/sale.rs` (10) and `tests/ft_lp_bench.rs` (7, including bench), 17 in total after the round-2 changes (last run recorded in INTEGRATION.md "Tests (all green)"; not re-run for this refresh). Coverage vs the original design doc's attack list (section 9): forged `on_clear` (private method), replay A->B, wrong code hash echo, tampered P*/root/input_hash/swapped plaintext, TEE `null`/`{"error"}`, mismatched/underfunded/garbage ciphertext dropped and fully refunded, false drop voided by `challenge`, TEE never answers, claim twice/forged proof, keyless account, Intents-style transfers, LP chain (asserts `funds == tokens * p_star` against the mock Ref), and `init_rejects_lp_reserve_too_small_and_bids_carry_ts`.
 
 ## Gas benchmark (sandbox, NEP-141 payment path, distinct bidders, mock OutLayer)
 

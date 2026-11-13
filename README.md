@@ -245,11 +245,11 @@ The Privacy track lists NEAR AI Cloud, but it only signs inference and cannot ho
 | `contracts/factory/` | Factory that embeds the sale wasm and creates keyless sales, [`NOTES.md`](contracts/factory/NOTES.md) |
 | `web/` | Next.js UI (create, bid, demand curve, sniper board, claim, verify panel), mock mode `NEXT_PUBLIC_MOCK=1` |
 | `scripts/` | `verify`, `sniper-bot`, `launch-runner`, `attack-suite`, evidence output in `scripts/evidence/` |
-| `spike-outlayer/` | The OutLayer feasibility spike and measured results |
+| `spike-outlayer/RESULTS.md` | Measured OutLayer cost and latency from the feasibility spike |
 | `deployments.json` | Every testnet account, hash and transaction id |
-| `INTEGRATION.md`, `INTENTS.md`, `RESEARCH.md`, `SEALED_LAUNCH.md` | Live integration log, Intents research, version/Ref research, original design doc |
+| `INTEGRATION.md`, `INTENTS.md`, `RESEARCH.md` | Live integration log, Intents research, version/Ref research |
 
-`SEALED_LAUNCH.md` is the original design doc written before the build; parts are outdated and it includes items that are not built. This README and the status table are the source of truth for what runs.
+This README and the status table are the source of truth for what runs.
 
 ## Disclosure: what was built when
 
