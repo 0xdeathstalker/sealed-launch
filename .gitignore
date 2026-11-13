@@ -13,3 +13,7 @@ scripts/.keys/
 *.key
 *.pem
 .near-credentials/
+# Local-only tooling and media
+skills/
+vo/
+slideshow/
